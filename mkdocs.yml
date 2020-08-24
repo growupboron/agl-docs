@@ -4,7 +4,7 @@ site_url: http://agl-docs.readthedocs.io/
 repo_url: https://github.com/growupboron/agl-docs
 site_author: Shankho Boron Ghosh
 
-theme: mkdocs
+theme: readthedocs
 
 plugins:
   - search
