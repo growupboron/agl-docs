@@ -1,6 +1,6 @@
 ---
 edit_link: ''
-title: Document revision
+title: Document revisions
 origin_url: >-
   https://git.automotivelinux.org/src/app-framework-binder/plain/docs/REVISIONS.md?h=master
 ---

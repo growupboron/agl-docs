@@ -2,8 +2,15 @@ site_name: Automotive Grade Linux Documentation Site
 site_url: http://agl-docs.readthedocs.io/
 site_author: Shankho Boron Ghosh
 
-theme: readthedocs
+theme: 
+  name: readthedocs
+  include_homepage_in_sidebar: False
+  navigation_depth: 10
+  sticky_navigation: False
+  collapse_navigation: False
+  titles_only: True
 
 plugins:
   - search
+
 
