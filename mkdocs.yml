@@ -1,0 +1,6 @@
+site_name: Automotive Grade Linux Documentation Site
+
+theme: readthedocs
+
+plugins:
+  - search
