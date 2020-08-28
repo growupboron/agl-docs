@@ -5,7 +5,7 @@ site_author: Shankho Boron Ghosh
 theme: 
   name: readthedocs
   include_homepage_in_sidebar: False
-  navigation_depth: 10
+  navigation_depth: 2
   collapse_navigation: False
 
 plugins:
