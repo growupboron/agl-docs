@@ -3,7 +3,8 @@ site_url: http://agl-docs.readthedocs.io/
 site_author: Shankho Boron Ghosh
 
 theme: 
-  name: readthedocs
+  name: rtd-dropdown
+  include_sidebar: false
 
 plugins:
   - search:
