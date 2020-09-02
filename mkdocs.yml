@@ -5,6 +5,7 @@ site_author: Shankho Boron Ghosh
 theme: 
   name: rtd-dropdown
   include_sidebar: false
+  
 
 plugins:
   - search:
