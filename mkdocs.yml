@@ -1,9 +1,9 @@
-site_name: Automotive Grade Linux Documentation Site
+site_name: AGL Doc
 site_url: http://agl-docs.readthedocs.io/
 site_author: Shankho Boron Ghosh
 theme_dir: hacks/
 theme: 
-  name: rtd-dropdown
+  name: bootstrap4
   ##include_sidebar: False
   #include_homepage_in_sidebar: False
   #navigation_depth: 1
