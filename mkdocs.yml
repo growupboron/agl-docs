@@ -4,7 +4,11 @@ site_author: Shankho Boron Ghosh
 theme_dir: hacks/
 theme: 
   name: rtd-dropdown
-  include_sidebar: false
+  ##include_sidebar: False
+  #include_homepage_in_sidebar: False
+  #navigation_depth: 1
+  collapse_navigation: False
+  # titles_only: True
   
 
 plugins:
