@@ -1,3 +1,2 @@
 mkdocs
 mkdocs-rtd-dropdown
-mkdocs-alabaster
