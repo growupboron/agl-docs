@@ -1,2 +1,2 @@
 mkdocs
-mkdocs-bootstrap4
+mkdocs-ivory
