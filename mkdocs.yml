@@ -3,7 +3,7 @@ site_url: http://agl-docs.readthedocs.io/
 site_author: Shankho Boron Ghosh
 theme_dir: hacks/
 theme: 
-  name: rtd-dropdown
+  name: alabaster
   ##include_sidebar: False
   #include_homepage_in_sidebar: False
   #navigation_depth: 1
