@@ -3,7 +3,7 @@ site_url: http://agl-docs.readthedocs.io/
 site_author: Shankho Boron Ghosh
 theme_dir: 'theme/mkdocs_windmill'
 theme:
-  name: null
+  name: readthedocs
   custom_dir: 'theme/mkdocs_windmill'
   # Copy settings from mkdocs_theme.yml, which is ignored by custom_dir themes.
   static_templates: [404.html]
