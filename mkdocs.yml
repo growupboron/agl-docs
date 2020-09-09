@@ -10,6 +10,10 @@ theme:
   search_index_only: true
   include_search_page: true
 
+extra:
+  logo: 'docs/img/agl.jpg'
+
+
 #theme: 
   #name: windmill
   #include_sidebar: False
