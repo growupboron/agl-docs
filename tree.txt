@@ -1,0 +1,430 @@
+.
+├── 0_Getting_Started
+│   ├── 1_Welcome
+│   │   └── Overview.md           -> Same as 2-0, brief about yocto, add which company use in production, add important links
+│   ├── 2_Developing_an_AGL_Image
+│   │   ├── 0_Overview.md         -> Replace with developer guide (get idea from wiki) + doc contributing
+│   │   ├── 1_Preparing_Your_Build_Host.md
+│   │   ├── 2_Downloading_AGL_Software.md
+│   │   ├── 3_Initializing_Your_Build_Environment.md
+│   │   ├── 4_Customizing_Your_Build.md
+│   │   ├── 5_Building_the_AGL_Image.md
+│   │   ├── 6_Building_for_Most_Intel_64-Bit_Hardware-Platforms.md
+│   │   ├── 7_Building_for_Emulation.md
+│   │   ├── 8_Build_for_R_Car_Starter_Kit_gen3_board.md
+│   │   ├── 9_Building_for_Raspberry_Pi_3_or_4.md
+│   │   ├── images
+│   │   │   ├── image-developer-workflow.png
+│   │   │   └── RaspberryPi2-ModelB-debug-serial-cable.png
+│   │   └── under-construction.png
+│   ├── 3_ HomeScreen
+│   │   ├── Overview.md
+│   │   └── pictures
+│   │       ├── dashboard.png
+│   │       ├── homescreen_applauncher.png
+│   │       ├── hvac.png
+│   │       ├── phone.png
+│   │       └── settings.png
+│   ├── 4_Troubleshooting
+│   │   └── Generic_issues.md
+│   ├── 5_Setting_Up_a_Docker_Container
+│   │   └── Docker_Container_Setup.md
+│   └── 6_ Developing_an_Application 
+│       ├── 0_Overview.md
+│       ├── 1_Download_or_Build_Your_Image.md
+│       ├── 2_Download_or_Build_Your_SDK_Installer.md
+│       ├── 3_Create_Bootable_Media.md
+│       ├── 4_Boot_the_Image_on_the_Board.md
+│       ├── 5_Get_Ready_to_Create_Your_Application.md
+│       ├── 6_Create_and_Build_the_Application.md
+│       ├── 7_Deploy_the_Application_to_the_Board.md
+│       ├── 8_Debug_the_Application.md
+│       └── images
+│           └── app-developer-workflow.png
+├── 1_Architecture_Guides
+│   ├── 1.1_AGL_Requirements_Specifications
+│   │   ├── AGL Requirements Specifications.md
+│   │   └── AGL Requirements Specifications.pdf
+│   └── 1.2_Security_Blueprint
+│       ├── 0_Introduction
+│       │   ├── Introduction.md
+│       │   └── WhiteBoxArchi.png
+│       ├── 10_Annexes
+│       │   ├── 1.2.10.0_Abstract.md
+│       │   ├── 1.2.10.1_Config_Notes.md
+│       │   └── 1.2.10.2_To_Do_Notes.md
+│       ├── 1_Hardware
+│       │   └── Abstract.md
+│       ├── 2_Secure_Boot
+│       │   ├── 1.2.2.0_Abstract.md
+│       │   ├── 1.2.2.1_Image.md
+│       │   ├── 1.2.2.2_Communication-modes.md
+│       │   └── 1.2.2.3_Consoles.md
+│       ├── 3_Hypervisor
+│       │   └── Abstract.md
+│       ├── 4_Kernel
+│       │   ├── 1.2.4.0_Abstract.md
+│       │   ├── 1.2.4.1_General.md
+│       │   ├── 1.2.4.2_Memory.md
+│       │   ├── 1.2.4.3_Consoles.md
+│       │   ├── 1.2.4.4_Debug.md
+│       │   └── 1.2.4.5_FileSystems.md
+│       ├── 5_Platform
+│       │   ├── 1.2.5.0_Abstract.md
+│       │   ├── 1.2.5.1_Mandatory_Access_Control.md
+│       │   ├── 1.2.5.2_SystemD.md
+│       │   ├── 1.2.5.3_SystemBus.md
+│       │   ├── 1.2.5.4_Services.md
+│       │   ├── 1.2.5.5_Application_framework.md
+│       │   ├── 1.2.5.6_Utilities.md
+│       │   ├── 1.2.5.7_Users.md
+│       │   └── App-flow.png
+│       ├── 6_Application
+│       │   ├── 1.2.6.0_Abstract.md
+│       │   ├── 1.2.6.1_Installation.md
+│       │   ├── 1.2.6.2_Privilege_Management.md
+│       │   ├── 1.2.6.3_Signature.md
+│       │   ├── 1.2.6.4_Services.md
+│       │   └── App_signing_flow.png
+│       ├── 7_Connectivity
+│       │   ├── 1.2.7.0_Abstract.md
+│       │   ├── 1.2.7.1_Bus_And_Connectors.md
+│       │   ├── 1.2.7.2_Wireless.md
+│       │   └── 1.2.7.3_Cloud.md
+│       ├── 8_Update_(Over_The_Air)
+│       │   ├── 1.2.8.0_Abstract.md
+│       │   ├── 1.2.8.1_Firmware_Over_The_Air.md
+│       │   └── 1.2.8.2_Software_Over_The_Air.md
+│       └── 9_Secure_development
+│           └── 1.2.9.0_Abstract.md
+├── 2_Hardware_Support
+│   └── Renesas_Gen3_Boards 
+│       ├── 1_meta-rcar-gen3_Layer.md
+│       └── 2_Proprietary_Drivers.md
+├── 3_Developer_Guides
+│   ├── 1_AGL_Layers
+│   │   ├── 1_Overview.md
+│   │   ├── 2_meta-agl.md
+│   │   ├── 3_meta-agl-demo.md
+│   │   └── 4_meta-agl-devel.md
+│   ├── 2_Building_Microservices_Natively
+│   │   ├── 0_build-microservice-overview.md
+│   │   ├── 1_verify-build-host.md
+│   │   ├── 2_download-packages.md
+│   │   ├── 3_installing-binder-daemon.md
+│   │   ├── 4_getting-source-files.md
+│   │   ├── 5_building-and-running-service-natively.md
+│   │   └── pictures
+│   │       └── microservice-workflow-native.png
+│   ├── 3_Using_the_CMAKE_Applications_Module 
+│   │   ├── 1_Overview.md
+│   │   ├── 2_Installing CMake Templates.md
+│   │   ├── 3_Using_CMake_Templates.md
+│   │   ├── 4_Configuring_AGL_CMake_Templates.md
+│   │   ├── 5_Project_Architecture.md
+│   │   ├── 6_Advanced_Usage.md
+│   │   ├── 7_Advanced_Customization.md
+│   │   └── 8_Autobuild.md
+│   ├── 4_AppFW_-_Privileges_Management
+│   │   ├── 03-AGL-AppFW-Privileges-Management.pdf
+│   │   └── 3.5_AppFW_-_Privileges_Management.md
+│   ├── 5_Controller_Guides
+│   │   ├── 3.6.1_Installation.md
+│   │   ├── 3.6.2_Controller_Configuration.md
+│   │   ├── 3.6.3_Usage.md
+│   │   └── 3.6.4_Config_Sample.md
+│   ├── 6_AFB_Helper_Guide
+│   │   ├── 3.7.1_Usage.md
+│   │   ├── 3.7.2_AFB_Timer.md
+│   │   ├── 3.7.3_CURL_wrapper.md
+│   │   ├── 3.7.4_URL_Escaping.md
+│   │   ├── 3.7.5_Filescan_Utils.md
+│   │   ├── 3.7.6_Qt_AFB_Websocket_client.md
+│   │   ├── 3.7.7_JSON_library_for_modern_C++.md
+│   │   └── 3.7.8_C_JSON_Wrapper.md
+│   └── 7_Continuous_Integration_-_Automated_Testing_(CIAT)
+│       ├── 3.8.1_How_to_write_tests_(overview_slides).md
+│       ├── 3.8.2_How_to_write_tests_(detailed).md
+│       ├── Hands_on_lab_documentation.pdf
+│       └── How_to_write_your_own_tests_for_AGL.pdf
+├── 4_APIs_and_Services
+│   ├── 4.1_API_Reference
+│   │   └── 0_api-introduction.md
+│   ├── 4.2_Application_Framework
+│   │   ├── 0_introduction.md
+│   │   ├── 1_afm-daemons.md
+│   │   ├── 2_widgets.md
+│   │   ├── 3_widgets.md
+│   │   ├── 4_permissions.md
+│   │   ├── 5_quick-tutorial.md
+│   │   └── pictures
+│   │       ├── afm-daemons.svg
+│   │       ├── AppFW-APP_install_sequences.svg
+│   │       ├── make-units.svg
+│   │       └── Security_model_history.svg
+│   ├── 4.3_Application_Framework_Binder
+│   │   ├── 0_Overview
+│   │   │   └── 0_Overview.md
+│   │   ├── 1_Binder_daemon_vocabulary
+│   │   │   └── 1_Binder_daemon_vocabulary.md
+│   │   ├── 2_How_to_write_a_binding
+│   │   │   └── 2_How_to_write_a_binding.md
+│   │   ├── 3_Binder_references
+│   │   │   ├── 1_Types_and_globals.md
+│   │   │   ├── 2_Macros_for-logging.md
+│   │   │   ├── 3_Functions_of_class_afb_api.md
+│   │   │   ├── 4_Functions_of_class_afb_req.md
+│   │   │   ├── 5_Functions_of_class_afb_event.md
+│   │   │   ├── 6_Functions_of_class_afb_daemon.md
+│   │   │   └── 7_Functions_of_class afb_service.md
+│   │   ├── 4_Binder_events_guide
+│   │   │   └── Binder_events_guide.md
+│   │   ├── 5_Binder_Application_writing_guide
+│   │   │   └── Binder_Application_writing_guide.md
+│   │   ├── 6_Annexes
+│   │   │   ├── 1_Migration_to_bindings_v3.md
+│   │   │   ├── 2_WebSocket_protocol_x-afb-ws-json1.md
+│   │   │   ├── 3_Installing_the_binder_on_a_desktop.md
+│   │   │   ├── 4_Options_of_afb-daemon.md
+│   │   │   ├── 5_Debuggin_binder_and_bindings.md
+│   │   │   ├── 6_LEGACY_Migration_from_v1_to_v2.md
+│   │   │   └── 7_LEGACY Binding V2 references.md
+│   │   ├── 7_Document_revisions
+│   │   │   └── Document_revisions.md
+│   │   └── pictures
+│   │       ├── basis.svg
+│   │       ├── interconnection.svg
+│   │       └── signaling-basis.svg
+│   ├── 4.4_AGL_Test_Framework
+│   │   ├── 0_Installation
+│   │   │   └── Installation.md
+│   │   ├── 1_Write_the_tests
+│   │   │   └── Write_the_tests.md
+│   │   ├── 2_The_test_widget
+│   │   │   └── The_test_widget.md
+│   │   ├── 3_Launch_the_tests
+│   │   │   └── Launch_the_tests.md
+│   │   ├── 4_Tests_Examples
+│   │   │   └── Tests_Examples.md
+│   │   └── 5_Reference
+│   │       ├── 1_BindingTestFunctions
+│   │       │   └── BindingTestFunctions.md
+│   │       ├── 2_BindingAssertFunctions
+│   │       │   └── 2_BindingAssertFunctions.md
+│   │       ├── 3_TestFrameworkFunctions
+│   │       │   └── 3_TestFrameworkFunctions.md
+│   │       └── 4_LuaUnit_Assertion_Functions
+│   │           ├── 0_General_Assertions.md
+│   │           ├── 1_Value_Assertions.md
+│   │           ├── 2_Scientific_Assertions.md
+│   │           ├── 3_String_Assertions.md
+│   │           ├── 4_Error_Assertions.md
+│   │           ├── 5_Type_Assertions.md
+│   │           └── 6_Table_Assertions.md
+│   ├── 4.5_Message_Signaling
+│   │   ├── 1_Message_Signaling
+│   │   │   ├── architecture.md
+│   │   │   └── images
+│   │   │       ├── can-generator.svg
+│   │   │       ├── cloud-arch.svg
+│   │   │       ├── distributed-arch.png
+│   │   │       └── signal-service-arch.svg
+│   │   ├── 2_AGL_Service_CAN_Low_Level
+│   │   │   ├── 1_Architecture.md
+│   │   │   ├── 2_Installation.md
+│   │   │   ├── 3_Installation-J1939.md
+│   │   │   ├── 4_Installation-ISOTP.md
+│   │   │   ├── 5_Usage.md
+│   │   │   └── images
+│   │   │       ├── CAN_bindings_communication.png
+│   │   │       ├── CAN_level_mapping.png
+│   │   │       └── OpenXC_to_AGL.png
+│   │   ├── 3_High_Level_VIWI_Service
+│   │   │   ├── 1_Architecture_presentation.md
+│   │   │   ├── 2_Install_Usage.md
+│   │   │   └── images
+│   │   │       └── high-level-arch.png
+│   │   ├── 4_AGL_Service_Signal_Composer
+│   │   │   ├── 1_Architecture.md
+│   │   │   ├── 2_Configuration.md
+│   │   │   ├── 3_Plugins.md
+│   │   │   ├── 4_SignalComposerAPI.md
+│   │   │   └── pictures
+│   │   │       └── Global_Signaling_Architecture.png
+│   │   ├── 5_AGL-Message-Signaling-Developer-Guidelines
+│   │   │   ├── 4.5.5_AGL-Message-Signaling-Developer-Guidelines.pdf
+│   │   │   └── AGL-Message-Signaling-Developer-Guidelines.md
+│   │   ├── 6_AGL-AppFW-CAN-Signaling-Benchmark
+│   │   │   ├── 4.5.6_AGL-AppFW-CAN-Signaling-Benchmark.pdf
+│   │   │   └── AGL-AppFW-CAN-Signaling-Benchmark.md
+│   │   ├── 7_CanDevStudio_Quickstart
+│   │   │   └── candevstudio
+│   │   │       ├── 1_Usage.md
+│   │   │       ├── 2_can_device_socketcan_backend.md
+│   │   │       ├── 3_Add_CAN_Device.md
+│   │   │       ├── 4_Configure_CanRawSender_Node.md
+│   │   │       ├── 5_Using_CanRawView.md
+│   │   │       └── pictures
+│   │   │           ├── CANdevStudio.png
+│   │   │           ├── canrawsender.png
+│   │   │           └── canrawviewer.png
+│   │   └── 8_Resources
+│   │       └── index.md
+│   ├── 4.6_Audio_Framework
+│   │   ├── 4.6.1_Overview.md
+│   │   ├── 4.6.2_Session_Manager_Configuration.md
+│   │   └── 4.6.3_Bluetooth.md
+│   ├── 4.7_HMI_Framework
+│   │   ├── 4.7.1_Home_Screen_Developer_Guide.md
+│   │   ├── 4.7.2_WindowManager-Guide.md
+│   │   ├── 4.7.3_Sound_Manager_Developer_Guide.md
+│   │   ├── 4.7.4_Sound_Manager_Developer_Guide_2.md
+│   │   ├── 4.7.5_Sound_Manager_Developer_Guide_3.md
+│   │   └── parts
+│   │       ├── am-component.png
+│   │       ├── change_layout_seq.png
+│   │       ├── deactivate_window.png
+│   │       ├── example_split.png
+│   │       ├── hmi_framework_designed_seq_toyota.png
+│   │       ├── initialize-set-event-handler.svg
+│   │       ├── on_screen_message.svg
+│   │       ├── request_role.png
+│   │       ├── seq_changevolume.svg
+│   │       ├── seq_connectsoundroute.svg
+│   │       ├── seq_disconnectsoundroute.svg
+│   │       ├── seq_registration.svg
+│   │       ├── seq_releasesoundmode.svg
+│   │       ├── seq_requestsoundmode.svg
+│   │       ├── seq_setmutestate.svg
+│   │       ├── seq_startsoundstreaming.svg
+│   │       ├── seq_startup.svg
+│   │       ├── seq_stopsoundstreaming.svg
+│   │       ├── showInformation.svg
+│   │       ├── showNotification.svg
+│   │       ├── showOnScreen.svg
+│   │       ├── showWindow.svg
+│   │       ├── software-stack.png
+│   │       ├── state_change_example.png
+│   │       ├── tap_shortcut.svg
+│   │       ├── typical-usecase.png
+│   │       ├── wm_area.png
+│   │       ├── wm_change_layout.png
+│   │       ├── wm_layer_stack.png
+│   │       └── wm_software_stack.png
+│   └── 4.8_HomeScreen_(old)
+│       ├── homescreen_api.md
+│       └── pictures
+│           ├── api_getAllSurfacesOfProcess.png
+│           ├── api_getSurfaceStatus_1.png
+│           ├── api_getSurfaceStatus_2.png
+│           ├── api_getSurfaceStatus_3.png
+│           ├── api_hardKeyPressed.png
+│           ├── api_renderSurfaceToAreaAllowed.png
+│           ├── api_renderSurfaceToArea.png
+│           ├── api_requestSurfaceIdToFullScreen.png
+│           └── api_surfaceVisibilityChanged.png
+├── 5_How_To
+│   ├── 1_Abstract.md
+│   ├── 2_Usage.md
+│   ├── 3_How_to_add_documentation_to_AGL.md
+│   └── pictures
+│       └── workflow.png
+├── 6_Reference
+│   ├── index.md
+│   └── under-construction.png
+├── ATTIC
+│   └── 3_Developer_Guides
+│       └── 4_X(cross)_Development_System:_User's_Guide
+│           ├── 0_Overview
+│           │   ├── 3.4.0_Overview.md
+│           │   └── pictures
+│           │       ├── xds-block-diagram.png
+│           │       └── xds-conf.png
+│           ├── 1_Installing_XDS 
+│           │   ├── 3.4.1.1_Server_Part.md
+│           │   ├── 3.4.1.2_Client_Part.md
+│           │   ├── 3.4.1.3_AGL_SDKs.md
+│           │   └── pictures
+│           │       ├── xds-block-chain.png
+│           │       ├── xds-dashboard-sdks-install.png
+│           │       └── xds-dashboard-sdks-mgt.png
+│           ├── 2_Create_your_first_AGL_application
+│           │   ├── 3.4.2.0_Overview.md
+│           │   ├── 3.4.2.1_Requirements.md
+│           │   ├── 3.4.2.2_Get_the_Source_Files.md
+│           │   ├── 3.4.2.3_Build_Using_the_Command_Line.md
+│           │   ├── 3.4.2.4_Build_Using_the_XDS_Dashboard.md
+│           │   ├── 3.4.2.5_Build_using_an_IDE.md
+│           │   └── pictures
+│           │       ├── create-app-workflow.png
+│           │       ├── nb_new-project-1.png
+│           │       ├── nb_new-project-2.png
+│           │       ├── nb_new-project-3.png
+│           │       ├── nb_new-project-4.png
+│           │       ├── nb_new-project-5.png
+│           │       ├── nb_newtool.png
+│           │       ├── nb_xds_options.png
+│           │       ├── xds-dashboard-icon-2.png
+│           │       ├── xds-dashboard-prj-1.png
+│           │       └── xds-dashboard-prj-2.png
+│           ├── 3_Debugging_Your_First_AGL_Application
+│           │   ├── 3.4.3.1_Overview.md
+│           │   ├── 3.4.3.2_Configuration.md
+│           │   ├── 3.4.3.3_Using_the_Command_Line.md
+│           │   ├── 3.4.3.4_Using_an_IDE.md
+│           │   └── pictures
+│           │       ├── nb_newtool.png
+│           │       ├── nb_project_debug-1.png
+│           │       └── nb_xds_options.png
+│           └── 4_X(cross)_Development_System:_ Internals 
+│               ├── 3.4.4.0_Abstract
+│               │   └── 3.4.4.0_Abstract.md
+│               ├── 3.4.4.1_Prerequisites
+│               │   └── 3.4.4.1_Prerequisites.md
+│               ├── 3.4.4.2_xds-server
+│               │   ├── 3.4.4.2.0_ Abstract.md
+│               │   ├── 3.4.4.2.1_Build.md
+│               │   ├── 3.4.4.2.2_Config.md
+│               │   ├── 3.4.4.2.3_how-to-run.md
+│               │   ├── 3.4.4.2.4_Debug.md
+│               │   └── 3.4.4.2.5_Test.md
+│               ├── 3.4.4.3_xds-agent
+│               │   ├── 3.4.4.3.0_Abstract.md
+│               │   ├── 3.4.4.3.1_Build.md
+│               │   ├── 3.4.4.3.2_Config.md
+│               │   ├── 3.4.4.3.3_Start_Up.md
+│               │   └── 3.4.4.3.4_Debug.md
+│               ├── 3.4.4.4_xds-cli
+│               │   ├── 3.4.4.4.0_Abstract.md
+│               │   ├── 3.4.4.4.1_Build.md
+│               │   ├── 3.4.4.4.2_Config.md
+│               │   ├── 3.4.4.4.3_Commands.md
+│               │   └── 3.4.4.4.4_Debug.md
+│               ├── 3.4.4.5_xds-gdb
+│               │   ├── 3.4.4.5.0_Abstract.md
+│               │   ├── 3.4.4.5.1_Build.md
+│               │   ├── 3.4.4.5.2_Config.md
+│               │   └── 3.4.4.5.3_Debug.md
+│               └── pictures
+│                   ├── create-app-workflow.png
+│                   ├── nb_new-project-1.png
+│                   ├── nb_new-project-2.png
+│                   ├── nb_new-project-3.png
+│                   ├── nb_new-project-4.png
+│                   ├── nb_new-project-5.png
+│                   ├── nb_newtool.png
+│                   ├── nb_project_debug-1.png
+│                   ├── nb_xds_options.png
+│                   ├── xds-conf.png
+│                   ├── xds-dashboard-icon-2.png
+│                   ├── xds-dashboard-icon-3.png
+│                   ├── xds-dashboard-prj-1.png
+│                   ├── xds-dashboard-prj-2.png
+│                   ├── xds-dashboard-sdks-install.png
+│                   └── xds-dashboard-sdks-mgt.png
+├── img
+│   ├── agl.png
+│   └── favicon.ico
+├── index.html
+└── index.md
+
