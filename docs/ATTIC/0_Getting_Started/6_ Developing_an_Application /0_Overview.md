@@ -23,7 +23,7 @@ in the AGL Documentation set.
 Links are provided when a set of steps is required that is documented
 elsewhere.
 
-![](images/app-developer-workflow.png){:: style="margin:auto; display:flex"}
+![](images/app-developer-workflow.png) 
 
 1. Download or build the image you are going to run on the hardware device.
 

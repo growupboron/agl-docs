@@ -1,10 +1,39 @@
+https://download.automotivelinux.org/
+    sstate-mirror/
+        -> binary cache (speeds up the build for CI)
+    agl/
+        -> snapshots == nightly builds (dev-master, stable-otherwise)
+        -> upload == CI (automatically builds in dev PRs)
+        -> release == stable/released versions
+        -> mirror == sources (dependencies for the raw build)
+        -> archive == (~release but old)
+        -> <//apps == application builds archive>
+
+https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/ 
+-> qemu(arm,arm64(*emulation for raspi4*))-> ONLY emulation, 
+-> x86-64 -> emulation + hardware
+        (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/)
+        -> file system image - qemu emulation (marginally diff, partioned image) (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.ext4.xz)
+        -> SD card for normal PC (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.wic.xz)
+        -> virtual box / vbox (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.wic.vmdk.xz)
+->nogfx (binary graphics driver, can't host, no display-demo, ok for ci, boots up rensas in headless)
+    ivi -> not demo (nogfx)
+->raspi4 (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/images/raspberrypi4-64/)
+    -> bootable image to SD (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/images/raspberrypi4-64/agl-demo-platform-crosssdk-raspberrypi4-64-20200912184922.rootfs.wic.xz)
+    sources (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sources/)
+    sdk -  (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sdk/)
+     sh self extracting cross toolchain (w/o yocto)   (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sdk/poky-agl-glibc-x86_64-agl-demo-platform-crosssdk-aarch64-raspberrypi4-64-toolchain-9.99.4.sh)
+        
+
+https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct, a bit outdate/cluttered
+
 .
 ├── 0_Getting_Started
 │   ├── 1_Welcome
 │   │   └── Overview.md           -> Same as 2-0, brief about yocto, add which company use in production, add important links
 │   ├── 2_Developing_an_AGL_Image
-│   │   ├── 0_Overview.md         -> Replace with developer guide (get idea from wiki) + doc contributing
-│   │   ├── 1_Preparing_Your_Build_Host.md
+│   │   ├── 0_Overview.md         -> Raspi2/3 -> 4; Add developer guide (get idea from wiki) + doc contributing
+│   │   ├── 1_Preparing_Your_Build_Host.md  -> https://www.yoctoproject.org/docs/3.1.1/ref-manual/ref-manual.html#detailed-supported-distros
 │   │   ├── 2_Downloading_AGL_Software.md
 │   │   ├── 3_Initializing_Your_Build_Environment.md
 │   │   ├── 4_Customizing_Your_Build.md
