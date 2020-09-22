@@ -76,7 +76,7 @@ AGL provides a number of pre-built ready-made images of various versions.
        -append 'root=/dev/vda rw console=tty0 mem=2048M ip=dhcp oprofile.timer=1 console=ttyS0,115200n8 verbose fstab=no'
 ```
 
-## Raspberry Pi 4 :
+## Raspberry Pi 4
 
   1. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/raspberrypi4/deploy/images/raspberrypi4-64/agl-demo-platform-crosssdk-raspberrypi4-64.wic.xz).  
   
@@ -93,7 +93,7 @@ AGL provides a number of pre-built ready-made images of various versions.
     - Connect Raspberry Pi to network : `Homescreen > Settings`, IP address mentioned here.
     - `ssh root@<Raspberry-Pi-ip-address>`
     
-    
+
   4. Serial Debugging :
     
     When things go wrong, you can take steps to debug your Raspberry Pi.
@@ -124,7 +124,7 @@ AGL provides a number of pre-built ready-made images of various versions.
 
     2. Connect the cable's BLUE wire to pin 6 (i.e. Ground) of the UART.
 
-    3. Connect the cable's GREEN RX line to pin 8 (i.e. the TXD line) of
+    3. Connect the able's GREEN RX line to pin 8 (i.e. the TXD line) of
       the UART.
 
     4. Connect the cable's RED TX line to pin 10 (i.e. the RXD line) of
@@ -140,6 +140,37 @@ AGL provides a number of pre-built ready-made images of various versions.
           ```
           $ sudo screen /dev/ttyUSB0 115200
           ```
+  
+  5. Using the Raspberry Pi Touch Display
+
+    As an example on how to configure and manipulate the touchscreen, consider
+    the following edits to the `weston.ini` file used to rotate the
+    display:
+
+        ```
+        root@raspberrypi:/etc/xdg/weston# cat weston.ini
+        [core]
+        backend=drm-backend.so
+        shell=desktop-shell.so
+
+        [shell]
+        locking=true
+        #Uncomment below to hide panel
+        #panel-location=none
+
+        [launcher]
+        icon=/usr/share/weston/terminal.png
+        path=/usr/bin/weston-terminal
+
+        [launcher]
+        icon=/usr/share/weston/icon_flower.png
+        path=/usr/bin/weston-flower
+
+        [output]
+        name=DSI-1
+        transform=270
+        ```
+    
 
 
 
