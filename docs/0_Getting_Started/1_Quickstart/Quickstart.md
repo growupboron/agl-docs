@@ -141,7 +141,7 @@ AGL provides a number of pre-built ready-made images of various versions.
           $ sudo screen /dev/ttyUSB0 115200
           ```
   
-  5. Using the Raspberry Pi Touch Display
+  5. Using the Raspberry Pi Touch Display :
 
     As an example on how to configure and manipulate the touchscreen, consider
     the following edits to the `weston.ini` file used to rotate the
