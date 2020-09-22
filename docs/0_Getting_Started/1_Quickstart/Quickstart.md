@@ -99,22 +99,12 @@ AGL provides a number of pre-built ready-made images of various versions.
     When things go wrong, you can take steps to debug your Raspberry Pi.
     For debugging, you need a 3.3 Volt USB Serial cable to fascilitate
     communication between your Raspberry Pi board and your build host.
-    A good cable to use is the 3.3V USB-to-Serial cable
-    [Olimex USB-Serial-Cable-F](https://www.olimex.com/Products/Components/Cables/USB-Serial-Cable/USB-Serial-Cable-F/).
 
-    
-    **NOTE:** If you are using a USB console cable from Adafruit, see
-    "[Adafruit's Raspberry Pi Lesson 5](https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/connect-the-lead)"
-    for connection information.
-
-    
-    Use the following steps, which assume you are using the previously mentioned
-    Olimex cable.
     You can reference the following diagram for information on the following steps:
 
     ![](images/RaspberryPi2-ModelB-debug-serial-cable.png)
 
-    1. Connect the Olimex cable to the Universal Asynchronous Receiver-Transmitter
+    1. Connect the TTL cable to the Universal Asynchronous Receiver-Transmitter
       (UART) connection on your Raspberry Pi board.
       Do not connect the USB side of the cable to your build host at this time.
 
@@ -141,38 +131,3 @@ AGL provides a number of pre-built ready-made images of various versions.
           $ sudo screen /dev/ttyUSB0 115200
           ```
   
-  5. Using the Raspberry Pi Touch Display :
-
-    As an example on how to configure and manipulate the touchscreen, consider
-    the following edits to the `weston.ini` file used to rotate the
-    display:
-
-        ```
-        root@raspberrypi:/etc/xdg/weston# cat weston.ini
-        [core]
-        backend=drm-backend.so
-        shell=desktop-shell.so
-
-        [shell]
-        locking=true
-        #Uncomment below to hide panel
-        #panel-location=none
-
-        [launcher]
-        icon=/usr/share/weston/terminal.png
-        path=/usr/bin/weston-terminal
-
-        [launcher]
-        icon=/usr/share/weston/icon_flower.png
-        path=/usr/bin/weston-flower
-
-        [output]
-        name=DSI-1
-        transform=270
-        ```
-    
-
-
-
-
-
