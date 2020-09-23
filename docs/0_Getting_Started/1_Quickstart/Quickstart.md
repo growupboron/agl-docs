@@ -10,7 +10,7 @@ origin_url: >-
 
 AGL provides a number of pre-built ready-made images of various versions.
 
-## x86 (Emulation & Hardware)
+## x86 (Emulation and Hardware)
 
 ### 1. QEMU (Emulation)
 
@@ -192,4 +192,10 @@ AGL provides a number of pre-built ready-made images of various versions.
         
     
   3. [Serial](https://elinux.org/R-Car/Boards/H3SK) into the board for debugging.
+      For example, if your build host is a native Linux machine (e.g. Ubuntu)
+      you could use `screen` as follows from a terminal on the build host:
+      
+      ```
+      $ sudo screen /dev/ttyUSB0 115200
+      ```
     
