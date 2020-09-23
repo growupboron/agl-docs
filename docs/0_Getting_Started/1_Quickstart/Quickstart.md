@@ -10,7 +10,9 @@ origin_url: >-
 
 AGL provides a number of pre-built ready-made images of various versions.
 
-## QEMU (x86)
+## x86 Build
+
+### 1. QEMU
 
 1. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.ext4.xz).
 
@@ -30,13 +32,13 @@ AGL provides a number of pre-built ready-made images of various versions.
 
 5. Create boot directory and copy compressed images (prebuilt & kernel) into them : 
 
-      ```
-      $ mkdir ~/agl-demo/
-      $ cp ~/Downloads/agl-demo-platform-crosssdk-qemux86-64.ext4.xz ~/agl-demo
-      $ cp ~/Downloads/bzImage ~/agl-demo
-      $ cd ~/agl-demo
-      $ sync
-      ```
+    ```
+    $ mkdir ~/agl-demo/
+    $ cp ~/Downloads/agl-demo-platform-crosssdk-qemux86-64.ext4.xz ~/agl-demo/
+    $ cp ~/Downloads/bzImage ~/agl-demo/
+    $ cd ~/agl-demo
+    $ sync
+    ```
 
 6. Extract prebuilt compressed image : 
     
@@ -58,11 +60,11 @@ AGL provides a number of pre-built ready-made images of various versions.
 
   - Login into AGL :
 
-```
-    Automotive Grade Linux 9.99.4+snapshot qemux86-64 ttyS1
 
-    qemux86-64 login: root
-``` 
+        Automotive Grade Linux 9.99.4+snapshot qemux86-64 ttyS1
+
+        qemux86-64 login: root
+
 
   - Shutdown QEMU : `$ poweroff`, otherwise QEMU will run in the background.
   - To use vnc-viewer instead of vinagre :
@@ -76,18 +78,59 @@ AGL provides a number of pre-built ready-made images of various versions.
        -append 'root=/dev/vda rw console=tty0 mem=2048M ip=dhcp oprofile.timer=1 console=ttyS0,115200n8 verbose fstab=no'
 ```
 
+### 2. Virtual Box
+
+  1. Download the [compressed vbox disk image](https://download.automotivelinux.org/AGL/snapshots/master/latest/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.wic.vmdk.xz).
+
+  2. Install and set up [Virtual Box](https://www.virtualbox.org/wiki/Linux_Downloads).
+
+  3. Extract the vmdk file : `$ xz -v -d agl-demo-platform-crosssdk-qemux86-64.wic.vmdk.xz`
+
+  4. Configure virtual box for AGL :
+    - Click on `New` or `Add`.
+    - Enter Name as `agl-demo`.
+    - Type as `Linux`.
+    - Version as `Other Linux (64-bit)`, click on `Next`.
+    ![vbox-step-1](images/vbox-1.png)
+    - Select Memory size. Recommended is `2048 MB`, click on `Next`.
+    ![vbox-step-2](images/vbox-2.png)
+    - Click on `Use an exsiting virtual hard disk file`, and select the extracted `agl-demo-platform-crosssdk-qemux86-64.wic.vmdk` file, click on `Create`.
+    ![vbox-step-3](images/vbox-3.png)
+    - Go to `Settings`, and then into `System`. Check on `Enable EFI (special OSes only)` and click on `OK`.
+    ![vbox-step-4](images/vbox-4.png)
+    - Click on `Start`.
+
+### 3. x86 physical system
+  
+  **NOTE :** UEFI enabled system is required.
+
+  1. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.wic.xz).  
+  
+  2. Extract the image into USB drive :
+
+        
+        $ lsblk
+        $ sudo umount <usb_device_name>
+        $ xzcat agl-demo-platform-crosssdk-qemux86-64.wic.xz | sudo dd of=<usb_device_name> bs=4M
+        $ sync
+        
+
+
+  3. Boot from USB drive on the x86 system.
+
+
 ## Raspberry Pi 4
 
   1. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/raspberrypi4/deploy/images/raspberrypi4-64/agl-demo-platform-crosssdk-raspberrypi4-64.wic.xz).  
   
   2. Extract the image into the SD card of Raspberry Pi 4 :
 
-    ```
-    $ lsblk
-    $ sudo umount <sdcard_device_name>
-    $ xzcat agl-demo-platform-crosssdk-raspberrypi4-64.wic.xz | sudo dd of=<sdcard_device_name> bs=4M
-    $ sync
-    ```
+  
+        $ lsblk
+        $ sudo umount <sdcard_device_name>
+        $ xzcat agl-demo-platform-crosssdk-raspberrypi4-64.wic.xz | sudo dd of=<sdcard_device_name> bs=4M
+        $ sync
+
     
   3. SSH into Raspberry Pi :
     - Connect Raspberry Pi to network : `Homescreen > Settings`, IP address mentioned here.
@@ -130,4 +173,22 @@ AGL provides a number of pre-built ready-made images of various versions.
           ```
           $ sudo screen /dev/ttyUSB0 115200
           ```
+
+## R-Car H3SK (H3ULCB board)
+
+**NOTE :** This image doesn't support graphics as of yet, and hence will run headless.
+
+  1. Update the [firmware](https://elinux.org/R-Car/Boards/H3SK).
+
+  2. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/h3ulcb-nogfx/deploy/images/h3ulcb/agl-image-ivi-crosssdk-h3ulcb.wic.xz).  
   
+  3. Extract the image into the boot device :
+
+        $ lsblk
+        $ sudo umount <boot_device_name>
+        $ xzcat agl-image-ivi-crosssdk-h3ulcb.wic.xz | sudo dd of=<boot_device_name> bs=4M
+        $ sync
+        
+    
+  3. [Serial](https://elinux.org/R-Car/Boards/H3SK) into the board for debugging.
+    
