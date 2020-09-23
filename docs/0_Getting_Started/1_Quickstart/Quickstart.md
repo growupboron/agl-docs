@@ -176,7 +176,8 @@ AGL provides a number of pre-built ready-made images of various versions.
 
 ## R-Car H3SK (H3ULCB board)
 
-**NOTE :** Doesn't support graphics (as of yet) and will run headless.
+**NOTE :** The prebuilt build doesn't support graphics (as of yet) and will run headless. For graphical support, a local build with the neccesary graphics driver is required.
+
 
   1. Update the [firmware](https://elinux.org/R-Car/Boards/H3SK#Flashing_firmware) using files from [here](https://download.automotivelinux.org/AGL/snapshots/master/latest/h3ulcb-nogfx/deploy/images/h3ulcb/).
 
