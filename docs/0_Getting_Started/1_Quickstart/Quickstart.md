@@ -10,9 +10,9 @@ origin_url: >-
 
 AGL provides a number of pre-built ready-made images of various versions.
 
-## x86 Build
+## x86 (Emulation & Hardware)
 
-### 1. QEMU
+### 1. QEMU (Emulation)
 
 1. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.ext4.xz).
 
@@ -78,7 +78,7 @@ AGL provides a number of pre-built ready-made images of various versions.
        -append 'root=/dev/vda rw console=tty0 mem=2048M ip=dhcp oprofile.timer=1 console=ttyS0,115200n8 verbose fstab=no'
 ```
 
-### 2. Virtual Box
+### 2. Virtual Box (Emulation)
 
   1. Download the [compressed vbox disk image](https://download.automotivelinux.org/AGL/snapshots/master/latest/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.wic.vmdk.xz).
 
@@ -178,7 +178,7 @@ AGL provides a number of pre-built ready-made images of various versions.
 
 **NOTE :** Doesn't support graphics (as of yet) and will run headless.
 
-  1. Update the [firmware](https://elinux.org/R-Car/Boards/H3SK).
+  1. Update the [firmware](https://elinux.org/R-Car/Boards/H3SK#Flashing_firmware) using files from [here](https://download.automotivelinux.org/AGL/snapshots/master/latest/h3ulcb-nogfx/deploy/images/h3ulcb/).
 
   2. Download the [compressed prebuilt image](https://download.automotivelinux.org/AGL/snapshots/master/latest/h3ulcb-nogfx/deploy/images/h3ulcb/agl-image-ivi-crosssdk-h3ulcb.wic.xz).  
   
