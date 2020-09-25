@@ -96,8 +96,10 @@ AGL provides a number of pre-built ready-made images of various versions.
     ![vbox-step-2](images/vbox-2.png)
     - Click on `Use an exsiting virtual hard disk file`, and select the extracted `agl-demo-platform-crosssdk-qemux86-64.wic.vmdk` file, click on `Create`.
     ![vbox-step-3](images/vbox-3.png)
-    - Go to `Settings`, and then into `System`. Select `Chipset : IHC9`. Check on `Enable EFI (special OSes only)` and click on `OK`.
+    - Go to `Settings`, and into `System`. Select `Chipset : IHC9`. Check on `Enable EFI (special OSes only)` and click on `OK`.
     ![vbox-step-4](images/vbox-4.png)
+    - Go to `Storage`, and change the attribute to `Type : AHCI`.
+    ![vbox-step-5](images/vbox-5.png)
     - Click on `Start`.
 
 ### 3. x86 physical system
