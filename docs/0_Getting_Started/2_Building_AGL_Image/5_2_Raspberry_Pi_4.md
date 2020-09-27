@@ -1,6 +1,6 @@
 ---
 edit_link: ''
-title: Build for Raspberry Pi 3/4
+title: Build for Raspberry Pi 3 or 4
 ---
 
 # Building for Raspberry Pi 3 or 4
@@ -35,13 +35,13 @@ the AGL demo image suited for either Raspberry Pi 4 (recommended) or 3:
 **Raspberry Pi 4**:
 
 ```bash
-$ source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel 
+$ source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo-platform 
 ```
 
 **Raspberry Pi 3**:
 
 ```bash
-$ source meta-agl/scripts/aglsetup.sh -m raspberrypi3 -b raspberrypi3 agl-demo agl-devel
+$ source meta-agl/scripts/aglsetup.sh -m raspberrypi3 -b raspberrypi3 agl-demo-platform
 ```
 
 ## 2. Configuring the Build to Include Packages Under a Commercial License
@@ -85,10 +85,10 @@ Start the build using the `bitbake` command.
 CPU and and Internet connection speeds.
 The build also takes approximately 100G-bytes of free disk space.
 
-For this example, the target is `agl-demo & agl-devel`:
+For this example, the target is `agl-demo-platform`:
 
 ```bash
-$ time bitbake agl-demo agl-devel
+$ time bitbake agl-demo-platform
 ```
 
 By default, the build process puts the resulting image in the Build Directory.
