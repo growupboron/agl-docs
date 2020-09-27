@@ -1,4 +1,4 @@
-site_name: Automotive Grade Linux Documentation Site
+site_name: AGL Documentation
 site_url: http://agl-docs.readthedocs.io/
 site_author: Shankho Boron Ghosh
 theme_dir: 'theme/mkdocs_windmill'
