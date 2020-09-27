@@ -25,6 +25,7 @@ The remainder of this section provides steps on how to download the AGL source f
 
    ```bash
    $ export AGL_TOP=$HOME/AGL
+   $ echo 'export AGL_TOP=$HOME/AGL' >> ~/.bashrc 
    $ mkdir -p $AGL_TOP
    ```
 
@@ -36,6 +37,7 @@ The remainder of this section provides steps on how to download the AGL source f
    ```bash
    $ mkdir -p ~/bin
    $ export PATH=~/bin:$PATH
+   $ echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
    $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
    $ chmod a+x ~/bin/repo
    ```

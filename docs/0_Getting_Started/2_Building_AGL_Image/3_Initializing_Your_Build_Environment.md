@@ -273,8 +273,8 @@ $
 ```
 
 Running the script creates the Build Directory if it does not already exist.
-The default Build Directory is "$AGL_TOP/build".
-For this example, the Build Directory is "$AGL_TOP/qemux86-64".
+The default Build Directory is "$AGL_TOP/<release-branch-name>/build", and the nomenclature to be used throughout this doc is going to be "$AGL_TOP/<release-branch-name>/<build-dir>"
+For this example, the Build Directory is "$AGL_TOP/master/qemux86-64".
 
 The script's output also indicates the machine and AGL features selected for the build.
 
