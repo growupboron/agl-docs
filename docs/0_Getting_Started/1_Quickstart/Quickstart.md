@@ -133,6 +133,15 @@ AGL provides a number of pre-built ready-made images of various versions.
         $ xzcat agl-demo-platform-crosssdk-raspberrypi4-64.wic.xz | sudo dd of=<sdcard_device_name> bs=4M
         $ sync
 
+    **IMPORTANT NOTE:** Before re-writing any device on your Build Host, you need to
+        be sure you are actually writing to the removable MicroSD card and not some other
+        device.
+        Each computer is different and removable devices can change from time to time.
+        Consequently, you should repeat the previous operation with the MicroSD card to
+        confirm the device name every time you write to the card.
+
+      To summarize this example so far, we have the following:
+        The first SATA drive is `/dev/sda` and `/dev/sdc` corresponds to the MicroSD card, and is also marked as a removable device.You can see this in the output of the `lsblk` command where "1" appears in the "RM" column for that device.
     
   3. SSH into Raspberry Pi :
     - Connect Raspberry Pi to network : `Homescreen > Settings`, IP address mentioned here.

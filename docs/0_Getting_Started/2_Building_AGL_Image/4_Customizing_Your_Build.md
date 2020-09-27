@@ -140,6 +140,21 @@ SSTATE_MIRRORS_append = " file://.* https://download.automotivelinux.org/sstate-
 ```
 
 You can learn more about shared state and how it is used in the
-"[Shared State Cache](https://yoctoproject.org/docs/2.4.4/ref-manual/ref-manual.html#shared-state-cache)"
+"[Shared State Cache](https://yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#shared-state-cache)"
 section of the Yocto Project Reference Manual.
+
+## Creating Symbolic Link with site.conf
+
+```
+  $ echo '# reuse download directories' >> $AGL_TOP/site.conf
+  $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+  $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+  $ cd $AGL_TOP/master/qemux86-64/
+  $ ln -sf $AGL_TOP/site.conf conf/
+
+  In General;
+  $ cd $AGL_TOP/<release-branch-name>/<build-dir>/
+  $ ln -sf $AGL_TOP/site.conf conf/
+
+```
 

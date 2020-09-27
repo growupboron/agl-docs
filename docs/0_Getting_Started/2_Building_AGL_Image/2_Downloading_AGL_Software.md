@@ -90,20 +90,20 @@ The remainder of this section provides steps on how to download the AGL source f
 
    Listing out the resulting directory structure appears as follows:
 
-   ```
-   $ tree -L 1
-    .
-    ├── binary-tmp
-    ├── bsp
-    ├── build-h3
-    ├── build-qemux86-64-ivi
-    ├── build-raspberrypi4
-    ├── external
-    ├── meta-agl
-    ├── meta-agl-cluster-demo
-    ├── meta-agl-demo
-    ├── meta-agl-devel
-    ├── meta-agl-extra
-    └── meta-agl-telematics-demo
+        
+          $ tree -L 1
+            .
+            ├── binary-tmp
+            ├── bsp
+            ├── build-h3
+            ├── build-qemux86-64-ivi
+            ├── build-raspberrypi4
+            ├── external
+            ├── meta-agl
+            ├── meta-agl-cluster-demo
+            ├── meta-agl-demo
+            ├── meta-agl-devel
+            ├── meta-agl-extra
+            └── meta-agl-telematics-demo
 
-   ```
+        
