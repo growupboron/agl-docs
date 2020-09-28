@@ -68,7 +68,7 @@ AGL provides a number of pre-built ready-made images of various versions.
 
   - Shutdown QEMU : `$ poweroff`, otherwise QEMU will run in the background.
   - To use vnc-viewer instead of vinagre :
-```
+```bash
     $ ( sleep 5 && vncviewer ) & 
        qemu-system-x86_64 -device virtio-net-pci,netdev=net0,mac=52:54:00:12:35:02 -netdev user,id=net0,hostfwd=tcp::2222-:22 \
        -drive file=agl-demo-platform-crosssdk-qemux86-64.ext4,if=virtio,format=raw -show-cursor -usb -usbdevice tablet -device virtio-rng-pci \
@@ -101,6 +101,7 @@ AGL provides a number of pre-built ready-made images of various versions.
     - Go to `Storage`, and change the attribute to `Type : AHCI` and click on `OK`.
     ![vbox-step-5](images/vbox-5.png)
     - Click on `Start`.
+    - For troubleshooting, you can refer [here](https://lists.automotivelinux.org/g/agl-dev-community/message/8474).
 
 ### 3. x86 physical system
   

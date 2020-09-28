@@ -6,8 +6,7 @@ title: Build for Raspberry Pi 3 or 4
 # Building for Raspberry Pi 3 or 4
 
 The
-[Raspberry Pi](https://www.raspberrypi.org/help/what-%20is-a-raspberry-pi/) is a small
-computer that is ideal for learning computing and computer languages.
+[Raspberry Pi](https://www.raspberrypi.org/help/what-%20is-a-raspberry-pi/) is a small computer that is ideal for learning computing and computer languages.
 The AGL Project supports building images for the
 [Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-a-plus/) and the
 [Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) boards.
@@ -35,13 +34,21 @@ the AGL demo image suited for either Raspberry Pi 4 (recommended) or 3:
 **Raspberry Pi 4**:
 
 ```bash
-$ source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo-platform 
+$ source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel 
+$ echo '# reuse download directories' >> $AGL_TOP/site.conf
+$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+$ ln -sf $AGL_TOP/site.conf conf/
 ```
 
 **Raspberry Pi 3**:
 
 ```bash
-$ source meta-agl/scripts/aglsetup.sh -m raspberrypi3 -b raspberrypi3 agl-demo-platform
+$ source meta-agl/scripts/aglsetup.sh -m raspberrypi3 -b raspberrypi3 agl-demo agl-devel
+$ echo '# reuse download directories' >> $AGL_TOP/site.conf
+$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+$ ln -sf $AGL_TOP/site.conf conf/
 ```
 
 ## 2. Configuring the Build to Include Packages Under a Commercial License
