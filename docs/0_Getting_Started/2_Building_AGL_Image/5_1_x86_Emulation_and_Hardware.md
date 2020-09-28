@@ -1,6 +1,6 @@
 ---
 edit_link: ''
-title: x86 (Emulation and Hardware)
+title: Building for x86 (Emulation and Hardware)
 ---
 
 # Building for x86 (Emulation and Hardware)

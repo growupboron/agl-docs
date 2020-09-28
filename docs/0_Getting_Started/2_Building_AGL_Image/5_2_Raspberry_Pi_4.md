@@ -1,6 +1,6 @@
 ---
 edit_link: ''
-title: Build for Raspberry Pi 3 or 4
+title: Building for Raspberry Pi 3 or 4
 ---
 
 # Building for Raspberry Pi 3 or 4
