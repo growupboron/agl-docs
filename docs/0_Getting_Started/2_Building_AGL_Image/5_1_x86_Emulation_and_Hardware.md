@@ -198,7 +198,7 @@ Once VirtualBox is installed, follow these steps to boot the image:
   1. Extract the image into USB drive :
     
     ```bash
-        cd tmp/deploy/images/qemux86-64
+        $ cd tmp/deploy/images/qemux86-64
         $ lsblk
         $ sudo umount <usb_device_name>
         $ xzcat agl-demo-platform-qemux86-64.wic.xz | sudo dd of=<usb_device_name> bs=4M
