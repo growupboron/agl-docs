@@ -206,4 +206,4 @@ Once VirtualBox is installed, follow these steps to boot the image:
         
 
 
-  3. Boot from USB drive on the x86 system.
+  2. Boot from USB drive on the x86 system.
