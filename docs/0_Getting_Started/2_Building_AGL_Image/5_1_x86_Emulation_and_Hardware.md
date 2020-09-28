@@ -164,17 +164,15 @@ the AGL demo.
 
 Once VirtualBox is installed, follow these steps to boot the image:
 
-  1. Download the [compressed vbox disk image](https://download.automotivelinux.org/AGL/snapshots/master/latest/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.wic.vmdk.xz).
+  1. Install and set up [Virtual Box](https://www.virtualbox.org/wiki/Linux_Downloads).
 
-  2. Install and set up [Virtual Box](https://www.virtualbox.org/wiki/Linux_Downloads).
-
-  3. Extract the vmdk file : 
+  2. Extract the vmdk file : 
   ```bash
     cd tmp/deploy/images/qemux86-64
     xz -d agl-demo-platform-qemux86-64.vmdk.xz
     ```
 
-  4. Configure virtual box for AGL :
+  3. Configure virtual box for AGL :
     - Click on `New` or `Add`.
     - Enter Name as `agl-demo`.
     - Type as `Linux`.

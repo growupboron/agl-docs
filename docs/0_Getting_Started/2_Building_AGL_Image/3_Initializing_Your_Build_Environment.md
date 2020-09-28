@@ -17,7 +17,7 @@ run to initialize the build environment.
 You can find this script here:
 
 ```
-$AGL_TOP/meta-agl/scripts/aglsetup.sh
+$AGL_TOP/master/meta-agl/scripts/aglsetup.sh
 ```
 
 The script accepts many options that allow you to define build parameters such
@@ -55,10 +55,10 @@ Available machines:
        h3ulcb-nogfx               # Renesas RCar H3 w/o gfx blobs
        hsdk                       # ARC HS
        imx6qdlsabreauto           # i.MX6 sabreauto
-       imx8mqevk                  #
-       imx8mqevk-viv              #
+       imx8mqevk                  # i.MX8 w etnaviv
+       imx8mqevk-viv              # i.MX8 w vivante
        intel-corei7-64            # x86-64 (Intel flavour)
-       m3-salvator-x              #
+       m3-salvator-x              # Renesas RCar M3 w Salvator Board 
        m3ulcb                     # Renesas RCar M3
        m3ulcb-kf                  # Renesas RCar M3 w Kingfisher Board 
        m3ulcb-nogfx               # Renesas RCAR M3 w/o gfx blobs
@@ -66,7 +66,6 @@ Available machines:
        qemuarm                    # Qemu ARM
        qemuarm64                  # Qemu AArch 64 (ARM 64bit)
      * qemux86-64                 # Qemu x86-64
-       raspberrypi3               # Raspberry Pi 3
        raspberrypi4               # Raspberry Pi 4
 
 
@@ -156,7 +155,7 @@ Following are brief descriptions of the AGL features you can specify on the
 
 * **agl-ci**: Flags used for Continuous Integration (CI).
   Using this feature changes the value of the
-  [`IMAGE_FSTYPES`](https://yoctoproject.org/docs/2.4.4/ref-manual/ref-manual.html#var-IMAGE_FSTYPES)
+  [`IMAGE_FSTYPES`](https://yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#var-IMAGE_FSTYPES)
   variable.
 
 * **agl-ci-change-features**: Enables features for CI builds for Gerrit changes.
@@ -192,15 +191,15 @@ Following are brief descriptions of the AGL features you can specify on the
   agl-profile-telematics
 
   **NOTE:** For information on Package Groups, see the
-  "[Customizing Images Using Custom Package Groups](https://www.yoctoproject.org/docs/2.4.4/dev-manual/dev-manual.html#usingpoky-extend-customimage-customtasks)"
+  "[Customizing Images Using Custom Package Groups](https://www.yoctoproject.org/docs/3.1.2/dev-manual/dev-manual.html#usingpoky-extend-customimage-customtasks)"
   section in the Yocto Project Development Tasks Manual.
   You can also find general information about Layers in the
-  "[Layers](https://www.yoctoproject.org/docs/2.4.4/dev-manual/dev-manual.html#yocto-project-layers)"
+  "[Layers](https://www.yoctoproject.org/docs/3.1.2/dev-manual/dev-manual.html#yocto-project-layers)"
   section in that same manual.
 -->
 
 * **agl-ptest**: Enables
-  [Ptest](https://yoctoproject.org/docs/2.4.4/dev-manual/dev-manual.html#testing-packages-with-ptest)
+  [Ptest](https://yoctoproject.org/docs/3.1.2/dev-manual/dev-manual.html#testing-packages-with-ptest)
   as part of the build.
 
 * **agl-sota**: Enables Software Over-the-Air (SOTA) components and dependencies.
@@ -273,7 +272,7 @@ Common targets are:
 
 Running the script creates the Build Directory if it does not already exist.
 The default Build Directory is `$AGL_TOP/<release-branch-name>/build`, and the nomenclature to be used throughout this doc is going to be `$AGL_TOP/<release-branch-name>/<build-dir>`
-For this example, the Build Directory is "$AGL_TOP/master/qemux86-64".
+For this example, the Build Directory is `$AGL_TOP/master/qemux86-64`.
 
 The script's output also indicates the machine and AGL features selected for the build.
 

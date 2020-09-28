@@ -143,7 +143,7 @@ You can learn more about shared state and how it is used in the
 "[Shared State Cache](https://yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#shared-state-cache)"
 section of the Yocto Project Reference Manual.
 
-## Creating Symbolic Link with site.conf
+## Common Settings using Symbolic Link with site.conf
 
 ```
   $ echo '# reuse download directories' >> $AGL_TOP/site.conf

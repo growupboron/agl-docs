@@ -22,6 +22,6 @@ three types of supported platforms and for emulation using Quick EMUlator (QEMU)
 or VirtualBox:
 
 * [x86 (Emulation and Hardware)](./5_1_x86_Emulation_and_Hardware.md)
-* [Raspberry Pi 3 or 4](./5_2_Raspberry_Pi_4.md)
+* [Raspberry Pi 4](./5_2_Raspberry_Pi_4.md)
 * [R Car Gen 3](./5_3_RCar_Gen_3.md)
 

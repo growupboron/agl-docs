@@ -25,7 +25,7 @@ The remainder of this section provides steps on how to download the AGL source f
 
    ```bash
    $ export AGL_TOP=$HOME/AGL
-   $ echo 'export AGL_TOP=$HOME/AGL' >> ~/.bashrc 
+   $ echo 'export AGL_TOP=$HOME/AGL' >> $HOME/.bashrc 
    $ mkdir -p $AGL_TOP
    ```
 
@@ -35,11 +35,11 @@ The remainder of this section provides steps on how to download the AGL source f
    permissions to allow for execution:
 
    ```bash
-   $ mkdir -p ~/bin
-   $ export PATH=~/bin:$PATH
-   $ echo 'export PATH=~/bin:$PATH' >> ~/.bashrc
-   $ curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
-   $ chmod a+x ~/bin/repo
+   $ mkdir -p $HOME/bin
+   $ export PATH=$HOME/bin:$PATH
+   $ echo 'export PATH=$HOME/bin:$PATH' >> $HOME/.bashrc
+   $ curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
+   $ chmod a+x $HOME/bin/repo
    ```
 
    **NOTE:** See the
@@ -60,17 +60,16 @@ The remainder of this section provides steps on how to download the AGL source f
 
      ```bash
      $ cd $AGL_TOP
-     $ mkdir <release-branch-name>
-     $ cd <release-branch-name>
+     $ mkdir jellyfish
+     $ cd jellyfish
      $ repo init -b jellyfish -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
      $ repo sync
      ```
 
    * **Cutting-Edge Files:**
      Using the "cutting-edge" AGL files gives you a snapshot of the
-     "master" directory.
-     The resulting local repository you download is dynamic and can become
-     out-of-date with the upstream repository depending on community contributions.
+     "master" branch.
+     The resulting local repository you download is dynamic and changes frequently depending on community contributions.
      The advantage of using "cutting-edge" AGL files is that you have the
      absolute latest features, which are often under development, for AGL.
 
@@ -93,11 +92,7 @@ The remainder of this section provides steps on how to download the AGL source f
         
           $ tree -L 1
             .
-            ├── binary-tmp
             ├── bsp
-            ├── build-h3
-            ├── build-qemux86-64-ivi
-            ├── build-raspberrypi4
             ├── external
             ├── meta-agl
             ├── meta-agl-cluster-demo
