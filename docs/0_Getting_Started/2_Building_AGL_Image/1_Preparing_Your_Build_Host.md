@@ -33,7 +33,7 @@ section for more information on the ready-made images.
 1. **Use a Supported Linux Distribution:** To use the AGL software, it is
    recommended that your build host is a native Linux machine that runs a
    Yocto Project supported distribution as described by the
-   "[Supported Linux Distributions](https://www.yoctoproject.org/docs/2.4.4/ref-manual/ref-manual.html#detailed-supported-distros)"
+   "[Supported Linux Distributions](https://www.yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#detailed-supported-distros)"
    section in the Yocto Project Reference Manual.
    Basically, you should be running a recent version of Ubuntu, Fedora, openSUSE,
    CentOS, or Debian.
