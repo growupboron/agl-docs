@@ -14,7 +14,7 @@ See the
 [Raspberry Pi Product Page](https://www.raspberrypi.org/products/) for more information.
 
 This section describes the steps you need to take to build the
-AGL demo image for th the Raspberry Pi 4 board.
+AGL demo image for the Raspberry Pi 4 board.
 
 ## 1. Making Sure Your Build Environment is Correct
 
