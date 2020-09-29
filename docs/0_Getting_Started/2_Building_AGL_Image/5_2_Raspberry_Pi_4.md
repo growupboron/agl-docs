@@ -1,21 +1,20 @@
 ---
 edit_link: ''
-title: Building for Raspberry Pi 3 or 4
+title: Building for Raspberry Pi 4
 ---
 
-# Building for Raspberry Pi 3 or 4
+# Building for Raspberry Pi 4
 
 The
 [Raspberry Pi](https://www.raspberrypi.org/help/what-%20is-a-raspberry-pi/) is a small computer that is ideal for learning computing and computer languages.
 The AGL Project supports building images for the
-[Raspberry Pi 3](https://www.raspberrypi.org/products/raspberry-pi-3-model-a-plus/) and the
-[Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) boards.
-Each of these boards comes in a variety of models.
+[Raspberry Pi 4](https://www.raspberrypi.org/products/raspberry-pi-4-model-b/) board.
+These board comes in a variety of models.
 See the
 [Raspberry Pi Product Page](https://www.raspberrypi.org/products/) for more information.
 
 This section describes the steps you need to take to build the
-AGL demo image for both the Raspberry Pi 4 and 3 boards. Raspberry Pi 4 is recommended.
+AGL demo image for th the Raspberry Pi 4 board.
 
 ## 1. Making Sure Your Build Environment is Correct
 
@@ -35,16 +34,6 @@ the AGL demo image suited for either Raspberry Pi 4 (recommended) or 3:
 
 ```bash
 $ source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel 
-$ echo '# reuse download directories' >> $AGL_TOP/site.conf
-$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
-$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
-$ ln -sf $AGL_TOP/site.conf conf/
-```
-
-**Raspberry Pi 3**:
-
-```bash
-$ source meta-agl/scripts/aglsetup.sh -m raspberrypi3 -b raspberrypi3 agl-demo agl-devel
 $ echo '# reuse download directories' >> $AGL_TOP/site.conf
 $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
 $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
@@ -82,7 +71,7 @@ IMAGE_INSTALL_append = " libomxil"
 This section shows the `bitbake` command used to build the AGL image.
 
 Before running BitBake to start your build, it is good to be reminded that AGL
-does provide a pre-built image for developers that want to use the Raspberry Pi 3
+does provide a pre-built image for developers that want to use the Raspberry Pi 4
 board. You can find instructions on the [quickstart](../1_Quickstart/Quickstart.md).
 
 
@@ -105,7 +94,6 @@ Here is example for the Raspberry Pi 4 board:
 <build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz
 ```
 
-If you build for the Raspberry Pi 3 board, the location uses "raspberrypi3" in the path.
 
 ## 4. Deploying the AGL Demo Image
 
@@ -113,14 +101,13 @@ Deploying the AGL demo image consists of copying the image on a MicroSD card,
 plugging the card into the Raspberry Pi board, and then booting the board.
 
 Follow these steps to copy the image to a MicroSD card and boot
-the image on the Raspberry Pi 3 or 4 board:
+the image on the Raspberry Pi 4 board:
 
   1. Plug your MicroSD card into your Build Host (i.e. the system that has your build output).
 
   2. Extract the image into the SD card of Raspberry Pi 4 :
     
-    **NOTE:** For Raspberry Pi 3, the image is at `<build-dir>/tmp/deploy/images/raspberrypi3/agl-demo-platform-raspberrypi3.wic.xz`.
-    For Raspberry Pi 4, the image is at `<build-dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz`.
+    **NOTE:** For Raspberry Pi 4, the image is at `<build-dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz`.
 
         Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
   
