@@ -58,7 +58,7 @@ Available machines:
        imx8mqevk                  # i.MX8 w etnaviv
        imx8mqevk-viv              # i.MX8 w vivante
        intel-corei7-64            # x86-64 (Intel flavour)
-       m3-salvator-x              # Renesas RCar M3 w Salvator Board 
+       m3-salvator-x              # Renesas RCar Salvator/M3
        m3ulcb                     # Renesas RCar M3
        m3ulcb-kf                  # Renesas RCar M3 w Kingfisher Board 
        m3ulcb-nogfx               # Renesas RCAR M3 w/o gfx blobs
