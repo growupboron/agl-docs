@@ -94,11 +94,7 @@ e.g.
 ## 3. Deploying the AGL Demo Image
 
 Deploying the image consists of decompressing the image and then
-booting it using either QEMU or VirtualBox.
-
-### Boot the Image:
-
-The following steps show you how to boot the image with QEMU or VirtualBox.
+booting it using either QEMU, VirtualBox or physical system.
 
 #### 1. QEMU
 
