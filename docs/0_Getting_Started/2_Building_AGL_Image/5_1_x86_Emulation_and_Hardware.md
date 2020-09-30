@@ -21,8 +21,20 @@ using the `aglsetup.sh` script.
 If you are building the AGL demo image for emulation, you need to specify some
 specific options when you run the script:
 
+#### For **Qt based IVI demo** :
+
 ```bash
 $ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel
+$ echo '# reuse download directories' >> $AGL_TOP/site.conf
+$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+$ ln -sf $AGL_TOP/site.conf conf/
+```
+
+#### For **HTML5 based IVI demo** :
+
+```bash
+$ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel agl-profile-graphical-html5
 $ echo '# reuse download directories' >> $AGL_TOP/site.conf
 $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
 $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
@@ -56,10 +68,16 @@ Start the build using the `bitbake` command.
 CPU and and Internet connection speeds.
 The build also takes approximately 100G-bytes of free disk space.
 
-For this example, the target is "agl-demo-platform":
+#### For **Qt based IVI demo**, the target is "agl-demo-platform":
 
 ```bash
   $ time bitbake agl-demo-platform
+```
+
+#### For **HTML5 based IVI demo**, the target is "agl-demo-platform-html5":
+
+```bash
+  $ time bitbake agl-demo-platform-html5
 ```
 
 By default, the build process puts the resulting image in the Build Directory:

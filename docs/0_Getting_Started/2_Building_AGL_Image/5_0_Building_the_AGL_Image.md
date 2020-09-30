@@ -16,7 +16,8 @@ is a subsequent build, the time needed for the build could be significant.
 It is critical that you specify the correct options and configurations for the
 build before executing the `bitbake` command.
 The previous sections in the "Image Development Workflow" have treated this setup
-in a generic fashion.
+in a generic fashion. AGL has both `Qt` based and `HTML5` based IVI demos, where in the build process is almost the same except few changes in the build enviroment.
+
 This section, provides links to topics with instructions needed to create images for
 three types of supported platforms and for emulation using Quick EMUlator (QEMU)
 or VirtualBox:

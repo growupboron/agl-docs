@@ -22,23 +22,30 @@ The
 "[Initializing Your Build Environment](./3_Initializing_Your_Build_Environment.md)"
 section presented generic information for setting up your build environment
 using the `aglsetup.sh` script.
-If you are building the AGL demo image for a Raspberry Pi board, you need to specify some
-specific options when you run the script.
+If you are building the AGL demo image for a Raspberry Pi 4 board, you need to specify some
+specific options when you run the script :
 
-Use the following commands to initialize your build environment.
-In each case, the "-m" option specifies the machine and the
-list of AGL features used with script are appropriate for development of
-the AGL demo image suited for either Raspberry Pi 4 (recommended) or 3:
-
-**Raspberry Pi 4**:
+#### For **Qt based IVI demo** :
 
 ```bash
-$ source meta-agl/scripts/aglsetup.sh -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel 
+$ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
 $ echo '# reuse download directories' >> $AGL_TOP/site.conf
 $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
 $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
 $ ln -sf $AGL_TOP/site.conf conf/
 ```
+
+#### For **HTML5 based IVI demo** :
+
+```bash
+$ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel agl-profile-graphical-html5
+$ echo '# reuse download directories' >> $AGL_TOP/site.conf
+$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+$ ln -sf $AGL_TOP/site.conf conf/
+```
+In each case, the "-m" option specifies the machine and the list of AGL features used with script are appropriate for development of
+the AGL demo image suited for Raspberry Pi 4.
 
 ## 2. Configuring the Build to Include Packages Under a Commercial License
 
@@ -81,10 +88,16 @@ Start the build using the `bitbake` command.
 CPU and and Internet connection speeds.
 The build also takes approximately 100G-bytes of free disk space.
 
-For this example, the target is `agl-demo-platform`:
+#### For **Qt Based IVI demo**, the target is "agl-demo-platform":
 
 ```bash
-$ time bitbake agl-demo-platform
+  $ time bitbake agl-demo-platform
+```
+
+#### For **HTML5 Based IVI demo**, the target is "agl-demo-platform-html5":
+
+```bash
+  $ time bitbake agl-demo-platform-html5
 ```
 
 By default, the build process puts the resulting image in the Build Directory.
