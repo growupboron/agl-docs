@@ -48,19 +48,6 @@ the AGL demo image suited for either QEMU or VirtualBox.
 ## 2. Using BitBake
 
 This section shows the `bitbake` command used to build the AGL image.
-Before running BitBake to start your build, it is good to be reminded that AGL
-does provide pre-built images for developers that can be emulated
-using QEMU and VirtualBox.
-You can find the instructions for pre-built images on the
-[Quickstart](../1_Quickstart/Quickstart.md).
-
-For supported images, the filenames have the following forms:
-
-```
-<release-name>/<release-number>/qemuarm/*
-<release-name>/<release-number>/qemuarm64/*
-<release-name>/<release-number>/qemux86-64/*
-```
 
 Start the build using the `bitbake` command.
 
@@ -144,14 +131,12 @@ In general :
 $ source $AGL_TOP/<release-branch-name>/<build-dir>/
 ```
 
-**Note:**
-If you need to run it outside of the bitbake environment or need special settings for
-hardware pass-through or the like, read on:
-
 ```bash
 $ runqemu tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.qemuboot.conf kvm serialstdio slirp publicvnc audio
 ```
-Or using `qemu` :
+**Note:**
+If you need to run it outside of the bitbake environment or need special settings for
+hardware pass-through using `qemu` :
 
 ```bash
 qemu-system-x86_64 -enable-kvm -m 2048 \

@@ -77,11 +77,6 @@ IMAGE_INSTALL_append = " libomxil"
 
 This section shows the `bitbake` command used to build the AGL image.
 
-Before running BitBake to start your build, it is good to be reminded that AGL
-does provide a pre-built image for developers that want to use the Raspberry Pi 4
-board. You can find instructions on the [quickstart](../1_Quickstart/Quickstart.md).
-
-
 Start the build using the `bitbake` command.
 
 **NOTE:** An initial build can take many hours depending on your
