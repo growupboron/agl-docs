@@ -106,9 +106,9 @@ By default, the build process puts the resulting image in the Build Directory an
 Here is example for the Raspberry Pi 4 board for HTML5 Based demo:
 
 ```
-<build_dir>/tmp/deploy/images/raspberrypi4/<html5-demo>.wic.xz
+<build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-html5-raspberrypi4-64.wic.xz
 
-$ export IMAGE_NAME=<html5-demo>.wic.xz
+$ export IMAGE_NAME=agl-demo-platform-html5-raspberrypi4-64.wic.xz
 ```
 
 ## 4. Deploying the AGL Demo Image

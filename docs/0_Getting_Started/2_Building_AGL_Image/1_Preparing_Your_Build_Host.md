@@ -43,11 +43,11 @@ section for more information on the ready-made images.
    and so forth) as would a properly prepared build host running a supported
    Linux distribution.
    For information on how to install and set up this Docker container, see the
-   "[Setting Up a Docker Container](./docker-container-setup.html)"
+   "[Setting Up a Docker Container -- FIX ME](./docker-container-setup.html)"
    section.
 
 2. **Be Sure Your Build Host Has Enough Free Disk Space:**
-   Your build host should have at least 50 Gbytes.
+   Your build host should have at least 100 Gbytes.
 
 3. **Be Sure Tools are Recent:**  You need to have recent versions for
    the following tools:
@@ -57,7 +57,7 @@ section for more information on the ready-made images.
    * Python 3.4.0 or greater
 
    If your distribution does not meet these minimal requirements, see the
-   "[Required Git, tar, and Python Versions](https://www.yoctoproject.org/docs/2.4.4/ref-manual/ref-manual.html#required-git-tar-and-python-versions)"
+   "[Required Git, tar, and Python Versions](https://www.yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#required-git-tar-and-python-versions)"
    section in the Yocto Project Reference Manual for steps that you can
    take to be sure you have these tools.
 
@@ -66,13 +66,13 @@ section for more information on the ready-made images.
    Depending on the Linux distribution you are using, the list of
    host packages differ.
    See
-   "[The Build Host Packages](https://www.yoctoproject.org/docs/2.4.4/yocto-project-qs/yocto-project-qs.html#packages)"
+   "[The Build Host Packages](https://www.yoctoproject.org/docs/3.1.2/yocto-project-qs/yocto-project-qs.html#packages)"
    section of the Yocto Project Quick Start for information on the packages you need.
 
    **NOTE:** If you are using the CentOS distribution, you need to
    separately install the epel-release package and run the `makecache` command as
    described in
-   "[The Build Host Packages](https://www.yoctoproject.org/docs/2.4.4/yocto-project-qs/yocto-project-qs.html#packages)"
+   "[The Build Host Packages](https://www.yoctoproject.org/docs/3.1.2/yocto-project-qs/yocto-project-qs.html#packages)"
    section of the Yocto Project Quick Start.
 
    Aside from the packages listed in the previous section, you need the following:
