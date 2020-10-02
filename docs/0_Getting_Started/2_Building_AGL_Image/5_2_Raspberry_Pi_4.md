@@ -23,7 +23,7 @@ using the `aglsetup.sh` script.
 If you are building the AGL demo image for a Raspberry Pi 4 board, you need to specify some
 specific options when you run the script :
 
-#### For **Qt based IVI demo** :
+**Qt based IVI demo :**
 
 ```bash
 $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
@@ -33,7 +33,7 @@ $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
 $ ln -sf $AGL_TOP/site.conf conf/
 ```
 
-#### For **HTML5 based IVI demo** :
+**HTML5 based IVI demo :**
 
 ```bash
 $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel agl-profile-graphical-html5
@@ -81,25 +81,33 @@ Start the build using the `bitbake` command.
 CPU and and Internet connection speeds.
 The build also takes approximately 100G-bytes of free disk space.
 
-#### For **Qt Based IVI demo**, the target is "agl-demo-platform":
+**Qt Based IVI demo :**
+The target is `agl-demo-platform`.
 
 ```bash
   $ time bitbake agl-demo-platform
 ```
+By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
+Here is example for the Raspberry Pi 4 board for Qt Based demo:
 
-#### For **HTML5 Based IVI demo**, the target is "agl-demo-platform-html5":
+```
+<build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz
+$ export IMAGE_NAME=agl-demo-platform-raspberrypi4.wic.xz
+```
+
+**HTML5 Based IVI demo :**
+The target is `agl-demo-platform-html5`.
 
 ```bash
   $ time bitbake agl-demo-platform-html5
 ```
-
-By default, the build process puts the resulting image in the Build Directory.
-Here is example for the Raspberry Pi 4 board:
+By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
+Here is example for the Raspberry Pi 4 board for HTML5 Based demo:
 
 ```
-<build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz
+<build_dir>/tmp/deploy/images/raspberrypi4/<html5-demo>.wic.xz
+$ export IMAGE_NAME=<html5-demo>.wic.xz
 ```
-
 
 ## 4. Deploying the AGL Demo Image
 
@@ -113,13 +121,13 @@ the image on the Raspberry Pi 4 board:
 
   2. Extract the image into the SD card of Raspberry Pi 4 :
     
-    **NOTE:** For Raspberry Pi 4, the image is at `<build-dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz`.
+    **NOTE:** For Raspberry Pi 4, the image is at `<build-dir>/tmp/deploy/images/raspberrypi4/${IMAGE_NAME}`.
 
         Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
   
         $ lsblk
         $ sudo umount <sdcard_device_name>
-        $ xzcat <image_name> | sudo dd of=<sdcard_device_name> bs=4M
+        $ xzcat ${IMAGE_NAME} | sudo dd of=<sdcard_device_name> bs=4M
         $ sync
 
     **IMPORTANT NOTE:** Before re-writing any device on your Build Host, you need to

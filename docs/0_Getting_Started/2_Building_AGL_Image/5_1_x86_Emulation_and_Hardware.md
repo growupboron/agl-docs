@@ -19,7 +19,7 @@ using the `aglsetup.sh` script.
 If you are building the AGL demo image for emulation, you need to specify some
 specific options when you run the script:
 
-#### For **Qt based IVI demo** :
+**Qt based IVI demo :**
 
 ```bash
 $ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel
@@ -29,7 +29,7 @@ $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
 $ ln -sf $AGL_TOP/site.conf conf/
 ```
 
-#### For **HTML5 based IVI demo** :
+**HTML5 based IVI demo :**
 
 ```bash
 $ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel agl-profile-graphical-html5
@@ -45,27 +45,20 @@ the AGL demo image suited for either QEMU or VirtualBox.
 
 ## 2. Using BitBake
 
-This section shows the `bitbake` command used to build the AGL image.
-
 Start the build using the `bitbake` command.
 
 **NOTE:** An initial build can take many hours depending on your
 CPU and and Internet connection speeds.
 The build also takes approximately 100G-bytes of free disk space.
 
-#### For **Qt based IVI demo**, the target is "agl-demo-platform":
+**Qt based IVI demo :**
+The target is `agl-demo-platform`.
 
 ```bash
   $ time bitbake agl-demo-platform
 ```
 
-#### For **HTML5 based IVI demo**, the target is "agl-demo-platform-html5":
-
-```bash
-  $ time bitbake agl-demo-platform-html5
-```
-
-By default, the build process puts the resulting image in the Build Directory:
+By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`:
 
 ```
 <build_directory>/tmp/deploy/images/qemux86-64/
@@ -73,6 +66,25 @@ By default, the build process puts the resulting image in the Build Directory:
 e.g.
 
 <build_directory>/tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.vmdk.xz
+$ export IMAGE_NAME=agl-demo-platform-qemux86-64.vmdk.xz
+```
+
+**HTML5 based IVI demo :**
+The target is `agl-demo-platform-html5`.
+
+```bash
+  $ time bitbake agl-demo-platform-html5
+```
+By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`:
+
+```
+<build_directory>/tmp/deploy/images/qemux86-64/
+
+e.g.
+
+<build_directory>/tmp/deploy/images/qemux86-64/<html5 image name here>.vmdk.xz
+
+$ export IMAGE_NAME=<html5 image name here>.vmdk.xz
 ```
 
 
@@ -81,9 +93,27 @@ e.g.
 Deploying the image consists of decompressing the image and then
 booting it using either QEMU, VirtualBox or physical system.
 
-#### 1. QEMU
+**3.1 QEMU**
 
 Depending on your Linux distribution, use these commands to install QEMU:
+
+If you built your image with bitbake, you can now just use the ``runqemu`` wrapper, after sourcing `agl-init-build-env` inside the build-dir :
+
+```
+For this example :
+$ source $AGL_TOP/master/qemux86-64/agl-init-build-env 
+
+In general :
+$ source $AGL_TOP/<release-branch-name>/<build-dir>/
+```
+And further use `runqemu` to boot the image :
+```bash
+$ runqemu tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.qemuboot.conf kvm serialstdio slirp publicvnc audio
+```
+
+If you need to run it outside of the bitbake environment or need special settings for
+hardware pass-through using `qemu` :
+
 
 **NOTE:** if you have created an AGL crosssdk, it will contain a
 QEMU binary for the build host.
@@ -119,27 +149,11 @@ export OVMF_PATH=/usr/share/edk2/ovmf/OVMF_CODE.fd
 
 Once QEMU is installed, boot the image with KVM support:
 
-If you built your image with bitbake, you can now just use the ``runqemu`` wrapper, after sourcing `agl-init-build-env` inside the build-dir :
-
-```
-For this example :
-$ source $AGL_TOP/master/qemux86-64/agl-init-build-env 
-
-In general :
-$ source $AGL_TOP/<release-branch-name>/<build-dir>/
-```
-
-```bash
-$ runqemu tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.qemuboot.conf kvm serialstdio slirp publicvnc audio
-```
-**Note:**
-If you need to run it outside of the bitbake environment or need special settings for
-hardware pass-through using `qemu` :
 
 ```bash
 qemu-system-x86_64 -enable-kvm -m 2048 \
     -bios ${OVMF_PATH} \
-    -hda agl-demo-platform-qemux86-64.wic.vmdk \
+    -hda ${IMAGE_NAME} \
     -cpu kvm64 -cpu qemu64,+ssse3,+sse4.1,+sse4.2,+popcnt \
     -vga virtio -show-cursor \
     -device virtio-rng-pci \
@@ -157,7 +171,7 @@ The image can be booted in such an environment by removing `-enable-kvm` from
 the qemu command line, however this will result in lower perfromance within
 the AGL demo.
 
-#### 2. VirtualBox
+**3.2 VirtualBox**
 
 Once VirtualBox is installed, follow these steps to boot the image:
 
@@ -166,7 +180,7 @@ Once VirtualBox is installed, follow these steps to boot the image:
   2. Extract the vmdk file : 
   ```bash
     cd tmp/deploy/images/qemux86-64
-    xz -d agl-demo-platform-qemux86-64.vmdk.xz
+    xz -d ${IMAGE_NAME}
     ```
 
   3. Configure virtual box for AGL :
@@ -177,7 +191,7 @@ Once VirtualBox is installed, follow these steps to boot the image:
     ![vbox-step-1](images/vbox-1.png)
     - Select Memory size. Recommended is `2048 MB`, click on `Next`.
     ![vbox-step-2](images/vbox-2.png)
-    - Click on `Use an existing virtual hard disk file`, and select the extracted `agl-demo-platform-qemux86-64.vmdk.xz` file, click on `Create`.
+    - Click on `Use an existing virtual hard disk file`, and select the extracted `agl-demo-platform-qemux86-64.vmdk.xz` or `<html5-image?>` file, click on `Create`.
     ![vbox-step-3](images/vbox-3.png)
     - Go to `Settings`, and into `System`. Select `Chipset : IHC9`. Check on `Enable EFI (special OSes only)` and click on `OK`.
     ![vbox-step-4](images/vbox-4.png)
@@ -186,7 +200,7 @@ Once VirtualBox is installed, follow these steps to boot the image:
     - Click on `Start`.
     - For troubleshooting, you can refer [here](https://lists.automotivelinux.org/g/agl-dev-community/message/8474).
 
-#### 3. x86 physical system
+**3.3 x86 physical system**
   
   **NOTE :** UEFI enabled system is required.
   
