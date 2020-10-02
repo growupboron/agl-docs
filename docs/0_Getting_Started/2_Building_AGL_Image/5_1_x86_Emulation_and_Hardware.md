@@ -61,11 +61,8 @@ The target is `agl-demo-platform`.
 By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`:
 
 ```
-<build_directory>/tmp/deploy/images/qemux86-64/
-
-e.g.
-
 <build_directory>/tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.vmdk.xz
+
 $ export IMAGE_NAME=agl-demo-platform-qemux86-64.vmdk.xz
 ```
 
@@ -78,10 +75,6 @@ The target is `agl-demo-platform-html5`.
 By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`:
 
 ```
-<build_directory>/tmp/deploy/images/qemux86-64/
-
-e.g.
-
 <build_directory>/tmp/deploy/images/qemux86-64/<html5 image name here>.vmdk.xz
 
 $ export IMAGE_NAME=<html5 image name here>.vmdk.xz

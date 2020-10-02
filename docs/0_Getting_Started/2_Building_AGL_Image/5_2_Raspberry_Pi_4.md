@@ -92,6 +92,7 @@ Here is example for the Raspberry Pi 4 board for Qt Based demo:
 
 ```
 <build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz
+
 $ export IMAGE_NAME=agl-demo-platform-raspberrypi4.wic.xz
 ```
 
@@ -106,6 +107,7 @@ Here is example for the Raspberry Pi 4 board for HTML5 Based demo:
 
 ```
 <build_dir>/tmp/deploy/images/raspberrypi4/<html5-demo>.wic.xz
+
 $ export IMAGE_NAME=<html5-demo>.wic.xz
 ```
 
