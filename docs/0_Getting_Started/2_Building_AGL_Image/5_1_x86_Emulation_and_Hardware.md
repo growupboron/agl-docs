@@ -3,8 +3,6 @@ edit_link: ''
 title: Building for x86 (Emulation and Hardware)
 ---
 
-# Building for x86 (Emulation and Hardware)
-
 Building an image for emulation allows you to simulate your
 image without actual target hardware.
 

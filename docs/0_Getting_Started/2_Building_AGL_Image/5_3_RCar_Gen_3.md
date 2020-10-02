@@ -3,8 +3,6 @@ edit_link: ''
 title: Build for R Car Gen 3
 ---
 
-# Building for Supported Renesas Boards
-
 AGL supports building for several automotive
 [Renesas](https://www.renesas.com/us/en/solutions/automotive.html) board kits.
 Renesas is the number one supplier of vehicle control microcontrollers and
