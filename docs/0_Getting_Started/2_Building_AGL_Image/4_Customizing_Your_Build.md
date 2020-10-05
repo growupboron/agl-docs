@@ -22,9 +22,8 @@ various variables accomplish.
 
 To view and customize the `local.conf` file, use any text editor:
 
-```bash
-$ vim $AGL_TOP/<release-branch-name>/<build-dir>/conf/local.conf
-```
+    $ vim $AGL_TOP/<release-branch-name>/<build-dir>/conf/local.conf
+
 
 As mentioned in the "[Initializing Your Build Environment](./3_Initializing_Your_Build_Environment.md)" section,
 the `local.conf` file gets augmented with AGL configuration fragments based on
@@ -46,10 +45,8 @@ That information is committed to a local Git repository where you can examine it
 To enable build history, make sure the following two lines are in your
 `local.conf` file:
 
-```bash
-INHERIT += "buildhistory"
-BUILDHISTORY_COMMIT = "1"
-```
+    INHERIT += "buildhistory"
+    BUILDHISTORY_COMMIT = "1"
 
 See the
 "[Maintaining Build Output Quality](https://www.yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#maintaining-build-output-quality)"
@@ -64,9 +61,7 @@ to remove temporary workspace.
 
 You need to inherit the `rm_work` class by using this statement in the `local.conf` file:
 
-```bash
-INHERIT += "rm_work"
-```
+    INHERIT += "rm_work"
 
 You can read about the class in the
 "[rm_work.bbclass](https://www.yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#ref-classes-rm-work)"
@@ -85,21 +80,16 @@ would not be different as compared to a re-built module.
 For the AGL build, you can specify the location for sstate files by including the
 following in the `local.conf` file:
 
-```bash
-SSTATE_DIR = "${AGL_TOP}/sstate-cache"
-```
+    SSTATE_DIR = "${AGL_TOP}/sstate-cache"
 
-also, in the `local.conf` file, you can specify additional directories in which the build
+Also, in the `local.conf` file, you can specify additional directories in which the build
 system can look for shared state information.
 Use the following form in your file to list out the directories you want the build
 process to look at for sstate information:
 
-
-```bash
-SSTATE_MIRRORS ?= "\
-     file://.* http://someserver.tld/share/sstate/PATH;downloadfilename=PATH \n \
-     file://.* file:///some/local/dir/sstate/PATH"
-```
+    SSTATE_MIRRORS ?= "\
+        file://.* http://someserver.tld/share/sstate/PATH;downloadfilename=PATH \n \
+        file://.* file:///some/local/dir/sstate/PATH"
 
 If you want to know more about the Yocto Project sstate mechanism, see the
 "[Shared State Cache](https://www.yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#shared-state-cache)"
@@ -121,9 +111,7 @@ The default download directory is in a folder named "downloads".
 For the AGL build you can set the download directory by adding the following to your
 `local.conf` file:
 
-```bash
-DL_DIR = "${AGL_TOP}/downloads"
-```
+    DL_DIR = "${AGL_TOP}/downloads"
 
 ## Using a Shared State (sstate) Mirror
 
@@ -133,9 +121,8 @@ You can significantly speed up builds and guard against fetcher failures by
 using mirrors.
 To use mirrors, add this line to your `local.conf` file in the Build directory:
 
-```
-SSTATE_MIRRORS_append = " file://.* https://download.automotivelinux.org/sstate-mirror/master/${DEFAULTTUNE}/PATH \n "
-```
+    SSTATE_MIRRORS_append = " file://.* https://download.automotivelinux.org/sstate-mirror/master/${DEFAULTTUNE}/PATH \n "
+
 
 You can learn more about shared state and how it is used in the
 "[Shared State Cache](https://yoctoproject.org/docs/3.1.2/ref-manual/ref-manual.html#shared-state-cache)"
@@ -143,16 +130,14 @@ section of the Yocto Project Reference Manual.
 
 ## Common Settings using Symbolic Link with site.conf
 
-```
-  $ echo '# reuse download directories' >> $AGL_TOP/site.conf
-  $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
-  $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
-  $ cd $AGL_TOP/master/qemux86-64/
-  $ ln -sf $AGL_TOP/site.conf conf/
+      $ echo '# reuse download directories' >> $AGL_TOP/site.conf
+      $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+      $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+      $ cd $AGL_TOP/master/qemux86-64/
+      $ ln -sf $AGL_TOP/site.conf conf/
 
-  In General;
-  $ cd $AGL_TOP/<release-branch-name>/<build-dir>/
-  $ ln -sf $AGL_TOP/site.conf conf/
+      In General;
+      $ cd $AGL_TOP/<release-branch-name>/<build-dir>/
+      $ ln -sf $AGL_TOP/site.conf conf/
 
-```
 

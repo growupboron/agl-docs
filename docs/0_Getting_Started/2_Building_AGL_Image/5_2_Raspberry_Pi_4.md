@@ -25,23 +25,20 @@ specific options when you run the script :
 
 **Qt based IVI demo :**
 
-```bash
-$ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
-$ echo '# reuse download directories' >> $AGL_TOP/site.conf
-$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
-$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
-$ ln -sf $AGL_TOP/site.conf conf/
-```
+    $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
+    $ echo '# reuse download directories' >> $AGL_TOP/site.conf
+    $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+    $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+    $ ln -sf $AGL_TOP/site.conf conf/
 
 **HTML5 based IVI demo :**
 
-```bash
-$ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel agl-profile-graphical-html5
-$ echo '# reuse download directories' >> $AGL_TOP/site.conf
-$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
-$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
-$ ln -sf $AGL_TOP/site.conf conf/
-```
+    $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel agl-profile-graphical-html5
+    $ echo '# reuse download directories' >> $AGL_TOP/site.conf
+    $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+    $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+    $ ln -sf $AGL_TOP/site.conf conf/
+
 In each case, the "-m" option specifies the machine and the list of AGL features used with script are appropriate for development of
 the AGL demo image suited for Raspberry Pi 4.
 
@@ -49,8 +46,7 @@ the AGL demo image suited for Raspberry Pi 4.
 
 Before launching the build, it is good to be sure your build
 configuration is set up correctly (`/build/conf/local.conf` file).
-The
-"[Customizing Your Build](./4_Customizing_Your_Build.md)"
+The "[Customizing Your Build](./4_Customizing_Your_Build.md)"
 section highlights some common configurations that are useful when
 building any AGL image.
 
@@ -64,12 +60,10 @@ For example, suppose you want to include an implementation of the
 If so, you must include the following two lines in your
 `/build/conf/local.conf` file:
 
-```bash
-# For libomxil
-LICENSE_FLAGS_WHITELIST = "commercial"
+    # For libomxil
+    LICENSE_FLAGS_WHITELIST = "commercial"
+    IMAGE_INSTALL_append = "libomxil"
 
-IMAGE_INSTALL_append = " libomxil"
-```
 
 ## 3. Using BitBake
 
@@ -84,32 +78,27 @@ The build also takes approximately 100G-bytes of free disk space.
 **Qt Based IVI demo :**
 The target is `agl-demo-platform`.
 
-```bash
-  $ time bitbake agl-demo-platform
-```
+
+    $ time bitbake agl-demo-platform
+
 By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
 Here is example for the Raspberry Pi 4 board for Qt Based demo:
 
-```
-<build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz
+    <build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-raspberrypi4.wic.xz
 
-$ export IMAGE_NAME=agl-demo-platform-raspberrypi4.wic.xz
-```
+    $ export IMAGE_NAME=agl-demo-platform-raspberrypi4.wic.xz
 
 **HTML5 Based IVI demo :**
 The target is `agl-demo-platform-html5`.
 
-```bash
-  $ time bitbake agl-demo-platform-html5
-```
+    $ time bitbake agl-demo-platform-html5
+
 By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`.
 Here is example for the Raspberry Pi 4 board for HTML5 Based demo:
 
-```
-<build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-html5-raspberrypi4-64.wic.xz
+    <build_dir>/tmp/deploy/images/raspberrypi4/agl-demo-platform-html5-raspberrypi4-64.wic.xz
 
-$ export IMAGE_NAME=agl-demo-platform-html5-raspberrypi4-64.wic.xz
-```
+    $ export IMAGE_NAME=agl-demo-platform-html5-raspberrypi4-64.wic.xz
 
 ## 4. Deploying the AGL Demo Image
 
@@ -125,7 +114,7 @@ the image on the Raspberry Pi 4 board:
     
     **NOTE:** For Raspberry Pi 4, the image is at `<build-dir>/tmp/deploy/images/raspberrypi4/${IMAGE_NAME}`.
 
-        Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
+      Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
   
         $ lsblk
         $ sudo umount <sdcard_device_name>
@@ -144,9 +133,10 @@ the image on the Raspberry Pi 4 board:
     
   3. SSH into Raspberry Pi :
     - Connect Raspberry Pi to network : `Homescreen > Settings`, IP address mentioned here.
-    - `ssh root@<Raspberry-Pi-ip-address>`
-    
+    - SSH :
 
+            $ ssh root@<Raspberry-Pi-ip-address>
+    
   4. Serial Debugging :
     
     When things go wrong, you can take steps to debug your Raspberry Pi.
@@ -179,11 +169,8 @@ the image on the Raspberry Pi 4 board:
       and your Raspberry Pi.
       For example, if your build host is a native Linux machine (e.g. Ubuntu)
       you could use `screen` as follows from a terminal on the build host:
-      
-          ```
-          $ sudo screen /dev/ttyUSB0 115200
-          ```
-
+          
+              $ sudo screen /dev/ttyUSB0 115200
 
 5. SOTA
 

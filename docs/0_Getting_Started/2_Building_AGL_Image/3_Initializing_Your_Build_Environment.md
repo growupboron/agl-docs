@@ -14,19 +14,15 @@ run to initialize the build environment.
 
 You can find this script here:
 
-```
-$AGL_TOP/master/meta-agl/scripts/aglsetup.sh
-```
+    $AGL_TOP/master/meta-agl/scripts/aglsetup.sh
+
 
 The script accepts many options that allow you to define build parameters such
 as the target hardware (i.e. the machine), build directory, and so forth.
 Use the following commands to see the available options and script syntax:
 
-```
-$ bash
-$ cd $AGL_TOP/master
-$ source meta-agl/scripts/aglsetup.sh -h
-```
+    $ cd $AGL_TOP/master
+    $ source meta-agl/scripts/aglsetup.sh -h
 
 ## AGL Machines (board support)
 
