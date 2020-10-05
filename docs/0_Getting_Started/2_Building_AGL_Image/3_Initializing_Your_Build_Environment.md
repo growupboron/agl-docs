@@ -82,48 +82,46 @@ Available features:
        agl-archiver
        agl-buildstats
        agl-ci
-       agl-ci-change-features :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-devel  agl-netboot  agl-pipewire  agl-buildstats  agl-ptest )
-       agl-ci-change-features-nogfx :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-devel  agl-netboot  agl-pipewire  agl-buildstats  agl-ptest )
+       agl-ci-change-features :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-devel  agl-netboot  agl-pipewire  agl-cloudproxy  agl-buildstats  agl-ptest )
+       agl-ci-change-features-nogfx :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-devel  agl-netboot  agl-pipewire  agl-cloudproxy  agl-buildstats  agl-ptest )
        agl-ci-snapshot-features :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-devel  agl-netboot  agl-archiver  agl-pipewire  agl-buildstats  agl-ptest )
        agl-ci-snapshot-features-nogfx :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-devel  agl-netboot  agl-archiver  agl-pipewire  agl-buildstats  agl-ptest )
-       agl-compositor
        agl-devel
-       agl-egvirt
        agl-fossdriver
        agl-gplv2
        agl-hmi-framework
        agl-netboot
+       agl-pipewire
        agl-profile-cluster :( agl-profile-graphical )
        agl-profile-cluster-qt5 :( agl-profile-graphical-qt5  agl-profile-graphical )
        agl-profile-graphical
+       agl-profile-graphical-html5 :( agl-profile-graphical )
        agl-profile-graphical-qt5 :( agl-profile-graphical )
        agl-profile-hud
        agl-profile-telematics
        agl-ptest
+       agl-sign-wgts
        agl-sota
        agl-virt
+       agl-virt-guest-xen
        agl-virt-xen :( agl-virt )
+       agl-weston-remoting :( agl-profile-graphical )
    [meta-agl-cluster-demo]
        agl-cluster-demo :( agl-profile-cluster-qt5  agl-profile-graphical-qt5  agl-profile-graphical  agl-hmi-framework )
        agl-cluster-demo-preload
    [meta-agl-demo]
-       agl-cluster-demo-support :( agl-gstrecorder )
+       agl-cloudproxy
+       agl-cluster-demo-support :( agl-weston-remoting  agl-profile-graphical )
        agl-demo :( agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework )
        agl-demo-preload
        agl-demo-soundmanager :( agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-audio-soundmanager-framework )
-       agl-sdl
    [meta-agl-devel]
-       agl-audio-soundmanager-framework
-       agl-gstrecorder
-       agl-oem-extra-libs
-       agl-pipewire
-       agl-profile-graphical-html5 :( agl-profile-graphical )
+       agl-jailhouse
        agl-speech-framework
        agl-voiceagent-alexa :( agl-speech-framework )
        agl-voiceagent-alexa-wakeword :( agl-voiceagent-alexa  agl-speech-framework )
    [meta-agl-extra]
        agl-localdev
-       blsched
    [meta-agl-telematics-demo]
        agl-telematics-demo :( agl-profile-telematics )
 ```
