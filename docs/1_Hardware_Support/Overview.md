@@ -26,7 +26,7 @@ The following table briefs about the various hardware platforms, supported by AG
 
 |    BOARD   	|     $MACHINE     	| ARCHITECHTURE 	|                AGL PLATFORM                	|
 |:----------:	|:----------------:	|:-------------:	|:------------------------------------------:	|
-| BeagleBone 	|        bbe       	|     arm 32    	|         agl-telematic-demo-platform        	|
+|  BeagleBone 	|        bbe       	|     arm 32    	|         agl-telematic-demo-platform        	|
 |            	|    beaglebone    	|     arm 32    	|         agl-telematic-demo-platform        	|
 |            	|                  	|               	|                                            	|
 |   i. MX 6  	|      cubox-i     	|     arm 32    	| agl-demo-platform, agl-demo-platform-html5 	|
@@ -36,6 +36,9 @@ The following table briefs about the various hardware platforms, supported by AG
 |   i. MX 8  	|     imx8mqevk    	|     arm 64    	| agl-demo-platform, agl-demo-platform-html5 	|
 |            	|   imx8mqevk-viv  	|     arm 64    	| agl-demo-platform, agl-demo-platform-html5 	|
 |            	|                  	|               	|                                            	|
-|   ARC HS   	|       hsdk       	|      ARC      	| agl-demo-platform, agl-demo-platform-html5 	|
+|  Snapdragon 	| dragonboard-410c 	|     arm 64    	| agl-demo-platform, agl-demo-platform-html5 	|
+|            	| dragonboard-820c 	|     arm 64    	| agl-demo-platform, agl-demo-platform-html5 	|
+|            	|                  	|               	|                                            	|
+|    ARC HS   	|       hsdk       	|      ARC      	| agl-demo-platform, agl-demo-platform-html5 	|
 
 
