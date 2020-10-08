@@ -155,8 +155,9 @@ Follow these steps to download the drivers you need:
 
    For this example, the target is "agl-demo-platform":
 
+    ```bash
     $ time bitbake agl-demo-platform
-
+    ```
 
    The build process puts the resulting image in the Build Directory:
 
@@ -511,39 +512,6 @@ Follow these steps to download the drivers you need:
 
 ## 9. Supplementary Information 
 
-  * meta-rcar-gen3
-
-    This layer provides the support for the evaluation board mounted ARM SoCs of
-    Renesas Electronics, called the R-Car Generation 3.
-
-    Currently, this supports boards and the SoCs of the following:
-
-        - Board: Salvator-X / SoC: R8A7795 (R-Car H3), R8A7796 (R-Car M3), R8A77965 (R-Car M3N)
-        - Board: R-Car Starter Kit premier(H3ULCB) / SoC: R8A7795 (R-Car H3)
-        - Board: R-Car Starter Kit pro(M3ULCB) / SoC: R8A7796 (R-Car M3)
-        - Board: R-Car Starter Kit pro(M3NULCB) / SoC: R8A77965 (R-Car M3N)
-        - Board: Ebisu / SoC: R8A77990 (R-Car E3)
-  
-  * Layer Dependencies
-
-    This layer depends on:
-
-    * poky
-
-        URI: [git://git.yoctoproject.org/poky](git://git.yoctoproject.org/poky)
-
-        layers: meta, meta-poky, meta-yocto-bsp
-
-        branch: dunfell
-
-    * meta-openembedded
-
-        URI: [git://git.openembedded.org/meta-openembedded](git://git.openembedded.org/meta-openembedded)
-
-        layers: meta-oe, meta-python
-
-        branch: dunfell
-
   * R-Car Generation 3 Information
 
     Refer to the following for more information from [eLinux website](https://elinux.org/R-Car).
@@ -553,60 +521,11 @@ Follow these steps to download the drivers you need:
     The meta-rcar-gen3 layer of meta-renesas is supported Graphic GLES(GSX)
     libraries, proprietary library of multimedia, and ICCOM software.
 
-    This README describes how to use these features and setting to local.conf.
-
-        1.   Board configuration (Already in the AGL Recipes)
-        2.   Build with GLES (Already in the AGL Recipes)
-        3.   Build with Renesas multimedia libraries
-        4.   Enable Linux ICCOM driver and Linux ICCOM library
-
-    1. Board configuration (Already in the AGL Recipes)
-        * Add this line to local.conf
-
-            * For Salvator-X board : `MACHINE = "salvator-x"`
-            
-            * For R-Car Starter Kit Premier(H3ULCB) board : `MACHINE = "h3ulcb"`
-
-            * For R-Car Starter Kit Pro(M3ULCB) board : `MACHINE = "m3ulcb"`
-          
-            * For R-Car Starter Kit Pro(M3NULCB) board : `MACHINE = "m3nulcb"`
-
-            * For Ebisu board : `MACHINE = "ebisu"`
-
-
-    2. Build with GLES (Already in the AGL Recipes)
-
-        For wayland with GSX
-
-        * Please copy proprietary libraries to the directory of recipes.
-
-        * Set local.conf the following.
-
-          * Enable Gfx Pkgs
-
-                MACHINE_FEATURES_append = " gsx"
-                MULTI_PROVIDER_WHITELIST += "virtual/libgl virtual/egl virtual/libgles1 virtual/libgles2"
-
-          * for Wayland/Weston
-
-                DISTRO_FEATURES_NATIVESDK_append = " wayland"
-                DISTRO_FEATURES_append = " pam"
-                PREFERRED_PROVIDER_virtual/libgles1 = ""
-                PREFERRED_PROVIDER_virtual/libgles2 = "gles-user-module"
-                PREFERRED_PROVIDER_virtual/egl = "libegl"
-                PREFERRED_PROVIDER_virtual/libgl = ""
-                PREFERRED_PROVIDER_virtual/mesa = ""
-                PREFERRED_PROVIDER_libgbm = "libgbm"
-                PREFERRED_PROVIDER_libgbm-dev = "libgbm"
-                BBMASK = "mesa-gl"
-
-        * Run `bitbake core-image-weston`
-
-    3. Build with Renesas multimedia libraries
+    1. Build with Renesas multimedia libraries
 
         Multimedia portions depend on GLES portions.
 
-        * A/ Configuration for Multimedia features
+        * A. Configuration for Multimedia features
 
 
             * Please copy proprietary libraries to the directory of recipes.
@@ -617,7 +536,7 @@ Follow these steps to download the drivers you need:
 
                       MACHINE_FEATURES_append = " multimedia"
 
-        * B/ Configuration for optional codecs and middleware
+        * B. Configuration for optional codecs and middleware
 
 
             * Please copy proprietary libraries to the directory of recipes.
@@ -665,7 +584,7 @@ Follow these steps to download the drivers you need:
                   DISTRO_FEATURES_append = " h264dec_lib h265dec_lib mpeg2dec_lib aaclcdec_lib aaclcdec_mdw"
            
 
-        * C/ Configuration for test packages
+        * C. Configuration for test packages
 
           Must ensure that Multimedia features have been enabled.
           (Please refer to III/A to enable Multimedia.)
@@ -676,7 +595,7 @@ Follow these steps to download the drivers you need:
 
                       DISTRO_FEATURES_append = " mm-test"
 
-    4. Enable Linux ICCOM driver and Linux ICCOM library
+    2. Enable Linux ICCOM driver and Linux ICCOM library
 
 
         For Linux ICCOM driver and Linux ICCOM library
