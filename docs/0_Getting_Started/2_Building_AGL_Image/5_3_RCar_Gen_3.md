@@ -380,19 +380,49 @@ Follow these steps to download the drivers you need:
 
 ## 7. Setting-up U-boot
 
-  * Configuring U-Boot Parameters
+  **Configuring U-Boot Parameters**
 
     Follow these steps to configure the board to use the MicroSD card as the
     boot device and also to set the screen resolution:
 
-    1. As the board is powering up, press any key to stop the autoboot process.
+  1. As the board is powering up, press any key to stop the autoboot process.
       You need to press a key quickly as you have just a few seconds in which to
       press a key.
 
-    2. Once the autoboot process is interrupted, use the board's serial console to
-      enter `printenv` to check if you have correct parameters for booting your board:
+  2. Loading dtb :
+
+      **NOTE** : Refer [here](https://elinux.org/R-Car/Boards/Yocto-Gen3-CommonFAQ/Which_dtb_file_is_required_to_boot_linux_on_the_R-Car_Starter_Kit_board_%3F) for more information.
+
+      Make sure your ``load_dtb`` is set as follows :
+
+       * **H3SK v2.0(DDR 4GB)** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb.dtb`
+
+       * **H3SK v2.0(DDR 8GB)/v3.0(DDR 8GB)** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-4x2g.dtb`
+
+       * **M3SK v1.0** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb.dtb`
+
+       * **M3SK v3.0** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-2x4g.dtb`
+
+       * **H3SK with a Kingfisher board** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-kf.dtb`
+
+       * **M3SK with a Kingfisher board** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-kf.dtb`
+
+  3. Set Correct Environment : 
+
+     Be sure your environment is set up as follows:
+
+            $ setenv bootargs console=ttySC0,115200 ignore_loglevel vmalloc=384M video=HDMI-A-1:1920x1080-32@60 root=/dev/mmcblk1p1 rw rootfstype=ext4 rootwait rootdelay=2
+            $ setenv bootcmd run load_ker\; run load_dtb\; booti 0x48080000 - 0x48000000
+            $ setenv load_ker ext4load mmc 0:1 0x48080000 /boot/Image
+
+  4. Save the boot environment: `$ saveenv`
+
+  5. Boot the board: `$ run bootcmd`
+
+  6. Once the autoboot process is interrupted, use the board's serial console to 
+     enter `printenv` to check if you have correct parameters for booting your board:
       
-        Here is an example using the `h3ulcb` board:
+      Here is an example using the **h3ulcb** board:
 
             $ printenv
             baudrate=115200
@@ -410,7 +440,7 @@ Follow these steps to download the drivers you need:
 
             Environment size: 648/131068 bytes
 
-        Here is a second example using the `m3ulcb` board:
+      Here is a second example using the **m3ulcb** board:
 
             $ printenv
             baudrate=115200
@@ -429,37 +459,6 @@ Follow these steps to download the drivers you need:
 
             Environment size: 557/131068 bytes
 
-    3. Boot your board using the MicroSD card
-
-        Be sure your environment is set up as follows:
-
-            $ setenv bootargs console=ttySC0,115200 ignore_loglevel vmalloc=384M video=HDMI-A-1:1920x1080-32@60 root=/dev/mmcblk1p1 rw rootfstype=ext4 rootwait rootdelay=2
-            $ setenv bootcmd run load_ker\; run load_dtb\; booti 0x48080000 - 0x48000000
-            $ setenv load_ker ext4load mmc 0:1 0x48080000 /boot/Image
-
-    4. Depending on the board type, the BSP version, and the existence of a Kingfisher board :
-
-      **NOTE** : Refer [here](https://elinux.org/R-Car/Boards/Yocto-Gen3-CommonFAQ/Which_dtb_file_is_required_to_boot_linux_on_the_R-Car_Starter_Kit_board_%3F) for more information.
-
-        Make sure your ``load_dtb`` is set as follows :
-
-        * H3SK v2.0(DDR 4GB) : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb.dtb`
-
-        * H3SK v2.0(DDR 8GB)/v3.0(DDR 8GB) : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-4x2g.dtb`
-
-        * M3SK v1.0 : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb.dtb`
-
-        * M3SK v3.0 : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-2x4g.dtb`
-
-        * H3SK with a Kingfisher board: `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-kf.dtb`
-
-        * M3SK with a Kingfisher board: `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-kf.dtb`
-
-
-
-    5. Save the boot environment: `saveenv`
-
-    6. Boot the board: `run bootcmd`
 
 
 ## 8. Troubleshooting
