@@ -21,21 +21,25 @@ The remainder of this section provides steps on how to download the AGL source f
    You can define an environment variable as your top-level AGL workspace folder.
    Following is an example that defines the `$HOME/workspace_agl` folder using
    an environment variable named "AGL_TOP":
-
-        $ export AGL_TOP=$HOME/AGL
-        $ echo 'export AGL_TOP=$HOME/AGL' >> $HOME/.bashrc 
-        $ mkdir -p $AGL_TOP
+   
+      ```sh
+      $ export AGL_TOP=$HOME/AGL
+      $ echo 'export AGL_TOP=$HOME/AGL' >> $HOME/.bashrc 
+      $ mkdir -p $AGL_TOP
+      ```
 
 2. **Download the `repo` Tool and Set Permissions:**
    AGL Uses the `repo` tool for managing repositories.
    Use the following commands to download the tool and then set its
    permissions to allow for execution:
 
-        $ mkdir -p $HOME/bin
-        $ export PATH=$HOME/bin:$PATH
-        $ echo 'export PATH=$HOME/bin:$PATH' >> $HOME/.bashrc
-        $ curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
-        $ chmod a+x $HOME/bin/repo
+      ```sh
+      $ mkdir -p $HOME/bin
+      $ export PATH=$HOME/bin:$PATH
+      $ echo 'export PATH=$HOME/bin:$PATH' >> $HOME/.bashrc
+      $ curl https://storage.googleapis.com/git-repo-downloads/repo > $HOME/bin/repo
+      $ chmod a+x $HOME/bin/repo
+      ```
 
    **NOTE:** See the
    "[Repo Command Reference](https://source.android.com/setup/develop/repo)"
@@ -52,13 +56,14 @@ The remainder of this section provides steps on how to download the AGL source f
      The release is static, tested, and known to work.
      To download the latest stable release branch (i.e. Jellyfish), use
      the following commands:
-
-        $ cd $AGL_TOP
-        $ mkdir jellyfish
-        $ cd jellyfish
-        $ repo init -b jellyfish -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
-        $ repo sync
-
+     
+     ```sh 
+     $ cd $AGL_TOP
+     $ mkdir jellyfish
+     $ cd jellyfish
+     $ repo init -b jellyfish -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
+     $ repo sync
+     ```
 
    * **Cutting-Edge Files:**
      Using the "cutting-edge" AGL files gives you a snapshot of the
@@ -68,12 +73,14 @@ The remainder of this section provides steps on how to download the AGL source f
      absolute latest features, which are often under development, for AGL.
 
      To download the "cutting-edge" AGL files, use the following commands:
-
-        $ cd $AGL_TOP
-        $ mkdir master
-        $ cd master
-        $ repo init -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
-        $ repo sync
+     
+     ```sh
+     $ cd $AGL_TOP
+     $ mkdir master
+     $ cd master
+     $ repo init -u https://gerrit.automotivelinux.org/gerrit/AGL/AGL-repo
+     $ repo sync
+     ```
 
    Once you `sync` the repository, you have the AGL files in the form of
    "layers" (e.g. `meta-*` folders).
@@ -81,16 +88,16 @@ The remainder of this section provides steps on how to download the AGL source f
 
    Listing out the resulting directory structure appears as follows:
 
-        
-      $ tree -L 1
-          .
-          ├── bsp
-          ├── external
-          ├── meta-agl
-          ├── meta-agl-cluster-demo
-          ├── meta-agl-demo
-          ├── meta-agl-devel
-          ├── meta-agl-extra
-          └── meta-agl-telematics-demo
-
+   ```sh     
+   $ tree -L 1
+    .
+    ├── bsp
+    ├── external
+    ├── meta-agl
+    ├── meta-agl-cluster-demo
+    ├── meta-agl-demo
+    ├── meta-agl-devel
+    ├── meta-agl-extra
+    └── meta-agl-telematics-demo
+   ```
         

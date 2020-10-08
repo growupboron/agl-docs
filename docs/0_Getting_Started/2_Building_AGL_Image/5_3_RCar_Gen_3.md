@@ -33,9 +33,11 @@ Follow these steps to download the drivers you need:
 
      Run the `setup_mm_packages.sh` script as follows to
      display the list of ZIP files containing the drivers you need.
-
-        $ grep -rn ZIP_.= $AGL_TOP/meta-agl/meta-agl-bsp/meta-rcar-gen3/scripts/setup_mm_packages.sh
      
+     ```sh
+     $ grep -rn ZIP_.= $AGL_TOP/meta-agl/meta-agl-bsp/meta-rcar-gen3/scripts/setup_mm_packages.sh
+     ```
+
      The script's output identifies the files you need to download from the page.
 
 2. **Get Your Board Support Package (BSP) Version:**
@@ -68,13 +70,17 @@ Follow these steps to download the drivers you need:
     Create and export an environment variable named `XDG_DOWNLOAD_DIR` that points to
     your download directory.
     
-        export XDG_DOWNLOAD_DIR=$HOME/Downloads
+    ```sh
+    $ export XDG_DOWNLOAD_DIR=$HOME/Downloads
+    ```
 
 5. **Be Sure the Files Have Rights:**
 
     Be sure you have the necessary rights for the files you downloaded.
-
-        $ chmod a+r $XDG_DOWNLOAD_DIR/*.zip
+    
+    ```sh
+    $ chmod a+r $XDG_DOWNLOAD_DIR/*.zip
+    ```
 
 ## 2. Getting Your Hardware Together
 
@@ -125,17 +131,20 @@ Follow these steps to download the drivers you need:
     For example, the following command defines and exports the `MACHINE` variable
     for the Starter Kit Pro/H3 Board:
 
-        $ export MACHINE=h3ulcb
-
+    ```sh
+    $ export MACHINE=h3ulcb
+    ```
 
   2. **Run the `aglsetup.sh` Script:**
 
     Use the following commands to run the AGL Setup script:
 
-        $ cd $AGL_TOP
-        $ source meta-agl/scripts/aglsetup.sh -m $MACHINE -b build-$MACHINE agl-devel agl-demo
-        which expands to :
-        $ source meta-agl/scripts/aglsetup.sh -m h3ulcb -b build-h3ulcb agl-devel agl-demo
+    ```sh
+    $ cd $AGL_TOP
+    $ source meta-agl/scripts/aglsetup.sh -m $MACHINE -b build-$MACHINE agl-devel agl-demo
+    which expands to :
+    $ source meta-agl/scripts/aglsetup.sh -m h3ulcb -b build-h3ulcb agl-devel agl-demo
+    ```
 
   3. **Examine the Script's Log:**
 
@@ -155,14 +164,14 @@ Follow these steps to download the drivers you need:
 
    For this example, the target is "agl-demo-platform":
 
-    ```bash
-    $ time bitbake agl-demo-platform
-    ```
+  ``` sh
+  $ time bitbake agl-demo-platform
+  ```
 
    The build process puts the resulting image in the Build Directory:
-
-    build-h3ulcb/tmp/deploy/images/$MACHINE
-
+  ``` sh
+  build-h3ulcb/tmp/deploy/images/$MACHINE
+  ```
 
 ## 5. Booting the Image Using a MicroSD Card
 
@@ -203,16 +212,20 @@ Follow these steps to download the drivers you need:
         The table in the wiki lists the files you need to flash the firmware.
         You can find these files in the following directory:
 
-            $AGL_TOP/build/tmp/deploy/images/$MACHINE
+        ```sh
+        $AGL_TOP/build/tmp/deploy/images/$MACHINE
+        ```
 
         **NOTE:** The Salvator-X firmware update process is not documented on eLinux.
 
   * **Preparing the MicroSD Card**
-
-        $ lsblk
-        $ sudo umount <boot_device_name>
-        $ xzcat agl-image-ivi-crosssdk-h3ulcb.wic.xz | sudo dd of=<boot_device_name> bs=4M
-        $ sync
+     
+     ```sh
+     $ lsblk
+     $ sudo umount <boot_device_name>
+     $ xzcat agl-image-ivi-crosssdk-h3ulcb.wic.xz | sudo dd of=<boot_device_name> bs=4M
+     $ sync
+     ```
 
   * **Booting the Board**
 
@@ -260,17 +273,18 @@ Follow these steps to download the drivers you need:
     Once you connect the board, determine the device created for the serial link.
     Use the `dmesg` command on your build host.
     
-
-        dmesg | tail 9
-        [2097783.287091] usb 2-1.5.3: new full-speed USB device number 24 using ehci-pci
-        [2097783.385857] usb 2-1.5.3: New USB device found, idVendor=0403, idProduct=6001
-        [2097783.385862] usb 2-1.5.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
-        [2097783.385864] usb 2-1.5.3: Product: FT232R USB UART
-        [2097783.385866] usb 2-1.5.3: Manufacturer: FTDI
-        [2097783.385867] usb 2-1.5.3: SerialNumber: AK04WWCE
-        [2097783.388288] ftdi_sio 2-1.5.3:1.0: FTDI USB Serial Device converter detected
-        [2097783.388330] usb 2-1.5.3: Detected FT232RL
-        [2097783.388658] usb 2-1.5.3: FTDI USB Serial Device converter now attached to ttyUSB0
+    ```sh
+    dmesg | tail 9
+    [2097783.287091] usb 2-1.5.3: new full-speed USB device number 24 using ehci-pci
+    [2097783.385857] usb 2-1.5.3: New USB device found, idVendor=0403, idProduct=6001
+    [2097783.385862] usb 2-1.5.3: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+    [2097783.385864] usb 2-1.5.3: Product: FT232R USB UART
+    [2097783.385866] usb 2-1.5.3: Manufacturer: FTDI
+    [2097783.385867] usb 2-1.5.3: SerialNumber: AK04WWCE
+    [2097783.388288] ftdi_sio 2-1.5.3:1.0: FTDI USB Serial Device converter detected
+    [2097783.388330] usb 2-1.5.3: Detected FT232RL
+    [2097783.388658] usb 2-1.5.3: FTDI USB Serial Device converter now attached to ttyUSB0
+    ```
 
     The device created is usually `/dev/ttyUSB0`.
     However, the number might vary depending on other USB serial ports connected to the host.
@@ -279,16 +293,21 @@ Follow these steps to download the drivers you need:
     Here are three commands, which vary based on the serial client, that show
     how to launch the client:
 
-        
-        picocom -b 115200 /dev/ttyUSB0
+    ```sh    
+    picocom -b 115200 /dev/ttyUSB0
+    ```
 
-      or
+    or
 
-        minicom -b 115200 -D /dev/ttyUSB0
+    ```sh
+    minicom -b 115200 -D /dev/ttyUSB0
+    ```
 
-      or
-
-        screen /dev/ttyUSB0 115200
+    or
+    
+    ```sh
+    screen /dev/ttyUSB0 115200
+    ```
 
 
   3. Powering on the Board to Get a Shell at the Console
@@ -302,81 +321,84 @@ Follow these steps to download the drivers you need:
     Following, is console output for the power on process for each kit:
 
     h3ulcb:
+    
+    ```sh
+    NOTICE:  BL2: R-Car Gen3 Initial Program Loader(CA57) Rev.1.0.7
+    NOTICE:  BL2: PRR is R-Car H3 ES1.1
+    NOTICE:  BL2: LCM state is CM
+    NOTICE:  BL2: DDR1600(rev.0.15)
+    NOTICE:  BL2: DRAM Split is 4ch
+    NOTICE:  BL2: QoS is Gfx Oriented(rev.0.30)
+    NOTICE:  BL2: AVS setting succeeded. DVFS_SetVID=0x52
+    NOTICE:  BL2: Lossy Decomp areas
+    NOTICE:       Entry 0: DCMPAREACRAx:0x80000540 DCMPAREACRBx:0x570
+    NOTICE:       Entry 1: DCMPAREACRAx:0x40000000 DCMPAREACRBx:0x0
+    NOTICE:       Entry 2: DCMPAREACRAx:0x20000000 DCMPAREACRBx:0x0
+    NOTICE:  BL2: v1.1(release):41099f4
+    NOTICE:  BL2: Built : 19:20:52, Jun  9 2016
+    NOTICE:  BL2: Normal boot
+    NOTICE:  BL2: dst=0xe63150c8 src=0x8180000 len=36(0x24)
+    NOTICE:  BL2: dst=0x43f00000 src=0x8180400 len=3072(0xc00)
+    NOTICE:  BL2: dst=0x44000000 src=0x81c0000 len=65536(0x10000)
+    NOTICE:  BL2: dst=0x44100000 src=0x8200000 len=524288(0x80000)
+    NOTICE:  BL2: dst=0x49000000 src=0x8640000 len=1048576(0x100000)
+    
 
-        NOTICE:  BL2: R-Car Gen3 Initial Program Loader(CA57) Rev.1.0.7
-        NOTICE:  BL2: PRR is R-Car H3 ES1.1
-        NOTICE:  BL2: LCM state is CM
-        NOTICE:  BL2: DDR1600(rev.0.15)
-        NOTICE:  BL2: DRAM Split is 4ch
-        NOTICE:  BL2: QoS is Gfx Oriented(rev.0.30)
-        NOTICE:  BL2: AVS setting succeeded. DVFS_SetVID=0x52
-        NOTICE:  BL2: Lossy Decomp areas
-        NOTICE:       Entry 0: DCMPAREACRAx:0x80000540 DCMPAREACRBx:0x570
-        NOTICE:       Entry 1: DCMPAREACRAx:0x40000000 DCMPAREACRBx:0x0
-        NOTICE:       Entry 2: DCMPAREACRAx:0x20000000 DCMPAREACRBx:0x0
-        NOTICE:  BL2: v1.1(release):41099f4
-        NOTICE:  BL2: Built : 19:20:52, Jun  9 2016
-        NOTICE:  BL2: Normal boot
-        NOTICE:  BL2: dst=0xe63150c8 src=0x8180000 len=36(0x24)
-        NOTICE:  BL2: dst=0x43f00000 src=0x8180400 len=3072(0xc00)
-        NOTICE:  BL2: dst=0x44000000 src=0x81c0000 len=65536(0x10000)
-        NOTICE:  BL2: dst=0x44100000 src=0x8200000 len=524288(0x80000)
-        NOTICE:  BL2: dst=0x49000000 src=0x8640000 len=1048576(0x100000)
+    U-Boot 2015.04 (Jun 09 2016 - 19:21:52)
 
-
-        U-Boot 2015.04 (Jun 09 2016 - 19:21:52)
-
-        CPU: Renesas Electronics R8A7795 rev 1.1
-        Board: H3ULCB
-        I2C:   ready
-        DRAM:  3.9 GiB
-        MMC:   sh-sdhi: 0, sh-sdhi: 1
-        In:    serial
-        Out:   serial
-        Err:   serial
-        Net:   Board Net Initialization Failed
-        No ethernet found.
-        Hit any key to stop autoboot:  0
-
+    CPU: Renesas Electronics R8A7795 rev 1.1
+    Board: H3ULCB
+    I2C:   ready
+    DRAM:  3.9 GiB
+    MMC:   sh-sdhi: 0, sh-sdhi: 1
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   Board Net Initialization Failed
+    No ethernet found.
+    Hit any key to stop autoboot:  0
+    ```
 
 
     m3ulcb:
       
-        NOTICE:  BL2: R-Car Gen3 Initial Program Loader(CA57) Rev.1.0.14
-        NOTICE:  BL2: PRR is R-Car M3 Ver1.0
-        NOTICE:  BL2: Board is Starter Kit Rev1.0
-        NOTICE:  BL2: Boot device is HyperFlash(80MHz)
-        NOTICE:  BL2: LCM state is CM
-        NOTICE:  BL2: AVS setting succeeded. DVFS_SetVID=0x52
-        NOTICE:  BL2: DDR1600(rev.0.22)NOTICE:  [COLD_BOOT]NOTICE:  ..0
-        NOTICE:  BL2: DRAM Split is 2ch
-        NOTICE:  BL2: QoS is default setting(rev.0.17)
-        NOTICE:  BL2: Lossy Decomp areas
-        NOTICE:       Entry 0: DCMPAREACRAx:0x80000540 DCMPAREACRBx:0x570
-        NOTICE:       Entry 1: DCMPAREACRAx:0x40000000 DCMPAREACRBx:0x0
-        NOTICE:       Entry 2: DCMPAREACRAx:0x20000000 DCMPAREACRBx:0x0
-        NOTICE:  BL2: v1.3(release):4eef9a2
-        NOTICE:  BL2: Built : 00:25:19, Aug 25 2017
-        NOTICE:  BL2: Normal boot
-        NOTICE:  BL2: dst=0xe631e188 src=0x8180000 len=512(0x200)
-        NOTICE:  BL2: dst=0x43f00000 src=0x8180400 len=6144(0x1800)
-        NOTICE:  BL2: dst=0x44000000 src=0x81c0000 len=65536(0x10000)
-        NOTICE:  BL2: dst=0x44100000 src=0x8200000 len=524288(0x80000)
-        NOTICE:  BL2: dst=0x50000000 src=0x8640000 len=1048576(0x100000)
+    ```sh
+    NOTICE:  BL2: R-Car Gen3 Initial Program Loader(CA57) Rev.1.0.14
+    NOTICE:  BL2: PRR is R-Car M3 Ver1.0
+    NOTICE:  BL2: Board is Starter Kit Rev1.0
+    NOTICE:  BL2: Boot device is HyperFlash(80MHz)
+    NOTICE:  BL2: LCM state is CM
+    NOTICE:  BL2: AVS setting succeeded. DVFS_SetVID=0x52
+    NOTICE:  BL2: DDR1600(rev.0.22)NOTICE:  [COLD_BOOT]NOTICE:  ..0
+    NOTICE:  BL2: DRAM Split is 2ch
+    NOTICE:  BL2: QoS is default setting(rev.0.17)
+    NOTICE:  BL2: Lossy Decomp areas
+    NOTICE:       Entry 0: DCMPAREACRAx:0x80000540 DCMPAREACRBx:0x570
+    NOTICE:       Entry 1: DCMPAREACRAx:0x40000000 DCMPAREACRBx:0x0
+    NOTICE:       Entry 2: DCMPAREACRAx:0x20000000 DCMPAREACRBx:0x0
+    NOTICE:  BL2: v1.3(release):4eef9a2
+    NOTICE:  BL2: Built : 00:25:19, Aug 25 2017
+    NOTICE:  BL2: Normal boot
+    NOTICE:  BL2: dst=0xe631e188 src=0x8180000 len=512(0x200)
+    NOTICE:  BL2: dst=0x43f00000 src=0x8180400 len=6144(0x1800)
+    NOTICE:  BL2: dst=0x44000000 src=0x81c0000 len=65536(0x10000)
+    NOTICE:  BL2: dst=0x44100000 src=0x8200000 len=524288(0x80000)
+    NOTICE:  BL2: dst=0x50000000 src=0x8640000 len=1048576(0x100000)
+    
 
+    U-Boot 2015.04-dirty (Aug 25 2017 - 10:55:49)
 
-        U-Boot 2015.04-dirty (Aug 25 2017 - 10:55:49)
-
-        CPU: Renesas Electronics R8A7796 rev 1.0
-        Board: M3ULCB
-        I2C:   ready
-        DRAM:  1.9 GiB
-        MMC:   sh-sdhi: 0, sh-sdhi: 1
-        In:    serial
-        Out:   serial
-        Err:   serial
-        Net:   ravb
-        Hit any key to stop autoboot:  0
+    CPU: Renesas Electronics R8A7796 rev 1.0
+    Board: M3ULCB
+    I2C:   ready
+    DRAM:  1.9 GiB
+    MMC:   sh-sdhi: 0, sh-sdhi: 1
+    In:    serial
+    Out:   serial
+    Err:   serial
+    Net:   ravb
+    Hit any key to stop autoboot:  0
+    ```
 
 ## 7. Setting-up U-boot
 
@@ -410,10 +432,12 @@ Follow these steps to download the drivers you need:
   3. Set Correct Environment : 
 
      Be sure your environment is set up as follows:
-
-            $ setenv bootargs console=ttySC0,115200 ignore_loglevel vmalloc=384M video=HDMI-A-1:1920x1080-32@60 root=/dev/mmcblk1p1 rw rootfstype=ext4 rootwait rootdelay=2
-            $ setenv bootcmd run load_ker\; run load_dtb\; booti 0x48080000 - 0x48000000
-            $ setenv load_ker ext4load mmc 0:1 0x48080000 /boot/Image
+     
+     ```sh
+     $ setenv bootargs console=ttySC0,115200 ignore_loglevel vmalloc=384M video=HDMI-A-1:1920x1080-32@60 root=/dev/mmcblk1p1 rw rootfstype=ext4 rootwait rootdelay=2
+     $ setenv bootcmd run load_ker\; run load_dtb\; booti 0x48080000 - 0x48000000
+     $ setenv load_ker ext4load mmc 0:1 0x48080000 /boot/Image
+     ```
 
   4. Save the boot environment: `$ saveenv`
 
@@ -423,42 +447,45 @@ Follow these steps to download the drivers you need:
      enter `printenv` to check if you have correct parameters for booting your board:
       
       Here is an example using the **h3ulcb** board:
+      
+      ```sh
+      $ printenv
+      baudrate=115200
+      bootargs=console=ttySC0,115200 root=/dev/mmcblk1p1 rootwait ro rootfstype=ext4
+      bootcmd=run load_ker; run load_dtb; booti 0x48080000 - 0x48000000
+      bootdelay=3
+      fdt_high=0xffffffffffffffff
+      initrd_high=0xffffffffffffffff
+      load_dtb=ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb.dtb
+      load_ker=ext4load mmc 0:1 0x48080000 /boot/Image
+      stderr=serial
+      stdin=serial
+      stdout=serial
+      ver=U-Boot 2015.04 (Jun 09 2016 - 19:21:52)
 
-            $ printenv
-            baudrate=115200
-            bootargs=console=ttySC0,115200 root=/dev/mmcblk1p1 rootwait ro rootfstype=ext4
-            bootcmd=run load_ker; run load_dtb; booti 0x48080000 - 0x48000000
-            bootdelay=3
-            fdt_high=0xffffffffffffffff
-            initrd_high=0xffffffffffffffff
-            load_dtb=ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb.dtb
-            load_ker=ext4load mmc 0:1 0x48080000 /boot/Image
-            stderr=serial
-            stdin=serial
-            stdout=serial
-            ver=U-Boot 2015.04 (Jun 09 2016 - 19:21:52)
-
-            Environment size: 648/131068 bytes
+      Environment size: 648/131068 bytes
+      ```
 
       Here is a second example using the **m3ulcb** board:
 
-            $ printenv
-            baudrate=115200
-            bootargs=console=ttySC0,115200 root=/dev/mmcblk1p1 rootwait ro rootfstype=ext4
-            bootcmd=run load_ker; run load_dtb; booti 0x48080000 - 0x48000000
-            bootdelay=3
-            fdt_high=0xffffffffffffffff
-            filesize=cdeb
-            initrd_high=0xffffffffffffffff
-            load_dtb=ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb.dtb
-            load_ker=ext4load mmc 0:1 0x48080000 /boot/Image
-            stderr=serial
-            stdin=serial
-            stdout=serial
-            ver=U-Boot 2015.04 (Nov 30 2016 - 18:25:18)
+      ```sh
+      $ printenv
+      baudrate=115200
+      bootargs=console=ttySC0,115200 root=/dev/mmcblk1p1 rootwait ro rootfstype=ext4
+      bootcmd=run load_ker; run load_dtb; booti 0x48080000 - 0x48000000
+      bootdelay=3
+      fdt_high=0xffffffffffffffff
+      filesize=cdeb
+      initrd_high=0xffffffffffffffff
+      load_dtb=ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb.dtb
+      load_ker=ext4load mmc 0:1 0x48080000 /boot/Image
+      stderr=serial
+      stdin=serial
+      stdout=serial
+      ver=U-Boot 2015.04 (Nov 30 2016 - 18:25:18)
 
-            Environment size: 557/131068 bytes
-
+      Environment size: 557/131068 bytes
+      ```
 
 
 ## 8. Troubleshooting
@@ -471,17 +498,18 @@ Follow these steps to download the drivers you need:
     A login prompt should appear as follows depending on your board:
 
     **h3ulcb**:
+    ```sh
+    Automotive Grade Linux ${AGL_VERSION} h3ulcb ttySC0
 
-        Automotive Grade Linux ${AGL_VERSION} h3ulcb ttySC0
-
-        h3ulcb login: root
-
+    h3ulcb login: root
+    ```
 
     **m3ulcb**:
+    ```sh
+    Automotive Grade Linux ${AGL_VERSION} m3ulcb ttySC0
 
-        Automotive Grade Linux ${AGL_VERSION} m3ulcb ttySC0
-
-        m3ulcb login: root
+    m3ulcb login: root
+    ```
 
     At the prompt, login by using `root` as the login.
     The password is "empty" so you should not be prompted for the password.
@@ -493,21 +521,24 @@ Follow these steps to download the drivers you need:
     you can determine the board's IP address and log in using `ssh`.
 
     Here is an example for the m3ulcb board:
-
-        m3ulcb login: root
-        root@m3ulcb:~# ip -4 a
-        1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
-            inet 127.0.0.1/8 scope host lo
-              valid_lft forever preferred_lft forever
-        3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
-            inet 10.0.0.27/24 brd 10.0.0.255 scope global eth0
-              valid_lft forever preferred_lft forever
+    
+    ```sh
+    m3ulcb login: root
+    root@m3ulcb:~# ip -4 a
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default
+        inet 127.0.0.1/8 scope host lo
+          valid_lft forever preferred_lft forever
+    3: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+        inet 10.0.0.27/24 brd 10.0.0.255 scope global eth0
+          valid_lft forever preferred_lft forever
+    ```
 
     In the previous example, IP address is 10.0.0.27.
     Once you know the address, you can use `ssh` to login.
-
-        $ ssh root@10.0.0.27
-
+    
+    ```sh
+    $ ssh root@10.0.0.27
+    ```
 
 ## 9. Supplementary Information 
 
@@ -530,58 +561,61 @@ Follow these steps to download the drivers you need:
             * Please copy proprietary libraries to the directory of recipes.
 
             * Please set local.conf the following.
-
-                  **Enable multimedia features. This provides package group of plug-ins of the GStreamer, multimedia libraries and kernel drivers.**
-
-                      MACHINE_FEATURES_append = " multimedia"
+              **Enable multimedia features. This provides package group of plug-ins of the GStreamer, multimedia libraries and kernel drivers.**
+              
+              ```sh
+              MACHINE_FEATURES_append = " multimedia"
+              ```
 
         * B. Configuration for optional codecs and middleware
-
 
             * Please copy proprietary libraries to the directory of recipes.
 
             * Add features to DISTRO_FEATURES_append to local.conf
 
-                **Additional configuration in OMX module**
+              **Additional configuration in OMX module**
 
-                    " h263dec_lib"       - for OMX Media Component H263 Decoder Library
-                    " h264dec_lib"       - for OMX Media Component H264 Decoder Library
-                    " h264enc_lib"       - for OMX Media Component H.264 Encoder Library
-                    " h265dec_lib"       - for OMX Media Component H265 Decoder Library
-                    " mpeg2dec_lib"      - for OMX Media Component MPEG2 Decoder Library
-                    " mpeg4dec_lib"      - for OMX Media Component MPEG4 Decoder Library
-                    " vc1dec_lib"        - for OMX Media Component VC-1 Decoder Library
-                    " divxdec_lib"       - for OMX Media Component DivX Decoder Library
-                    " rvdec_lib"         - for OMX Media Component RealVideo Decoder Library
-                    " alacdec_lib"       - for OMX Media Component ALAC Decoder Library
-                    " flacdec_lib"       - for OMX Media Component FLAC Decoder Library
-                    " aaclcdec_lib"      - for OMX Media Component AAC-LC Decoder Library
-                    " aaclcdec_mdw"      - for AAC-LC 2ch Decoder Middleware for Linux
-                    " aacpv2dec_lib"     - for OMX Media Component aacPlus V2 Decoder Library
-                    " aacpv2dec_mdw"     - for aacPlus V2 Decoder Middleware for Linux
-                    " mp3dec_lib"        - for OMX Media Component MP3 Decoder Library
-                    " mp3dec_mdw"        - for MP3 Decoder Middleware for Linux
-                    " wmadec_lib"        - for OMX Media Component WMA Standard Decoder Library
-                    " wmadec_mdw"        - for WMA Standard Decoder Middleware for Linux
-                    " dddec_lib"         - for OMX Media Component Dolby(R) Digital Decoder Library
-                    " dddec_mdw"         - for Dolby(R) Digital Decoder Middleware for Linux
-                    " aaclcenc_lib"      - for OMX Media Component AAC-LC Encoder Library
-                    " vp8dec_lib"        - for OMX Media Component VP8 Decoder Library for Linux
-                    " vp8enc_lib"        - for OMX Media Component VP8 Encoder Library for Linux
-                    " vp9dec_lib"        - for OMX Media Component VP9 Decoder Library for Linux
-                    " aaclcenc_mdw"      - for AAC-LC Encoder Middleware for Linux
-                    " cmsbcm"            - for CMS Basic Color Management Middleware for Linux
-                    " cmsblc"            - for CMS CMM3 Backlight Control Middleware for Linux
-                    " cmsdgc"            - for CMS VSP2 Dynamic Gamma Correction Middleware for Linux
-                    " dtv"               - for ISDB-T DTV Software Package for Linux
-                    " dvd"               - for DVD Core-Middleware for Linux
-                    " adsp"              - for ADSP driver, ADSP interface and ADSP framework for Linux
-                    " avb"               - for AVB Software Package for Linux
+              ```sh
+              " h263dec_lib"       - for OMX Media Component H263 Decoder Library
+              " h264dec_lib"       - for OMX Media Component H264 Decoder Library
+              " h264enc_lib"       - for OMX Media Component H.264 Encoder Library
+              " h265dec_lib"       - for OMX Media Component H265 Decoder Library
+              " mpeg2dec_lib"      - for OMX Media Component MPEG2 Decoder Library
+              " mpeg4dec_lib"      - for OMX Media Component MPEG4 Decoder Library
+              " vc1dec_lib"        - for OMX Media Component VC-1 Decoder Library
+              " divxdec_lib"       - for OMX Media Component DivX Decoder Library
+              " rvdec_lib"         - for OMX Media Component RealVideo Decoder Library
+              " alacdec_lib"       - for OMX Media Component ALAC Decoder Library
+              " flacdec_lib"       - for OMX Media Component FLAC Decoder Library
+              " aaclcdec_lib"      - for OMX Media Component AAC-LC Decoder Library
+              " aaclcdec_mdw"      - for AAC-LC 2ch Decoder Middleware for Linux
+              " aacpv2dec_lib"     - for OMX Media Component aacPlus V2 Decoder Library
+              " aacpv2dec_mdw"     - for aacPlus V2 Decoder Middleware for Linux
+              " mp3dec_lib"        - for OMX Media Component MP3 Decoder Library
+              " mp3dec_mdw"        - for MP3 Decoder Middleware for Linux
+              " wmadec_lib"        - for OMX Media Component WMA Standard Decoder Library
+              " wmadec_mdw"        - for WMA Standard Decoder Middleware for Linux
+              " dddec_lib"         - for OMX Media Component Dolby(R) Digital Decoder Library
+              " dddec_mdw"         - for Dolby(R) Digital Decoder Middleware for Linux
+              " aaclcenc_lib"      - for OMX Media Component AAC-LC Encoder Library
+              " vp8dec_lib"        - for OMX Media Component VP8 Decoder Library for Linux
+              " vp8enc_lib"        - for OMX Media Component VP8 Encoder Library for Linux
+              " vp9dec_lib"        - for OMX Media Component VP9 Decoder Library for Linux
+              " aaclcenc_mdw"      - for AAC-LC Encoder Middleware for Linux
+              " cmsbcm"            - for CMS Basic Color Management Middleware for Linux
+              " cmsblc"            - for CMS CMM3 Backlight Control Middleware for Linux
+              " cmsdgc"            - for CMS VSP2 Dynamic Gamma Correction Middleware for Linux
+              " dtv"               - for ISDB-T DTV Software Package for Linux
+              " dvd"               - for DVD Core-Middleware for Linux
+              " adsp"              - for ADSP driver, ADSP interface and ADSP framework for Linux
+              " avb"               - for AVB Software Package for Linux
+              ```
 
             Ex:
-            
-                  DISTRO_FEATURES_append = " h264dec_lib h265dec_lib mpeg2dec_lib aaclcdec_lib aaclcdec_mdw"
-           
+
+            ```sh
+            DISTRO_FEATURES_append = " h264dec_lib h265dec_lib mpeg2dec_lib aaclcdec_lib aaclcdec_mdw"
+            ```
 
         * C. Configuration for test packages
 
@@ -590,9 +624,10 @@ Follow these steps to download the drivers you need:
 
           * Please add feature to DISTRO_FEATURES_append to local.conf.
 
-              **Configuration for multimedia test package**
-
-                      DISTRO_FEATURES_append = " mm-test"
+            **Configuration for multimedia test package**
+            ```sh
+            DISTRO_FEATURES_append = "mm-test"
+            ```
 
     2. Enable Linux ICCOM driver and Linux ICCOM library
 
@@ -602,7 +637,9 @@ Follow these steps to download the drivers you need:
         * Please copy proprietary libraries to the directory of recipes.
 
         * Please set local.conf the following.
-
-                DISTRO_FEATURES_append = " iccom"
+        
+        ```sh
+        DISTRO_FEATURES_append = "iccom"
+        ```
 
 

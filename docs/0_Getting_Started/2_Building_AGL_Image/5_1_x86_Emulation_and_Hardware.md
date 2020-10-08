@@ -21,19 +21,23 @@ specific options when you run the script:
 
 **Qt based IVI demo :**
 
-    $ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel
-    $ echo '# reuse download directories' >> $AGL_TOP/site.conf
-    $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
-    $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
-    $ ln -sf $AGL_TOP/site.conf conf/
+```sh
+$ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel
+$ echo '# reuse download directories' >> $AGL_TOP/site.conf
+$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+$ ln -sf $AGL_TOP/site.conf conf/
+```
 
 **HTML5 based IVI demo :**
 
-    $ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel agl-profile-graphical-html5
-    $ echo '# reuse download directories' >> $AGL_TOP/site.conf
-    $ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
-    $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
-    $ ln -sf $AGL_TOP/site.conf conf/
+```sh
+$ source meta-agl/scripts/aglsetup.sh -f -m qemux86-64 -b qemux86-64 agl-demo agl-devel agl-profile-graphical-html5
+$ echo '# reuse download directories' >> $AGL_TOP/site.conf
+$ echo 'DL_DIR = "$HOME/downloads/"' >> $AGL_TOP/site.conf
+$ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
+$ ln -sf $AGL_TOP/site.conf conf/
+```
 
 The "-m" option specifies the "qemux86-64" machine.
 The list of AGL features used with script are appropriate for development of
@@ -50,26 +54,32 @@ The build also takes approximately 100G-bytes of free disk space.
 **Qt based IVI demo :**
 The target is `agl-demo-platform`.
 
-    $ time bitbake agl-demo-platform
-
+```sh
+$ time bitbake agl-demo-platform
+```
 
 By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`:
 
-    <build_directory>/tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.vmdk.xz
+```sh
+<build_directory>/tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.vmdk.xz
 
-    $ export IMAGE_NAME=agl-demo-platform-qemux86-64.vmdk.xz
-
+$ export IMAGE_NAME=agl-demo-platform-qemux86-64.vmdk.xz
+```
 
 **HTML5 based IVI demo :**
 The target is `agl-demo-platform-html5`.
 
-    $ time bitbake agl-demo-platform-html5
+```sh
+$ time bitbake agl-demo-platform-html5
+```
 
 By default, the build process puts the resulting image in the Build Directory and further exporting that as `$IMAGE_NAME`:
 
-    <build_directory>/tmp/deploy/images/qemux86-64/agl-demo-platform-html5-qemux86-64.vmdk.xz
+```sh
+<build_directory>/tmp/deploy/images/qemux86-64/agl-demo-platform-html5-qemux86-64.vmdk.xz
 
-    $ export IMAGE_NAME=agl-demo-platform-html5-qemux86-64.vmdk.xz
+$ export IMAGE_NAME=agl-demo-platform-html5-qemux86-64.vmdk.xz
+```
 
 ## 3. Deploying the AGL Demo Image
 
@@ -83,17 +93,22 @@ Depending on your Linux distribution, use these commands to install QEMU:
 If you built your image with bitbake, you can now just use the ``runqemu`` wrapper, after sourcing `agl-init-build-env` inside the build-dir :
 
 For this example :
-    
-    $ source $AGL_TOP/master/qemux86-64/agl-init-build-env 
+
+```sh    
+$ source $AGL_TOP/master/qemux86-64/agl-init-build-env 
+```
 
 In general :
-    
-    $ source $AGL_TOP/<release-branch-name>/<build-dir>/
+
+```sh    
+$ source $AGL_TOP/<release-branch-name>/<build-dir>/
+```
 
 And further use `runqemu` to boot the image :
 
-    $ runqemu tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.qemuboot.conf kvm serialstdio slirp publicvnc audio
-
+```sh
+$ runqemu tmp/deploy/images/qemux86-64/agl-demo-platform-qemux86-64.qemuboot.conf kvm serialstdio slirp publicvnc audio
+```
 
 If you need to run it outside of the bitbake environment or need special settings for
 hardware pass-through using `qemu` :
@@ -111,34 +126,41 @@ to install the necessary files with below commands (ovmf).
 If your build host is running
 [Arch Linux](https://www.archlinux.org/), use the following commands:
 
-    sudo pacman -S qemu ovmf
-    export OVMF_PATH=/usr/share/ovmf/x64/OVMF_CODE.fd
-
+```sh
+sudo pacman -S qemu ovmf
+export OVMF_PATH=/usr/share/ovmf/x64/OVMF_CODE.fd
+```
 
 If your build host is running Debian or Ubuntu, use the following commands:
 
-    sudo apt-get install qemu-system-x86 ovmf
-    export OVMF_PATH=/usr/share/ovmf/OVMF.fd
+```sh
+sudo apt-get install qemu-system-x86 ovmf
+export OVMF_PATH=/usr/share/ovmf/OVMF.fd
+```
 
 If you build host is running Fedora, use the following commands:
 
-    sudo yum install qemu qemu-kvm edk2-ovmf
-    export OVMF_PATH=/usr/share/edk2/ovmf/OVMF_CODE.fd
+```sh
+sudo yum install qemu qemu-kvm edk2-ovmf
+export OVMF_PATH=/usr/share/edk2/ovmf/OVMF_CODE.fd
+```
 
 **Note:**
 
 Once QEMU is installed, boot the image with KVM support:
 
-    qemu-system-x86_64 -enable-kvm -m 2048 \
-        -bios ${OVMF_PATH} \
-        -hda ${IMAGE_NAME} \
-        -cpu kvm64 -cpu qemu64,+ssse3,+sse4.1,+sse4.2,+popcnt \
-        -vga virtio -show-cursor \
-        -device virtio-rng-pci \
-        -serial mon:stdio -serial null \
-        -soundhw hda \
-        -net nic \
-        -net user,hostfwd=tcp::2222-:22
+```sh
+qemu-system-x86_64 -enable-kvm -m 2048 \
+    -bios ${OVMF_PATH} \
+    -hda ${IMAGE_NAME} \
+    -cpu kvm64 -cpu qemu64,+ssse3,+sse4.1,+sse4.2,+popcnt \
+    -vga virtio -show-cursor \
+    -device virtio-rng-pci \
+    -serial mon:stdio -serial null \
+    -soundhw hda \
+    -net nic \
+    -net user,hostfwd=tcp::2222-:22
+```
 
 **NOTE:** KVM may not be supported within a virtualized environment such as
 VirtualBox. This is indicated by the qemu command above giving the error
@@ -155,10 +177,11 @@ Once VirtualBox is installed, follow these steps to boot the image:
   1. Install and set up [Virtual Box](https://www.virtualbox.org/wiki/Linux_Downloads).
 
   2. Extract the vmdk file : 
-  
-        cd tmp/deploy/images/qemux86-64
-        xz -d ${IMAGE_NAME}
-  
+    
+    ```sh
+    cd tmp/deploy/images/qemux86-64
+    xz -d ${IMAGE_NAME}
+    ```
 
   3. Configure virtual box for AGL :
     - Click on `New` or `Add`.
@@ -183,11 +206,12 @@ Once VirtualBox is installed, follow these steps to boot the image:
   
   1. Extract the image into USB drive :
     
-        $ cd tmp/deploy/images/qemux86-64
-        $ lsblk
-        $ sudo umount <usb_device_name>
-        $ xzcat agl-demo-platform-qemux86-64.wic.xz | sudo dd of=<usb_device_name> bs=4M
-        $ sync
-
+    ```sh
+    $ cd tmp/deploy/images/qemux86-64
+    $ lsblk
+    $ sudo umount <usb_device_name>
+    $ xzcat agl-demo-platform-qemux86-64.wic.xz | sudo dd of=<usb_device_name> bs=4M
+    $ sync
+    ```
 
   2. Boot from USB drive on the x86 system.

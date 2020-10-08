@@ -14,15 +14,18 @@ run to initialize the build environment.
 
 You can find this script here:
 
-    $AGL_TOP/master/meta-agl/scripts/aglsetup.sh
-
+```sh
+$AGL_TOP/master/meta-agl/scripts/aglsetup.sh
+```
 
 The script accepts many options that allow you to define build parameters such
 as the target hardware (i.e. the machine), build directory, and so forth.
 Use the following commands to see the available options and script syntax:
 
-    $ cd $AGL_TOP/master
-    $ source meta-agl/scripts/aglsetup.sh -h
+```sh
+$ cd $AGL_TOP/master
+$ source meta-agl/scripts/aglsetup.sh -h
+```
 
 ## AGL Machines (board support)
 
@@ -32,7 +35,7 @@ Note: This is also the place where you can add new boards.
 
 Following is a list of the available machines (level of support varies!):
 
-```
+```sh
 Available machines:
    [meta-agl]
        bbe                        # BeagleBoneEnhanced
@@ -61,8 +64,6 @@ Available machines:
        qemuarm64                  # Qemu AArch 64 (ARM 64bit)
      * qemux86-64                 # Qemu x86-64
        raspberrypi4               # Raspberry Pi 4
-
-
 ```
 
 ## AGL Features
@@ -74,7 +75,7 @@ which they reside.
 
 Following is a list of the available features:
 
-```
+```sh
 Available features:
    [meta-agl]
        agl-all-features :( agl-demo  agl-appfw-smack  agl-hmi-framework  agl-profile-graphical-qt5  agl-profile-graphical  agl-pipewire  agl-speech-framework  agl-netboot )
@@ -219,7 +220,7 @@ Following is an example that initializes the build environment, selects "beagleb
 for the machine, and chooses the "agl-demo" feature, which also includes the
 "agl-appfw-smack", "agl-devel", and "agl-hmi-framework" features:
 
-```
+```sh
 $ source meta-agl/scripts/aglsetup.sh -m qemux86-64 -b qemux86-64 agl-demo agl-devel
 aglsetup.sh: Starting
 Generating configuration files:
@@ -238,11 +239,8 @@ Generating configuration files:
 OK
 Generating setup file: /home/scottrif/workspace_agl/build/agl-init-build-env ... OK
 aglsetup.sh: Done
-
  Shell environment set up for builds.
-
 You can now run 'bitbake target'
-
 Common targets are:
   - meta-agl:          (core system)
     agl-image-minimal
@@ -258,7 +256,6 @@ Common targets are:
     agl-demo-platform  (* default demo target)
     agl-demo-platform-qa
     agl-demo-platform-crosssdk
-
     agl-demo-platform-html5
 ```
 
