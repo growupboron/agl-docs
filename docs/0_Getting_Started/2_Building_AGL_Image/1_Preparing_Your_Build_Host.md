@@ -25,7 +25,7 @@ development image.
 The [supported images](https://download.automotivelinux.org/AGL/snapshots/master/latest/) exist for several boards as
 well as for the Quick EMUlator (QEMU).
 See the
-"[Quickstart](../1_Quickstart/Quickstart.md)"
+"[Quickstart](../1_Quickstart/Using_Ready_Made_Images.md)"
 section for more information on the ready-made images.
 
 1. **Use a Supported Linux Distribution:** To use the AGL software, it is
