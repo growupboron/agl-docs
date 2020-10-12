@@ -98,16 +98,16 @@ AGL Reference Boards (QEMU, RCar Gen 3 & Raspberry Pi 4)
 * Setting up flags at `aglsetup` script :
         
     ```sh
-    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-telematics-demo
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-cluster-demo
 
     #To enable Developer Options
-    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-telematics-demo-demo agl-devel
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-cluster-demo agl-devel
     ```
 
 * Building target image :
 
     ```sh
-    $ time bitbake <....>
+    $ time bitbake agl-cluster-demo
     ```
 
 #### 3. Telematics
@@ -118,18 +118,19 @@ Headless demo platform for low-spec boards.
 
 Community supported Machines (BeagleBone)
 
+
 * Setting up flags at `aglsetup` script :
         
     ```sh
-    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-cluster-demo
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-telematics-demo
 
     #To enable Developer Options
-    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-cluster-demo agl-devel
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-telematics-demo agl-devel
     ```
 
 * Building target image :
 
     ```sh
-    $ time bitbake <....>
+    $ time bitbake agl-telematics-demo
     ```
 
