@@ -46,8 +46,8 @@ Follow these steps to download the drivers you need:
     site. The file pairs are grouped according to the Yocto Project version you are
     using with the AGL software.
 
-        | AGL Version| Renesas Version |
-        | AGL master | 3.21.0          |
+        | AGL Version   | Renesas Version |
+        | AGL jellyfish | 3.21.0          |
 
 3. **Download the Files:**
 
