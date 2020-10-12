@@ -4,7 +4,7 @@ title: Adding Documentation
 origin_url: >
 ---
 
-The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/admin/repos/AGL/documentation) contains AGL documentation website template and content, rendering is visible at [https://docs-agl.readthedocs.io/en/latest/](https://docs-agl.readthedocs.io/en/jellyfish/). The documentation site is hosted on [readthedocs](https://readthedocs.org/projects/docs-agl/) and corresponding builds are mentioned [here](https://readthedocs.org/projects/docs-agl/builds/).
+The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/admin/repos/AGL/documentation) contains AGL documentation website template and content, rendering is visible at [https://docs-agl.readthedocs.io/en/jellyfish/](https://docs-agl.readthedocs.io/en/jellyfish/). The documentation site is hosted on [readthedocs](https://readthedocs.org/projects/docs-agl/) and corresponding builds are mentioned [here](https://readthedocs.org/projects/docs-agl/builds/).
 
 ## Download Repository
 
