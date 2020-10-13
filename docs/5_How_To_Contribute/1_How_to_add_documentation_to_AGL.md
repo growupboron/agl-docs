@@ -1,14 +1,13 @@
 ---
-edit_link: ''
 title: Adding Documentation
-origin_url: >
 ---
 
 The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/admin/repos/AGL/documentation) contains AGL documentation website template and content, rendering is visible at [https://docs-agl.readthedocs.io/en/latest/](https://docs-agl.readthedocs.io/en/latest/). The documentation site is hosted on [readthedocs](https://readthedocs.org/projects/docs-agl/) and corresponding builds are mentioned [here](https://readthedocs.org/projects/docs-agl/builds/).
 
 ## Download Repository
 
-Clone with commit-msg hook :
+
+Kindly check [this](https://wiki.automotivelinux.org/agl-distro/contributing) and clone with commit-msg hook :
 
 ```sh
 $ git clone "ssh://$USER@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P 29418 $USER@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
