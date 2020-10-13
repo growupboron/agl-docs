@@ -13,7 +13,7 @@ skinparam sequence {
 
     LifeLineBorderColor #404040
     LifeLineBackgroundColor #404040
-	
+
     ParticipantBorderColor black
     ParticipantBackgroundColor #00FF00
     ParticipantFontSize 12
@@ -48,7 +48,7 @@ actor "Audio Domain" as AD
 alt Domain Type = DSP/Amplifier
     RS <- AD : registerDomain()
     activate AD #00FF00
-    
+
     activate RS #00FF00
     RR <- RS : registerDomain()
 
@@ -69,7 +69,7 @@ else Domain Type = SoundManager
     RS <- SM : registerDomain()
     activate SM #00FF00
     activate RS #00FF00
-    
+
     RR <- RS : registerDomain()
 
     activate RR #00FF00

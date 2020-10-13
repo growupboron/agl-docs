@@ -17,19 +17,19 @@ $ git clone "ssh://$USER@gerrit.automotivelinux.org:29418/AGL/documentation" && 
 ## Building a local site
 
 1. Change into the directory
-    
+
     ```sh
     $ cd documentation
     ```
 
-2. Install MkDocs and rtd-dropdown theme 
-    
+2. Install MkDocs and rtd-dropdown theme
+
     ```sh
     $ sudo pip install -r requirements.txt
     ```
 
-3. Serve locally (defaultly rendered at [127.0.0.1:8000/](127.0.0.1:8000/)):    
-    
+3. Serve locally (defaultly rendered at [127.0.0.1:8000/](127.0.0.1:8000/)):
+
     ```sh
     $ sudo mkdocs serve
     ```
@@ -54,7 +54,7 @@ documentation
 |   |   |   ├── .....
 ```
 
-## Markdown Formatting 
+## Markdown Formatting
 
   1. Add following at the start of each markdown :
 
@@ -72,7 +72,7 @@ documentation
 
 ## Test Hyperlinks
 
-[LinkChecker](https://wummel.github.io/linkchecker/) is a tool that allows to check all the hyperlinks in the site. 
+[LinkChecker](https://wummel.github.io/linkchecker/) is a tool that allows to check all the hyperlinks in the site.
 
 For testing hyperlinks as soon as the local site is running, do:
 
@@ -86,28 +86,28 @@ in the site.
 
 ## Submitting changes
 
-1. Install Git Review 
+1. Install Git Review
 
     ```sh
     #recent version of git-review  (>=1.28.0 is required)
-    sudo pip3 install git-review   
+    sudo pip3 install git-review 
     ```
 
 2. Write commit message
 
     ```sh
     # track all the new changes
-    git add .    
+    git add .
 
     # Write the commit message
-    git commit --signoff 
+    git commit --signoff
     ```
 
 3. Push changes for review to Gerrit
 
     ```sh
     # first time only
-    git review -s 
+    git review -s
 
     # then to push use
     git review

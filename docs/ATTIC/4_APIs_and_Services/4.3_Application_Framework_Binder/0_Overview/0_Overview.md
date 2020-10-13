@@ -21,12 +21,12 @@ written in any language and running almost anywhere.
 - The name **afb-daemon** stands for ***Application Framework Binder Daemon***.
 
 The word *daemon*, here, denote the fact that the ***binder*** makes witchcraft to
-connect applications to their expected services. (note: that usually the term of 
+connect applications to their expected services. (note: that usually the term of
 daemon denotes background process but not here).
 
-Each ***binder*** **afb-daemon** is in charge to bind one instance of 
-an application or service to the rest of the system, applications and services.  
-Within AGL, the connection between services and/or applications 
+Each ***binder*** **afb-daemon** is in charge to bind one instance of
+an application or service to the rest of the system, applications and services.
+Within AGL, the connection between services and/or applications
 is tuned by the AGL framework and the AGL system.
 
 ## The basis of the binder
@@ -41,17 +41,17 @@ The shown elements are:
 - The SECURITY CONTEXT
 
   The primary intention of any ***binder*** is to provide
-  a secured environment for any application.  
-  On AGL, the   **security context** is ensured by [Smack] 
+  a secured environment for any application.
+  On AGL, the   **security context** is ensured by [Smack]
   , the security context of the application or service.
 
 - The BINDER
 
-  This is the central element.  
-  It makes possible to run HTML5 applications and provides 
+  This is the central element.
+  It makes possible to run HTML5 applications and provides
   the unified access to APIs provided by the ***bindings***.
 
-  Running a pure HTML5 application doesn't require any ***binding***.  
+  Running a pure HTML5 application doesn't require any ***binding***.
   In that case , the ***binder*** acts as a simple HTTP server for
   the web runtime.
 

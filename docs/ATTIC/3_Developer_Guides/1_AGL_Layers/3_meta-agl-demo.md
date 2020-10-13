@@ -125,7 +125,7 @@ dependencies:
 
 ## Packagegroups
 
-AGL DEMO Platform's 
+AGL DEMO Platform's
 [packagegroups](https://www.yoctoproject.org/docs/3.1.2/dev-manual/dev-manual.html#usingpoky-extend-customimage-customtasks)
 consist of the following:
 
@@ -133,7 +133,7 @@ consist of the following:
 
 This packagegroup is used for generating the `agl-demo-platform` image,
 which is the full image for the AGL distributions IVI profile.
-You can see the recipe (i.e. `agl-demo-platform.bb`) that installs 
+You can see the recipe (i.e. `agl-demo-platform.bb`) that installs
 the `packagegroup-agl-demo-platform` packagegroup
 [here](https://git.automotivelinux.org/AGL/meta-agl-demo/tree/recipes-platform/images/agl-demo-platform.bb).
 

@@ -9,7 +9,7 @@ origin_url: >-
 
 # Tools for managing widgets
 
-This project includes tools for managing widgets.  
+This project includes tools for managing widgets.
 These tools are:
 
 - ***wgtpkg-info***: command line tool to display
@@ -27,7 +27,7 @@ These tools are:
 For all these commands, a tiny help is available with
 options **-h** or **--help**.
 
-There is no tool for unpacking a widget.  
+There is no tool for unpacking a widget.
 For doing such operation, you can use the command **unzip**.
 
 To list the files of a widget:
@@ -129,12 +129,12 @@ Where:
 - VER is the version of the package MAJOR.MINOR
 
 This organization has the advantage to allow several versions
-to leave together.  
+to leave together.
 This is needed for some good reasons (rolling back) and also for less good reasons (user habits).
 
 ### Identity of installed files
 
-All files are installed as user "afm" and group "afm".  
+All files are installed as user "afm" and group "afm".
 All files have rw(x) for user and r-(x) for group and others.
 
 This allows every user to read every file.

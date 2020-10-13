@@ -11,22 +11,22 @@ origin_url: >-
 
 ## Introduction
 
-This document proposes a quick tutorial to demonstrate the major 
-functionalities of the AGL Application Framework.  
-For more complete information, please refer to the inline documentation 
+This document proposes a quick tutorial to demonstrate the major
+functionalities of the AGL Application Framework.
+For more complete information, please refer to the inline documentation
 available in the main git repository:
 
 [https://gerrit.automotivelinux.org/gerrit/#/admin/projects/src/app-framework-main]
 [https://gerrit.automotivelinux.org/gerrit/#/admin/projects/src/app-framework-binder]
 
-For more information on AGL, please visit:  
+For more information on AGL, please visit:
 [https://www.automotivelinux.org/]
 
 ----------
 
 ## Sample applications
 
-4 sample applications (.wgt files) are prebuilt and available at the following address:  
+4 sample applications (.wgt files) are prebuilt and available at the following address:
 [https://github.com/iotbzh/afm-widget-examples]
 
 You can get them by cloning this git repository on your desktop (will be useful later in this tutorial):
@@ -62,11 +62,11 @@ We can see that there are two daemons running:
 * **afm-system-daemon** runs with a system user 'afm' and is responsible for
   installing/uninstalling packages
 * **afm-user-daemon** runs as a user daemon (currently as root because it's the
-  only real user on the target board) and is responsible for the whole life 
+  only real user on the target board) and is responsible for the whole life
   cycle of the applications running inside the user session.
 
 The application framework has a tool running on the
-Command Line Interface (CLI).  
+Command Line Interface (CLI).
 Using the **afm-util** command, you can install, uninstall, list, run, pause ... applications.
 
 To begin, run '**afm-util help**' to get a quick help on commands:
@@ -143,7 +143,7 @@ root@porter:~# afm-util info webapps-annex@0.0
 { "id": "webapps-annex@0.0", "version": "0.0.10", "width": 0, "height": 0, "name": "Annex", "description": "Reversi\/Othello", "shortname": "", "author": "Todd Brandt <todd.e.brandt@intel.com>" }
 ```
 
-Note: that AGL applications are mostly handled by afm-util through their IDs.  
+Note: that AGL applications are mostly handled by afm-util through their IDs.
 In our example, the application ID is 'webapps-annex@0.0'.
 
 ### Start application
@@ -159,7 +159,7 @@ As the application is a HTML5 game, you should then get a webview running with Q
 
 ### Security Context
 
-The application has been started in the user session, with a dedicated security context, enforced by SMACK.  
+The application has been started in the user session, with a dedicated security context, enforced by SMACK.
 To illustrate this, we can take a look at the running processes and their respective SMACK labels:
 
 ```bash
@@ -173,13 +173,13 @@ In the previous result, we see that the application is composed of two processes
 * the application binder (afb-daemon)
 * the application UI (qmlscene ...)
 
-While most system processes run with the label 'System', we see that the 
-application runs with a specific SMACK label 'User::App::webapps-annex': this 
-label is used to force the application to follow 
-a Mandatory Access Control (MAC) scheme.  
-This means that those processes run in their own security context, 
-isolated from the rest of the system (and other applications).  
-Global security rules can then be applied to restrict access 
+While most system processes run with the label 'System', we see that the
+application runs with a specific SMACK label 'User::App::webapps-annex': this
+label is used to force the application to follow
+a Mandatory Access Control (MAC) scheme.
+This means that those processes run in their own security context,
+isolated from the rest of the system (and other applications).
+Global security rules can then be applied to restrict access
 to all other user or system resources.
 
 ### Check running applications
@@ -191,7 +191,7 @@ root@porter:~# afm-util ps
 [ { "runid": 1, "state": "running", "id": "webapps-annex@0.0" } ]
 ```
 
-The 'runid' is the application instance ID and is used as an argument for the 
+The 'runid' is the application instance ID and is used as an argument for the
 subcommands controlling the application runtime state (kill/pause/resume/status)
 
 ### Uninstall application
@@ -214,25 +214,25 @@ root@porter:~# afm-util list
 
 **afm-client** is a HTML5 UI that allows to install/uninstall applications as well as starting/pausing them as already demonstrated with afm-util.
 
-The HTML5 UI is accessible remotely through this URL:  
+The HTML5 UI is accessible remotely through this URL:
 <http://[board_ip]:1234/opa?token=132456789>
 
 ### Installing an application
 
-By clicking on the '**Upload**' button on the right, 
-you can send an application package (WGT file) and install it.  
+By clicking on the '**Upload**' button on the right,
+you can send an application package (WGT file) and install it.
 Select for example the file '**rabbit.wgt**' that was cloned initially
  from the git repository afm-widget-examples.
 
-Then a popup requester ask for a confirmation:  
+Then a popup requester ask for a confirmation:
 'Upload Application rabbit.wgt ?'. Click on the '**Install**' button.
 
-You should then see some changes in the toolbar:  
+You should then see some changes in the toolbar:
 a new icon appeared, representing the freshly installed application.
 
 ### Running an application
 
-In the toolbar, click on the button representing the Rabbit application.  
+In the toolbar, click on the button representing the Rabbit application.
 You'll get a popup asking to:
 
 * start the application
@@ -240,23 +240,23 @@ You'll get a popup asking to:
 * or uninstall it
 
 Click on the 'start' item: the application starts and should be visible
- as a webview on the target board display.  
-Note that at this point, we could also run the application remotely, 
-that is in the same browser as the Homescreen app.  
-By default, the application framework is configured 
+ as a webview on the target board display.
+Note that at this point, we could also run the application remotely,
+that is in the same browser as the Homescreen app.
+By default, the application framework is configured
 to run applications 'locally' on the board display.
 
 ### Uninstalling an application
 
-From the same popup menu, you can select 'uninstall' 
-to remove the application from the system.  
+From the same popup menu, you can select 'uninstall'
+to remove the application from the system.
 As a consequence, the application icon should disappear from the toolbar.
 
 ## afb-client: a template for Angular Applications
 
-Another package '**afb-client**' is also available for testing.  
-This is a sample HTML5 application demonstrating various basic 
-capabilities of the Binder daemon.  
+Another package '**afb-client**' is also available for testing.
+This is a sample HTML5 application demonstrating various basic
+capabilities of the Binder daemon.
 It can be used by developers as a template to start writing real AGL Applications.
 
 This application is not available as WGT file yet and it should be started manually without any specific security context:
@@ -265,7 +265,7 @@ This application is not available as WGT file yet and it should be started manua
 root@porter:~# /usr/bin/afb-daemon --port=1235 --token='' --sessiondir=/home/root/.afm-daemon --rootdir=/usr/share/agl/afb-client --alias=/icons:/usr/share/afm/icons
 ```
 
-Then you can access it from a browser:  
+Then you can access it from a browser:
 <http://[board_ip]:1235/opa/?token=132456789>
 
 afb-client is a simple application to demonstrate the built-in capabilities of the binder daemon (handling sessions and security tokens, testing POSTs uploads...) and was used during the application framework development to validate the proposed features.

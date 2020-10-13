@@ -1,5 +1,4 @@
 ---
-edit_link: ''
 title: Building for R Car Gen 3
 ---
 
@@ -33,7 +32,7 @@ Follow these steps to download the drivers you need:
 
      Run the `setup_mm_packages.sh` script as follows to
      display the list of ZIP files containing the drivers you need.
-     
+
      ```sh
      $ grep -rn ZIP_.= $AGL_TOP/meta-agl/meta-agl-bsp/meta-rcar-gen3/scripts/setup_mm_packages.sh
      ```
@@ -69,7 +68,7 @@ Follow these steps to download the drivers you need:
 
     Create and export an environment variable named `XDG_DOWNLOAD_DIR` that points to
     your download directory.
-    
+
     ```sh
     $ export XDG_DOWNLOAD_DIR=$HOME/Downloads
     ```
@@ -77,7 +76,7 @@ Follow these steps to download the drivers you need:
 5. **Be Sure the Files Have Rights:**
 
     Be sure you have the necessary rights for the files you downloaded.
-    
+
     ```sh
     $ chmod a+r $XDG_DOWNLOAD_DIR/*.zip
     ```
@@ -87,7 +86,7 @@ Follow these steps to download the drivers you need:
    Gather together this list of hardware items, which is not exhaustive.
    Having these items ahead of time saves you from having to try and
    collect hardware during development:
-   
+
    Supported Starter
 
    * Kit Gen3 board with its 5V power supply.
@@ -117,7 +116,7 @@ Follow these steps to download the drivers you need:
 
 
     | BOARD  | `MACHINE` |
-    |:-:|:-:|  
+    |:-:|:-:|
     | Renesas RCar H3  | `MACHINE`= h3ulcb |
     | Renesas RCar H3 w Kingfisher Board  | `MACHINE`= h3ulcb-kf |
     | Renesas RCar H3 w/o gfx blobs  | `MACHINE`= h3ulcb-nogfx |
@@ -219,7 +218,7 @@ Follow these steps to download the drivers you need:
         **NOTE:** The Salvator-X firmware update process is not documented on eLinux.
 
   * **Preparing the MicroSD Card**
-     
+
      ```sh
      $ lsblk
      $ sudo umount <boot_device_name>
@@ -256,7 +255,7 @@ Follow these steps to download the drivers you need:
   * Configuring U-Boot parameters
   * Logging into the console
   * Determining the board's IP address
- 
+
  Brief about each process :
 
   1. Installing a Serial Client on Your Build Host
@@ -272,7 +271,7 @@ Follow these steps to download the drivers you need:
 
     Once you connect the board, determine the device created for the serial link.
     Use the `dmesg` command on your build host.
-    
+
     ```sh
     dmesg | tail 9
     [2097783.287091] usb 2-1.5.3: new full-speed USB device number 24 using ehci-pci
@@ -293,7 +292,7 @@ Follow these steps to download the drivers you need:
     Here are three commands, which vary based on the serial client, that show
     how to launch the client:
 
-    ```sh    
+    ```sh
     picocom -b 115200 /dev/ttyUSB0
     ```
 
@@ -304,7 +303,7 @@ Follow these steps to download the drivers you need:
     ```
 
     or
-    
+
     ```sh
     screen /dev/ttyUSB0 115200
     ```
@@ -321,7 +320,7 @@ Follow these steps to download the drivers you need:
     Following, is console output for the power on process for each kit:
 
     h3ulcb:
-    
+
     ```sh
     NOTICE:  BL2: R-Car Gen3 Initial Program Loader(CA57) Rev.1.0.7
     NOTICE:  BL2: PRR is R-Car H3 ES1.1
@@ -342,7 +341,7 @@ Follow these steps to download the drivers you need:
     NOTICE:  BL2: dst=0x44000000 src=0x81c0000 len=65536(0x10000)
     NOTICE:  BL2: dst=0x44100000 src=0x8200000 len=524288(0x80000)
     NOTICE:  BL2: dst=0x49000000 src=0x8640000 len=1048576(0x100000)
-    
+
 
     U-Boot 2015.04 (Jun 09 2016 - 19:21:52)
 
@@ -361,7 +360,7 @@ Follow these steps to download the drivers you need:
 
 
     m3ulcb:
-      
+
     ```sh
     NOTICE:  BL2: R-Car Gen3 Initial Program Loader(CA57) Rev.1.0.14
     NOTICE:  BL2: PRR is R-Car M3 Ver1.0
@@ -384,7 +383,7 @@ Follow these steps to download the drivers you need:
     NOTICE:  BL2: dst=0x44000000 src=0x81c0000 len=65536(0x10000)
     NOTICE:  BL2: dst=0x44100000 src=0x8200000 len=524288(0x80000)
     NOTICE:  BL2: dst=0x50000000 src=0x8640000 len=1048576(0x100000)
-    
+
 
     U-Boot 2015.04-dirty (Aug 25 2017 - 10:55:49)
 
@@ -411,43 +410,11 @@ Follow these steps to download the drivers you need:
       You need to press a key quickly as you have just a few seconds in which to
       press a key.
 
-  2. Loading dtb :
-
-      **NOTE** : Refer [here](https://elinux.org/R-Car/Boards/Yocto-Gen3-CommonFAQ/Which_dtb_file_is_required_to_boot_linux_on_the_R-Car_Starter_Kit_board_%3F) for more information.
-
-      Make sure your ``load_dtb`` is set as follows :
-
-       * **H3SK v2.0(DDR 4GB)** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb.dtb`
-
-       * **H3SK v2.0(DDR 8GB)/v3.0(DDR 8GB)** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-4x2g.dtb`
-
-       * **M3SK v1.0** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb.dtb`
-
-       * **M3SK v3.0** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-2x4g.dtb`
-
-       * **H3SK with a Kingfisher board** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-kf.dtb`
-
-       * **M3SK with a Kingfisher board** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-kf.dtb`
-
-  3. Set Correct Environment : 
-
-     Be sure your environment is set up as follows:
-     
-     ```sh
-     $ setenv bootargs console=ttySC0,115200 ignore_loglevel vmalloc=384M video=HDMI-A-1:1920x1080-32@60 root=/dev/mmcblk1p1 rw rootfstype=ext4 rootwait rootdelay=2
-     $ setenv bootcmd run load_ker\; run load_dtb\; booti 0x48080000 - 0x48000000
-     $ setenv load_ker ext4load mmc 0:1 0x48080000 /boot/Image
-     ```
-
-  4. Save the boot environment: `$ saveenv`
-
-  5. Boot the board: `$ run bootcmd`
-
-  6. Once the autoboot process is interrupted, use the board's serial console to 
+  2. Once the autoboot process is interrupted, use the board's serial console to
      enter `printenv` to check if you have correct parameters for booting your board:
-      
+
       Here is an example using the **h3ulcb** board:
-      
+
       ```sh
       $ printenv
       baudrate=115200
@@ -487,6 +454,37 @@ Follow these steps to download the drivers you need:
       Environment size: 557/131068 bytes
       ```
 
+  3. Loading dtb :
+
+      **NOTE** : Refer [here](https://elinux.org/R-Car/Boards/Yocto-Gen3-CommonFAQ/Which_dtb_file_is_required_to_boot_linux_on_the_R-Car_Starter_Kit_board_%3F) for more information.
+
+      Make sure your ``load_dtb`` is set as follows :
+
+       * **H3SK v2.0(DDR 4GB)** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb.dtb`
+
+       * **H3SK v2.0(DDR 8GB)/v3.0(DDR 8GB)** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-4x2g.dtb`
+
+       * **M3SK v1.0** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb.dtb`
+
+       * **M3SK v3.0** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-2x4g.dtb`
+
+       * **H3SK with a Kingfisher board** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7795-h3ulcb-kf.dtb`
+
+       * **M3SK with a Kingfisher board** : `$ setenv load_dtb ext4load mmc 0:1 0x48000000 /boot/r8a7796-m3ulcb-kf.dtb`
+
+  4. Set Correct Environment :
+
+     Be sure your environment is set up as follows:
+
+     ```sh
+     $ setenv bootargs console=ttySC0,115200 ignore_loglevel vmalloc=384M video=HDMI-A-1:1920x1080-32@60 root=/dev/mmcblk1p1 rw rootfstype=ext4 rootwait rootdelay=2
+     $ setenv bootcmd run load_ker\; run load_dtb\; booti 0x48080000 - 0x48000000
+     $ setenv load_ker ext4load mmc 0:1 0x48080000 /boot/Image
+     ```
+
+  5. Save the boot environment: `$ saveenv`
+
+  6. Boot the board: `$ run bootcmd`
 
 ## 8. Troubleshooting
 
@@ -521,7 +519,7 @@ Follow these steps to download the drivers you need:
     you can determine the board's IP address and log in using `ssh`.
 
     Here is an example for the m3ulcb board:
-    
+
     ```sh
     m3ulcb login: root
     root@m3ulcb:~# ip -4 a
@@ -535,12 +533,12 @@ Follow these steps to download the drivers you need:
 
     In the previous example, IP address is 10.0.0.27.
     Once you know the address, you can use `ssh` to login.
-    
+
     ```sh
     $ ssh root@10.0.0.27
     ```
 
-## 9. Supplementary Information 
+## 9. Supplementary Information
 
   * R-Car Generation 3 Information
 
@@ -562,7 +560,7 @@ Follow these steps to download the drivers you need:
 
             * Please set local.conf the following.
               **Enable multimedia features. This provides package group of plug-ins of the GStreamer, multimedia libraries and kernel drivers.**
-              
+
               ```sh
               MACHINE_FEATURES_append = " multimedia"
               ```
@@ -637,7 +635,7 @@ Follow these steps to download the drivers you need:
         * Please copy proprietary libraries to the directory of recipes.
 
         * Please set local.conf the following.
-        
+
         ```sh
         DISTRO_FEATURES_append = "iccom"
         ```

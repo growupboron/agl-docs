@@ -9,7 +9,7 @@ skinparam sequence {
     ActorBorderColor black
     LifeLineBorderColor #404040
     LifeLineBackgroundColor #404040
-	
+
     ParticipantBorderColor black
     ParticipantBackgroundColor #00FF00
     ParticipantFontName Yu Gothic UI

@@ -13,7 +13,7 @@ note over App,hss
 end note
 hss-> homescreen: push showNotification event
 note over hss,homescreen
-{"application_id":"request application id", 
+{"application_id":"request application id",
 "parameter":{"icon":"display icon", "text":"display text"}}
 end note
 

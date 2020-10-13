@@ -13,7 +13,7 @@ skinparam sequence {
 
     LifeLineBorderColor #404040
     LifeLineBackgroundColor #404040
-	
+
     ParticipantBorderColor black
     ParticipantBackgroundColor #00FF00
     ParticipantFontSize 12
@@ -95,7 +95,7 @@ AM -> RS : asyncSetSourceState()
 activate RS #00ff00
 RS -> AD : SetMute()
 activate AD #00ff00
-RS - -> AM 
+RS - -> AM
 deactivate RS
 deactivate AM
 

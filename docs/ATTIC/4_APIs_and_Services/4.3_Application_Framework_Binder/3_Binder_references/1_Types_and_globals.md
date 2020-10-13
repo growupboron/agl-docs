@@ -15,7 +15,7 @@ The global **afbBindingRoot** of type **afb_api_t** is always implicitly
 defined for bindings of version 3 or upper. It records the root api of
 the binding.
 
-When the binding has a defined **afbBindingExport**,  the root api 
+When the binding has a defined **afbBindingExport**,  the root api
 **afbBindingRoot** is the **afb_pi_t** relative to the api created for
 this static description.
 
@@ -28,7 +28,7 @@ but allows log messages.
 
 The global **afbBindingExport** is not mandatory.
 
-If **afbBindingExport** is defined and exported, it must be of the type 
+If **afbBindingExport** is defined and exported, it must be of the type
 **const afb_binding_t** and must describe the *root* api of the binding.
 
 ## The type afb_api_t
@@ -158,7 +158,7 @@ The session can be closed, by binding api, using the function **afb_req_session_
 ## The types afb_auth_t and afb_auth_type_t
 
 The structure **afb_auth_t** is used within verb description to
-set security requirements.  
+set security requirements.
 The interpretation of the structure depends on the value of the field **type**.
 
 ```C
@@ -171,18 +171,18 @@ struct afb_auth
 {
 	/** type of entry @see afb_auth_type */
 	enum afb_auth_type type;
-	
+
 	union {
 		/** text when @ref type == @ref afb_auth_Permission */
 		const char *text;
-		
+
 		/** level of assurancy when @ref type ==  @ref afb_auth_LOA */
 		unsigned loa;
-		
+
 		/** first child when @ref type in { @ref afb_auth_Or, @ref afb_auth_And, @ref afb_auth_Not } */
 		const struct afb_auth *first;
 	};
-	
+
 	/** second child when @ref type in { @ref afb_auth_Or, @ref afb_auth_And } */
 	const struct afb_auth *next;
 };

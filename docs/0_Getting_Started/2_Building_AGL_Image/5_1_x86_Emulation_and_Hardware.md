@@ -1,5 +1,4 @@
 ---
-edit_link: ''
 title: Building for x86 (Emulation and Hardware)
 ---
 
@@ -94,13 +93,13 @@ If you built your image with bitbake, you can now just use the ``runqemu`` wrapp
 
 For this example :
 
-```sh    
-$ source $AGL_TOP/master/qemux86-64/agl-init-build-env 
+```sh
+$ source $AGL_TOP/master/qemux86-64/agl-init-build-env
 ```
 
 In general :
 
-```sh    
+```sh
 $ source $AGL_TOP/<release-branch-name>/<build-dir>/
 ```
 
@@ -176,8 +175,8 @@ Once VirtualBox is installed, follow these steps to boot the image:
 
   1. Install and set up [Virtual Box](https://www.virtualbox.org/wiki/Linux_Downloads).
 
-  2. Extract the vmdk file : 
-    
+  2. Extract the vmdk file :
+
     ```sh
     cd tmp/deploy/images/qemux86-64
     xz -d ${IMAGE_NAME}
@@ -201,11 +200,11 @@ Once VirtualBox is installed, follow these steps to boot the image:
     - For troubleshooting, you can refer [here](https://lists.automotivelinux.org/g/agl-dev-community/message/8474).
 
 **3.3 x86 physical system**
-  
+
   **NOTE :** UEFI enabled system is required.
-  
+
   1. Extract the image into USB drive :
-    
+
     ```sh
     $ cd tmp/deploy/images/qemux86-64
     $ lsblk

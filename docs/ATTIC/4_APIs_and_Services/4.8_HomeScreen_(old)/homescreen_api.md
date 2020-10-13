@@ -75,9 +75,9 @@ namespace InputEvent {
 ```
 
 This will change in the future.
- 
+
 ![hardKeyPressed](pictures/api_hardKeyPressed.png)
- 
+
 A “normal” application would not need to call this API.
 
 ## Surface control API calls
@@ -104,9 +104,9 @@ This is not optimal and will change in the future. There are two options:
  - For Qt, there is already a patch available that provides this information as a base class property. See https://codereview.qt-project.org/#/c/176211/ This would be optimal for Qt widget applications. But not useful for other languages, e.g. Java. __UPDATE:__ This patch got reverted in AGL!
 
 #### Current implementation
- 
+
 ![getSurfaceStatus](pictures/api_getSurfaceStatus_1.png)
- 
+
 #### Option 1
 
 ![getSurfaceStatus](pictures/api_getSurfaceStatus_2.png)
@@ -128,7 +128,7 @@ This function will set the given surface to full screen.
 It will hide all other surfaces.
 
 ![requestSurfaceIdToFullScreen](pictures/api_requestSurfaceIdToFullScreen.png)
- 
+
 ### getAllSurfacesOfProcess
 
 This returns all surfaces that are created by the given process ID.
@@ -191,5 +191,5 @@ Whenever the visibility property of a surface changes, this signal is emitted.
 
 Visibility here means visible. The name of the signal is from the Weston surface property “visibility”.
 See here for reference: https://github.com/ntanibata/wayland-ivi-extension/blob/master/ivi-layermanagement-api/ilmCommon/include/ilm_types.h
- 
+
 ![surfaceVisibilityChanged](pictures/api_surfaceVisibilityChanged.png)

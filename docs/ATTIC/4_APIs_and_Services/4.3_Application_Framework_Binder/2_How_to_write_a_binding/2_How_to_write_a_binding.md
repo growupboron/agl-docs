@@ -12,7 +12,7 @@ origin_url: >-
 The ***binder*** serves files through HTTP protocol and offers developers the capability to offer application API methods through HTTP or
 WebSocket protocol.
 
-The ***bindings*** are used to add **API** to ***binders***.  
+The ***bindings*** are used to add **API** to ***binders***.
 This part describes how to write a ***binding*** for ***binder***
 or in other words how to add a new **API** to the system.
 
@@ -22,19 +22,19 @@ This section shortly explain how to write a binding
 using the C programming language.
 
 It is convenient to install the ***binder*** on the
-desktop used for writing the binding.  
+desktop used for writing the binding.
 It allows for easy debug and test.
 
 ## Nature of a binding
 
 A ***binding*** is an independent piece of software compiled as a shared
-library and dynamically loaded by a ***binder***.  
+library and dynamically loaded by a ***binder***.
 It is intended to provide one **API** (**A**pplication **P**rogramming
 **I**nterface).
 
-The **API** is designated and accessed through its name.  
+The **API** is designated and accessed through its name.
 It contains several **verbs** that implement the ***binding***
-functionalities.  
+functionalities.
 Each of these **verbs** is a **method** that
 processes requests of applications and sends results.
 
@@ -43,7 +43,7 @@ requests.
 
 The **methods** of the ***bindings*** are noted **api/verb**
 where **api** is the **API** name of the binding and **verb** is
-the **method**'s name within the **API**.  
+the **method**'s name within the **API**.
 This notation comes from HTTP invocations that rely on URL path terminated
 with **api/verb**.
 
@@ -56,7 +56,7 @@ The name of an **API** can be made of any characters except:
 The names of the **verbs** can be any character.
 
 The binder makes no distinctions between upper case and lower case
-latin letters.  
+latin letters.
 So **API/VERB** matches **Api/Verb** or **api/verb**.
 
 ## Versions of the bindings
@@ -72,7 +72,7 @@ You can either write:
 - a binding version 2 (not recommended);
 - a binding version 3 (RECOMMENDED).
 
-A ***binder*** loads and runs any of these version in any combination.  
+A ***binder*** loads and runs any of these version in any combination.
 This document explain how to write bindings version 3.
 
 <!-- pagebreak -->
@@ -158,7 +158,7 @@ The lines 1 and 2 show how to get the include file **afb-binding.h**.
   2 #include <afb/afb-binding.h>
 ```
 
-You must define the version of ***binding*** that you are using. 
+You must define the version of ***binding*** that you are using.
 This is done line 1 where we define that this is the version 3 (earlier
 versions 1 and 2 are deprecated).
 
@@ -174,9 +174,9 @@ Setting the include path is easy using **pkg-config**:
 pkg-config --cflags-only-I afb-daemon
 ```
 
-> Note for **C++** developers: 
+> Note for **C++** developers:
 >
-> The ***binder*** currently expose a draft version of **C++** api.  
+> The ***binder*** currently expose a draft version of **C++** api.
 > To get it include the file <**afb/afb-binding**> (without **.h**).
 
 
@@ -256,17 +256,17 @@ This is the code of the binding **tuto-2.c**:
 ```C
       1 #include <string.h>
       2 #include <json-c/json.h>
-      3 
+      3
       4 #define AFB_BINDING_VERSION 3
       5 #include <afb/afb-binding.h>
-      6 
+      6
       7 afb_event_t event_login, event_logout;
-      8 
+      8
       9 void login(afb_req_t req)
      10 {
      11         json_object *args, *user, *passwd;
      12         char *usr;
-     13 
+     13
      14         args = afb_req_json(req);
      15         if (!json_object_object_get_ex(args, "user", &user)
      16          || !json_object_object_get_ex(args, "password", &passwd)) {
@@ -287,12 +287,12 @@ This is the code of the binding **tuto-2.c**:
      31                 afb_event_push(event_login, json_object_new_string(usr));
      32         }
      33 }
-     34 
+     34
      35 void action(afb_req_t req)
      36 {
      37         json_object *args, *val;
      38         char *usr;
-     39 
+     39
      40         args = afb_req_json(req);
      41         usr = afb_req_context_get(req);
      42         AFB_REQ_NOTICE(req, "action for user %s: %s", usr, json_object_get_string(args));
@@ -309,11 +309,11 @@ This is the code of the binding **tuto-2.c**:
      53         }
      54         afb_req_reply(req, json_object_get(args), NULL, NULL);
      55 }
-     56 
+     56
      57 void logout(afb_req_t req)
      58 {
      59         char *usr;
-     60 
+     60
      61         usr = afb_req_context_get(req);
      62         AFB_REQ_NOTICE(req, "login user %s out", usr);
      63         afb_event_push(event_logout, json_object_new_string(usr));
@@ -321,13 +321,13 @@ This is the code of the binding **tuto-2.c**:
      65         afb_req_context_clear(req);
      66         afb_req_reply(req, NULL, NULL, NULL);
      67 }
-     68 
+     68
      69 int preinit(afb_api_t api)
      70 {
      71         AFB_API_NOTICE(api, "preinit");
      72         return 0;
      73 }
-     74 
+     74
      75 int init(afb_api_t api)
      76 {
      77         AFB_API_NOTICE(api, "init");
@@ -338,14 +338,14 @@ This is the code of the binding **tuto-2.c**:
      82         AFB_API_ERROR(api, "Can't create events");
      83         return -1;
      84 }
-     85 
+     85
      86 const afb_verb_t verbs[] = {
      87         { .verb="login", .callback=login },
      88         { .verb="action", .callback=action, .session=AFB_SESSION_LOA_1 },
      89         { .verb="logout", .callback=logout, .session=AFB_SESSION_LOA_1 },
      90         { .verb=NULL }
      91 };
-     92 
+     92
      93 const afb_binding_t afbBindingExport = {
      94         .api = "tuto-2",
      95         .specification = NULL,

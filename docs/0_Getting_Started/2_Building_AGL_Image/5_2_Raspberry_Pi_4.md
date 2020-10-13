@@ -1,5 +1,4 @@
 ---
-edit_link: ''
 title: Building for Raspberry Pi 4
 ---
 
@@ -24,7 +23,7 @@ If you are building the AGL demo image for a Raspberry Pi 4 board, you need to s
 specific options when you run the script :
 
 **Qt based IVI demo :**
-  
+
   ```sh
   $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel
   $ echo '# reuse download directories' >> $AGL_TOP/site.conf
@@ -32,9 +31,9 @@ specific options when you run the script :
   $ echo 'SSTATE_DIR = "$AGL_TOP/sstate-cache/"' >> $AGL_TOP/site.conf
   $ ln -sf $AGL_TOP/site.conf conf/
   ```
-  
+
 **HTML5 based IVI demo :**
-  
+
   ```sh
   $ source meta-agl/scripts/aglsetup.sh -f -m raspberrypi4 -b raspberrypi4 agl-demo agl-devel agl-profile-graphical-html5
   $ echo '# reuse download directories' >> $AGL_TOP/site.conf
@@ -123,11 +122,11 @@ the image on the Raspberry Pi 4 board:
   1. Plug your MicroSD card into your Build Host (i.e. the system that has your build output).
 
   2. Extract the image into the SD card of Raspberry Pi 4 :
-    
+
     **NOTE:** For Raspberry Pi 4, the image is at `<build-dir>/tmp/deploy/images/raspberrypi4/${IMAGE_NAME}`.
 
       Be sure you are root, provide the actual device name for *sdcard_device_name*, and the actual image name for *image_name*.
-      
+
       ```sh
       $ lsblk
       $ sudo umount <sdcard_device_name>
@@ -144,7 +143,7 @@ the image on the Raspberry Pi 4 board:
 
     To summarize this example so far, we have the following:
         The first SATA drive is `/dev/sda` and `/dev/sdc` corresponds to the MicroSD card, and is also marked as a removable device.You can see this in the output of the `lsblk` command where "1" appears in the "RM" column for that device.
-    
+
   3. SSH into Raspberry Pi :
     - Connect Raspberry Pi to network : `Homescreen > Settings`, IP address mentioned here.
     - SSH :
@@ -154,7 +153,7 @@ the image on the Raspberry Pi 4 board:
       ```
 
   4. Serial Debugging :
-    
+
     When things go wrong, you can take steps to debug your Raspberry Pi.
     For debugging, you need a 3.3 Volt USB Serial cable to fascilitate
     communication between your Raspberry Pi board and your build host.
@@ -185,8 +184,8 @@ the image on the Raspberry Pi 4 board:
       and your Raspberry Pi.
       For example, if your build host is a native Linux machine (e.g. Ubuntu)
       you could use `screen` as follows from a terminal on the build host:
-        
-      ```sh  
+
+      ```sh
       $ sudo screen /dev/ttyUSB0 115200
       ```
 

@@ -13,15 +13,15 @@ entity windowmanager as wm
 user->App: the operation request onscreen
 App->hss: showWindow()
 note over App,hss
-{"application_id":"onscreenapp", 
-"parameter":{"area":"display area", "file":"qml file path", 
+{"application_id":"onscreenapp",
+"parameter":{"area":"display area", "file":"qml file path",
 "data":{"the datas to onscreen qml"}}}
 end note
 
 hss->onscreenapp: push showWindow event
 note over hss,onscreenapp
-{"application_id":"onscreenapp", 
-"parameter":{"area":"display area", "file":"qml file path", 
+{"application_id":"onscreenapp",
+"parameter":{"area":"display area", "file":"qml file path",
 "data":{"the datas to onscreen qml"},
 <font color=red >"replyto":"caller application id"
 }}
@@ -44,7 +44,7 @@ end
 user->onscreenapp: tap onscreen's button
 onscreenapp->hss: replyShowWindow()
 note over onscreenapp,hss
-{"application_id":"the application id who called onscreenapp", 
+{"application_id":"the application id who called onscreenapp",
 "parameter": {"buttonName": "VOLUME_UP", "buttonPressMode": "shortPress", "buttonPressState": "release"}}
 end note
 hss->App: push replyShowWindow event

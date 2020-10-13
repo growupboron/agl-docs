@@ -18,7 +18,7 @@ applications for AGL framework using their preferred
 HTML5 framework.
 
 Developers may also take advantage of powerful server side bindings to improve
-application behavior.  
+application behavior.
 Server side bindings return an application/json mine-type
 and can be accessed though either HTTP or Websockets.
 
@@ -33,10 +33,10 @@ Two examples of HTML5 applications are given:
 
 ### Writing a Qt application
 
-Writing Qt applications is also supported.  
+Writing Qt applications is also supported.
 Qt offers standard API to send request through HTTP or WebSockets.
 
-It is also possible to write QML applications.  
+It is also possible to write QML applications.
 A sample QML application [token-websock] is available:
 
 - [token-websock](https://gerrit.automotivelinux.org/gerrit/gitweb?p=src/app-framework-binder.git;a=blob;f=test/token-websock.qml)
@@ -51,11 +51,11 @@ The library **libafbwsc** is provided for C clients that need
 to connect with an afb-daemon binder.
 
 The program **afb-client-demo** is the C example that uses the
-**libafbwsc** library.  
+**libafbwsc** library.
 Source code is available here
 [src/afb-client-demo.c](https://gerrit.automotivelinux.org/gerrit/gitweb?p=src/app-framework-binder.git;a=blob;f=src/afb-client-demo.c).
 
-Current implementation relies on libsystemd and file descriptors.  
+Current implementation relies on libsystemd and file descriptors.
 This model may be reviewed in the future to support secure sockets
 and get rid of libsystemd dependency.
 
@@ -65,15 +65,15 @@ Applications should understand sessions and token management when interacting
 with afb-daemon binder.
 
 Applications communicate with their private binder (afb-daemon) using
-a network connection or any other potential connection channel.  
+a network connection or any other potential connection channel.
 While the current version does not yet implement Unix socket,
-this feature might be added in the near future.  
+this feature might be added in the near future.
 Developers need to be warn that HTTP protocol is a none
 connected protocol and that using HTTP socket connection to authenticate
 clients is not supported.
 
 For this reason, the binder should authenticate the application
-by using a shared secret.  
+by using a shared secret.
 The secret is named "token" and the identification of client is named "session.”
 
 The examples **token-websock.qml** and **afb-client** are demonstrating
@@ -82,7 +82,7 @@ how authentication and sessions are managed.
 ### Handling sessions
 
 Bindings and other binder features need to keep track of client
-instances.  
+instances.
 This is especially important for bindings running as services
 as they may typically have to keep each client's data separated.
 
@@ -90,18 +90,18 @@ For HTML5 applications, the web runtime handles the cookie of the session
 that the binder afb-daemon automatically sets.
 
 Session identifier can be set using the parameter **uuid** or **x-afb-uuid** in
-URI requests.  
+URI requests.
 Within current version of the framework session UUID is supported
 by both HTTP requests and websocket negotiation.
 
 ### Exchanging tokens
 
 At application start, AGL framework communicates a shared secret to both binder
-and client application.  
+and client application.
 This initial secret is called the "**initial token**".
 
 For each of its client application, the binder manages a current active
-token for session management.  
+token for session management.
 This authentication token can be use to restrict the access to some binding's methods.
 
 The token must be included in URI request on HTTP or during websockets
@@ -258,7 +258,7 @@ The field **jtype** must have a value of type string equal to **"afb-reply"**.
 
 #### Field request of replies
 
-The field **request** must have a value of type object.  
+The field **request** must have a value of type object.
 This request object has at least one field named **status**
 and four optional fields named **info**, **token**, **uuid**, **reqid**.
 
@@ -273,7 +273,7 @@ only in case of success.
 
 ##### Subfield request.token
 
-**token** is of type string. It is sent either at session creation 
+**token** is of type string. It is sent either at session creation
 or when the token is refreshed.
 
 ##### Subfield request.uuid

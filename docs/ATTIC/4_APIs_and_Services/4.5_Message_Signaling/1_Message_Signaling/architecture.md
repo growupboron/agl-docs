@@ -162,7 +162,7 @@ component generating the signal and when possible directly at the hardware level
 
 To enable the right component to filter useless signals, consumer clients must
 describe precisely the data they need. A filter on frequency is provided since
-Daring Dab version, as well as minimum and maximum limits. These filters can be 
+Daring Dab version, as well as minimum and maximum limits. These filters can be
 specified at subscription time. Also, any data not required by any client should
 at the minimum never be transmitted. So only changed data is transmitted and if
 another service needs to receive at a regular time, it has to assume that if no
@@ -383,7 +383,7 @@ About now provided services use:
   Low level information might need to be composed (i.e. GPS+Gyro+Accel).
   Writing this composition logic might be quite complex and reusing existing
   libraries like: LibEkNav for Kalman filtering [[9]] or Vrgimbal for 3 axes
-  control[[10]] may help saving a lot of time. AGL apps should access CAN 
+  control[[10]] may help saving a lot of time. AGL apps should access CAN
   signals through High Level service. High level can lean on as many low level
   service as needed to compute its **Virtual signals** coming from differents
   sources. Viwi protocol seems to be a good solution.

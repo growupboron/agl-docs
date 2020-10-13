@@ -22,7 +22,7 @@ for the following reasons:
 - simplification of the API (after developer feedbacks)
 - removal of obscure features, cleanup
 
-The ***binder*** can run ***bindings*** v1 and/or v2 in any combination.  
+The ***binder*** can run ***bindings*** v1 and/or v2 in any combination.
 Thus moving from v1 to v2 is not enforced, there is no real need.
 
 More, it is possible to write a dual ***binding***:
@@ -40,10 +40,10 @@ It also explains some of the rationale taken when migrating from version 1 to ve
 
 In the future, if ***binding*** api evolves to fresh versions (3, 4, ...)
 it might be necessarily to write bindings implementing more than
-just one version.  
+just one version.
 For example:
 
-- a ***binding*** being v2 AND v3 will resolve the issue of running on older and newer version of AGL. 
+- a ***binding*** being v2 AND v3 will resolve the issue of running on older and newer version of AGL.
 
 This should always be possible even if more complicated.
 
@@ -51,7 +51,7 @@ Important things to known when migrating
 ----------------------------------------
 
 One of the most important change when migrating from v1 to v2 is
-that many functions use an hidden *common* variable.  
+that many functions use an hidden *common* variable.
 This affects the functions of the following classes:
 
 - functions of class **daemon**:
@@ -66,7 +66,7 @@ This affects the functions of the following classes:
 
 For these functions, the first parameter is now implicit.
 
-Let takes an example.  
+Let takes an example.
 For ***binding*** v1 you had to write:
 
 ```C
@@ -82,12 +82,12 @@ For ***binding*** v2, you simply write:
 This simplification is possible because the header files included for the bindings
 now provide a common variable for storing the **daemon** and **service** data.
 
-As a programmer, you shouldn't care much about that hidden variable.  
+As a programmer, you shouldn't care much about that hidden variable.
 It simplifies the job, that's all and that is the reason of the change.
 
 An other important difference is between the version 1 and the version 2 is
-on how the ***binding***'s **API** is documented.  
-The version 2 emphasis the **OpenAPI v3** description of the **API**.  
+on how the ***binding***'s **API** is documented.
+The version 2 emphasis the **OpenAPI v3** description of the **API**.
 For this reason, to avoid duplication of descriptions, only one description is expected:
 
 - The **OpenAPI** one.
@@ -111,7 +111,7 @@ The remaining chapters explain these task with more details.
 Enforce use of binding v2 by setting AFB_BINDING_VERSION
 --------------------------------------------------------
 
-By defining **AFB_BINDING_VERSION** to **2** you switch to version 2.  
+By defining **AFB_BINDING_VERSION** to **2** you switch to version 2.
 This is done as below.
 
 ```C
@@ -239,7 +239,7 @@ const struct afb_binding_v2 afbBindingV2 = {
 ```
 
 The **binder** now relies only on the exported names
-to deduce the type of the binding.  
+to deduce the type of the binding.
 This make the main structure more simple.
 
 Adapt the init and callback functions
@@ -253,24 +253,24 @@ The ***bindings*** version 1 defined 3 exported functions:
 
 These function should not be exported any more and there definition changed.
 
-The function **afbBindingV1Register** is no more used to describe the binding.  
+The function **afbBindingV1Register** is no more used to describe the binding.
 When a binding has to take actions when it is loaded, it must set the field
-**preinit** of the structure **afbBindingV2**.  
-This field, this preinit, might be used to check features at load.  
+**preinit** of the structure **afbBindingV2**.
+This field, this preinit, might be used to check features at load.
 When it returns a negative number, the ***binder*** stops before initializing any ***binding***.
 
 The function **afbBindingV1ServiceInit** is replaced by the field **init**
-of the structure **afbBindingV2**.  
+of the structure **afbBindingV2**.
 The init function should return 0 in case of success or a negative error code
-in case of problem.  
+in case of problem.
 It is called during initialization of services.
 
 The function **afbBindingV1ServiceEvent**is replaced by the field **onevent**
 of the structure **afbBindingV2**.
 
 The two functions **afbBindingV1Register** and **afbBindingV1ServiceInit**,
-were taking as parameter the ***binder*** interface and the service interface respectively.  
-These interfaces are now managed hiddenly for the **binding** by the **binder**.  
+were taking as parameter the ***binder*** interface and the service interface respectively.
+These interfaces are now managed hiddenly for the **binding** by the **binder**.
 So the variable that ***bindings*** version used to store the ***binder*** interface
 and the service interface are no more needed and can be removed.
 
@@ -340,8 +340,8 @@ const struct afb_binding_v2 afbBindingV2 = {
 ```
 
 The two functions **afbBindingV1Register** and **afbBindingV1ServiceInit**,
-were taking as parameter the ***binder*** interface and the service interface respectively.  
-These interfaces are now managed hiddenly for the **binding** by the **binder**.  
+were taking as parameter the ***binder*** interface and the service interface respectively.
+These interfaces are now managed hiddenly for the **binding** by the **binder**.
 So the variable that ***bindings*** version used to store the ***binder*** interface
 and the service interface are no more needed and can be removed.
 
@@ -386,16 +386,16 @@ Becomes:
         afb_daemon_broadcast_event(reason, description);
 ```
 
-Also, to avoid possible conflicts, we introduced prefixed logging functions:  
-the macros 
+Also, to avoid possible conflicts, we introduced prefixed logging functions:
+the macros
 
 - **ERROR**
 - **WARNING**
 - **NOTICE**
 - **INFO**
-- **DEBUG** 
+- **DEBUG**
 
-have now a prefixed version: 
+have now a prefixed version:
 
 - **AFB\_ERROR**
 - **AFB\_WARNING**
@@ -429,9 +429,9 @@ To remove definition of the un-prefixed versions of logging macros:
 - **WARNING**
 - **NOTICE**
 - **INFO**
-- **DEBUG** 
+- **DEBUG**
 
-and just define 
+and just define
 
 - **AFB_BINDING_PRAGMA_NO_VERBOSE_UNPREFIX**
 
@@ -446,11 +446,11 @@ before to include **afb/afb-binding.h**.
 Consider where to emit logs for requests
 ----------------------------------------
 
-The ***bindings*** v2 now allows to emit log messages associated to ***requests***.  
+The ***bindings*** v2 now allows to emit log messages associated to ***requests***.
 This feature is valuable when debugging because it allows to return
 side information associated to a ***request***.
 
-The defined macros for logging to requests are: 
+The defined macros for logging to requests are:
 
 - **AFB_REQ_ERROR**
 - **AFB_REQ_WARNING**
@@ -476,7 +476,7 @@ Take care of store/unstore change
 ---------------------------------
 
 For efficiency, the version 2 redefined how storing/un-storing of
-requests works.  
+requests works.
 Storing request is needed for asynchronous handling of requests.
 
 For ***bindings*** version, the signature of the functions were:
@@ -505,7 +505,7 @@ Consider use of synchronous (sub)call requests
 ----------------------------------------------
 
 ***Bindings*** can emit requests for themselves (calls) or for
-their clients (subcalls).  
+their clients (subcalls).
 With ***bindings*** version 2 comes also synchronous requests for both cases.
 
 So when migrating to bindings version 2, a developer can consider
@@ -551,7 +551,7 @@ static void verb(afb_req req)
 Example of migration
 --------------------
 
-The first ***binding*** that migrated from v1 to v2 was the sample **HelloWorld**.  
+The first ***binding*** that migrated from v1 to v2 was the sample **HelloWorld**.
 Here is shown the differences between the version 1 and the version 2.
 
 ```diff

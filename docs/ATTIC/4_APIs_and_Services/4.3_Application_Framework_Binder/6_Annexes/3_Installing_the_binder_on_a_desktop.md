@@ -26,7 +26,7 @@ It is very convenient to quickly write and debug a binding.
 ## Retrieving compiling option with pkg-config
 
 The ***binder*** afb-daemon provides a configuration
-file for **pkg-config**.  
+file for **pkg-config**.
 Typing the command
 
 ```bash
@@ -47,5 +47,5 @@ $ pkg-config --libs afb-daemon
 -ljson-c
 ```
 
-It automatically includes the dependency to json-c.  
+It automatically includes the dependency to json-c.
 This is activated through **Requires** keyword in pkg-config.

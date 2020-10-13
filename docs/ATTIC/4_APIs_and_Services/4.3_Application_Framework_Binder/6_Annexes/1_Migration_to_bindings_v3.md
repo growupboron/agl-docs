@@ -17,7 +17,7 @@ for the following reasons:
 - simplification of the API (after developer feedbacks)
 - removal of obscure features and cleanup
 
-The ***binder*** can run ***bindings*** v1, v2 and/or v3 in any combination.  
+The ***binder*** can run ***bindings*** v1, v2 and/or v3 in any combination.
 Thus moving from v1 or v2 to v3 is not enforced at this time. But ...
 
 In the face to face meeting in Karlsruhe it was decided to remove support
@@ -53,7 +53,7 @@ To summarize, the functions of class **daemon** and **service** use the default
 hidden API.
 
 It is encouraged to avoid use of functions of class **daemon** and **service**.
-You should replace these implicit calls to explicit **api** calls that 
+You should replace these implicit calls to explicit **api** calls that
 reference **afbBindingV3root**.
 
 Same thing for the logging macros: **AFB_ERROR**, **AFB_WARNING**,
@@ -68,7 +68,7 @@ Example of 2 equivalent writes:
         afb_daemon_broadcast_event(stressed_event, NULL);
 ```
 
-or 
+or
 
 ```C
 	AFB_API_NOTICE(afbBindingV3root, "send stress event");
