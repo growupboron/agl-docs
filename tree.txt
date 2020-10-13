@@ -9,8 +9,8 @@ https://download.automotivelinux.org/
         -> archive == (~release but old)
         -> <//apps == application builds archive>
 
-https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/ 
--> qemu(arm,arm64(*emulation for raspi4*))-> ONLY emulation, 
+https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/
+-> qemu(arm,arm64(*emulation for raspi4*))-> ONLY emulation,
 -> x86-64 -> emulation + hardware
         (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/)
         -> file system image - qemu emulation (marginally diff, partioned image) (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.ext4.xz)
@@ -23,7 +23,7 @@ https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/
     sources (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sources/)
     sdk -  (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sdk/)
      sh self extracting cross toolchain (w/o yocto)   (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sdk/poky-agl-glibc-x86_64-agl-demo-platform-crosssdk-aarch64-raspberrypi4-64-toolchain-9.99.4.sh)
-        
+
 
 https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct, a bit outdate/cluttered
 
@@ -58,7 +58,7 @@ https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct,
 │   │   └── Generic_issues.md
 │   ├── 5_Setting_Up_a_Docker_Container
 │   │   └── Docker_Container_Setup.md
-│   └── 6_ Developing_an_Application 
+│   └── 6_ Developing_an_Application
 │       ├── 0_Overview.md
 │       ├── 1_Download_or_Build_Your_Image.md
 │       ├── 2_Download_or_Build_Your_SDK_Installer.md
@@ -127,7 +127,7 @@ https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct,
 │       └── 9_Secure_development
 │           └── 1.2.9.0_Abstract.md
 ├── 2_Hardware_Support
-│   └── Renesas_Gen3_Boards 
+│   └── Renesas_Gen3_Boards
 │       ├── 1_meta-rcar-gen3_Layer.md
 │       └── 2_Proprietary_Drivers.md
 ├── 3_Developer_Guides
@@ -145,7 +145,7 @@ https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct,
 │   │   ├── 5_building-and-running-service-natively.md
 │   │   └── pictures
 │   │       └── microservice-workflow-native.png
-│   ├── 3_Using_the_CMAKE_Applications_Module 
+│   ├── 3_Using_the_CMAKE_Applications_Module
 │   │   ├── 1_Overview.md
 │   │   ├── 2_Installing CMake Templates.md
 │   │   ├── 3_Using_CMake_Templates.md
@@ -369,7 +369,7 @@ https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct,
 │           │   └── pictures
 │           │       ├── xds-block-diagram.png
 │           │       └── xds-conf.png
-│           ├── 1_Installing_XDS 
+│           ├── 1_Installing_XDS
 │           │   ├── 3.4.1.1_Server_Part.md
 │           │   ├── 3.4.1.2_Client_Part.md
 │           │   ├── 3.4.1.3_AGL_SDKs.md
@@ -405,7 +405,7 @@ https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct,
 │           │       ├── nb_newtool.png
 │           │       ├── nb_project_debug-1.png
 │           │       └── nb_xds_options.png
-│           └── 4_X(cross)_Development_System:_ Internals 
+│           └── 4_X(cross)_Development_System:_ Internals
 │               ├── 3.4.4.0_Abstract
 │               │   └── 3.4.4.0_Abstract.md
 │               ├── 3.4.4.1_Prerequisites
@@ -470,8 +470,8 @@ https://download.automotivelinux.org/
         -> archive == (~release but old)
         -> <//apps == application builds archive>
 
-https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/ 
--> qemu(arm,arm64(*emulation for raspi4*))-> ONLY emulation, 
+https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/
+-> qemu(arm,arm64(*emulation for raspi4*))-> ONLY emulation,
 -> x86-64 -> emulation + hardware
         (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/)
         -> file system image - qemu emulation (marginally diff, partioned image) (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/qemux86-64/deploy/images/qemux86-64/agl-demo-platform-crosssdk-qemux86-64.ext4.xz)
@@ -484,7 +484,7 @@ https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/
     sources (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sources/)
     sdk -  (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sdk/)
      sh self extracting cross toolchain (w/o yocto)   (https://download.automotivelinux.org/AGL/release/jellyfish/9.99.4/raspberrypi4/deploy/sdk/poky-agl-glibc-x86_64-agl-demo-platform-crosssdk-aarch64-raspberrypi4-64-toolchain-9.99.4.sh)
-        
+
 
 https://wiki.automotivelinux.org/agl-distro/source-code -> in principle correct, a bit outdate/cluttered
 

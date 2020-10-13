@@ -41,3 +41,94 @@ The following table briefs about the various hardware platforms, supported by AG
 |    ARC HS   	|       hsdk       	|      ARC      |
 
 
+### Supported Images
+
+AGL supports a variety of interfaces, each requiring unique setup configuration.
+
+#### 1. In-Vehicle Infotainment (IVI)
+
+**Supported boards** :
+
+AGL Reference Boards (QEMU, RCar Gen 3 & Raspberry Pi 4)
+
+Community supported Machines (i. MX 6, i. MX 8, Snapdragon & ARC HS)
+
+* Qt Based :
+
+    * Setting up flags at `aglsetup` script :
+
+        ```sh
+        $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-demo
+
+        #To enable Developer Options
+        $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-demo agl-devel
+        ```
+
+    * Building target image :
+
+        ```sh
+        $ time bitbake agl-demo-platform
+        ```
+
+* HTML5 Based :
+
+    * Setting up flags at `aglsetup` script :
+
+        ```sh
+        $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-demo agl-profile-graphical-html5
+
+        #To enable Developer Options
+        $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-demo agl-profile-graphical-html5 agl-devel
+        ```
+
+    * Building target image :
+
+        ```sh
+        $ time bitbake agl-demo-platform-html5
+        ```
+
+
+#### 2. Instrument Cluster
+
+**Supported boards** :
+
+AGL Reference Boards (QEMU, RCar Gen 3 & Raspberry Pi 4)
+
+* Setting up flags at `aglsetup` script :
+
+    ```sh
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-cluster-demo
+
+    #To enable Developer Options
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-cluster-demo agl-devel
+    ```
+
+* Building target image :
+
+    ```sh
+    $ time bitbake agl-cluster-demo
+    ```
+
+#### 3. Telematics
+
+Headless demo platform for low-spec boards.
+
+**Supported boards** :
+
+Community supported Machines (BeagleBone)
+
+
+* Setting up flags at `aglsetup` script :
+
+    ```sh
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-telematics-demo
+
+    #To enable Developer Options
+    $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-telematics-demo agl-devel
+    ```
+
+* Building target image :
+
+    ```sh
+    $ time bitbake agl-telematics-demo
+    ```
