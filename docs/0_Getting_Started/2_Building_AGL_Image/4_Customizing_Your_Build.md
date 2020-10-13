@@ -1,8 +1,6 @@
 ---
-edit_link: ''
 title: Customizing Your Build
 ---
-
 
 Because the build process is based on BitBake and the Yocto Project,
 build customizations are driven through configuration files used during

@@ -1,5 +1,4 @@
 ---
-edit_link: ''
 title: Building the AGL Image
 ---
 

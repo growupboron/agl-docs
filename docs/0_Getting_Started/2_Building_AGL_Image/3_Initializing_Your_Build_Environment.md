@@ -1,8 +1,6 @@
 ---
-edit_link: ''
 title: Initializing Your Build Environment
 ---
-
 
 Part of the downloaded AGL software is a setup script that you must
 run to initialize the build environment.
@@ -38,7 +36,7 @@ Available machines:
        bbe                        # BeagleBoneEnhanced
        beaglebone                 # BeagleBone
        cubox-i                    # multiple i.MX6 boards
-       cyclone5                   # CycloneV 
+       cyclone5                   # CycloneV
        dra7xx-evm                 # TI DRA7xx-EVM 'vayu'
        dragonboard-410c           # Qualcomm Dragonboard 410c
        dragonboard-820c           # Qualcomm Dragonboard 820c
@@ -54,7 +52,7 @@ Available machines:
        intel-corei7-64            # x86-64 (Intel flavour)
        m3-salvator-x              # Renesas RCar Salvator/M3
        m3ulcb                     # Renesas RCar M3
-       m3ulcb-kf                  # Renesas RCar M3 w Kingfisher Board 
+       m3ulcb-kf                  # Renesas RCar M3 w Kingfisher Board
        m3ulcb-nogfx               # Renesas RCAR M3 w/o gfx blobs
        nitrogen6x                 # i.MX6 nitrogen board
        qemuarm                    # Qemu ARM

@@ -1,5 +1,4 @@
 ---
-edit_link: ''
 title: Downloading AGL Software
 ---
 
@@ -17,10 +16,10 @@ The remainder of this section provides steps on how to download the AGL source f
    You can define an environment variable as your top-level AGL workspace folder.
    Following is an example that defines the `$HOME/workspace_agl` folder using
    an environment variable named "AGL_TOP":
-   
+
       ```sh
       $ export AGL_TOP=$HOME/AGL
-      $ echo 'export AGL_TOP=$HOME/AGL' >> $HOME/.bashrc 
+      $ echo 'export AGL_TOP=$HOME/AGL' >> $HOME/.bashrc
       $ mkdir -p $AGL_TOP
       ```
 
@@ -43,15 +42,14 @@ The remainder of this section provides steps on how to download the AGL source f
 
 3. **Download the AGL Source Files:**
 
-
    * **Stable Release:**
      Using the latest stable release gives you a solid snapshot of the
      latest know release.
      The release is static, tested, and known to work.
      To download the latest stable release branch (i.e. Jellyfish), use
      the following commands:
-     
-     ```sh 
+
+     ```sh
      $ cd $AGL_TOP
      $ mkdir jellyfish
      $ cd jellyfish
@@ -65,7 +63,7 @@ The remainder of this section provides steps on how to download the AGL source f
 
    Listing out the resulting directory structure appears as follows:
 
-   ```sh     
+   ```sh
    $ tree -L 1
     .
     ├── bsp
@@ -77,4 +75,4 @@ The remainder of this section provides steps on how to download the AGL source f
     ├── meta-agl-extra
     └── meta-agl-telematics-demo
    ```
-        
+
