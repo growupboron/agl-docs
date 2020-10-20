@@ -51,10 +51,6 @@ You can use the "Getting Started" sections to do the following:
   through fundamental steps that show you how to build for various supported
   hardware targets (e.g. Raspberry PI boards).
 
-* [Set Up a Docker Container](./) to create a
-  contained, controlled development environment for building images and
-  Software Development Kits (SDKs) using AGL.
-
 * [Learn How to Create an Application](./app-workflow-intro.html) using the
   application development workflow.
 

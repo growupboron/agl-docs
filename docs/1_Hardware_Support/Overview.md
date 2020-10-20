@@ -4,6 +4,8 @@ title: Supported Boards
 
 The following table briefs about the various hardware platforms, supported by AGL :
 
+**NOTE:** Further information about AGL Distribution available at [AGL wiki](https://wiki.automotivelinux.org/agl-distro).
+
 ### AGL Reference Machines
 
 |      BOARD      |    $MACHINE    | ARCHITECHTURE |
@@ -60,7 +62,7 @@ Community supported Machines (i. MX 6, i. MX 8, Snapdragon & ARC HS)
         ```sh
         $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-demo
 
-        # To enable Developer Options
+        #To enable Developer Options
         $ source meta-agl/scripts/aglsetup.sh -f -m $MACHINE -b build-$MACHINE agl-demo agl-devel
         ```
 
