@@ -15,13 +15,11 @@ Gerrit assigns the following roles to users:
    from reviewers voting +2 or -2, respectively.
 -  **Builders**: May use the build automation infrastructure to verify the change.
 
-Maintainers should be familiar with the :doc:`review process <reviewing>`. However, anyone is welcome to (and encouraged!) review changes, and hence may find that document of value.
-
 ## Getting deeper into Gerrit
 
 A comprehensive walk-through of Gerrit is beyond the scope of this
 document. There are plenty of resources available on the Internet. A
-good summary can be found [here](https://www.mediawiki.org/wiki/Gerrit/Tutorial) and [Basic Gerrit Walkthrough for GitHub Users](https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough-github.html). We have also provided a set of [Best Practices](fix-me) that you may find helpful.
+good summary can be found [here](https://www.mediawiki.org/wiki/Gerrit/Tutorial) and [Basic Gerrit Walkthrough for GitHub Users](https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough-github.html).
 
 ## Working with a local clone of the repository
 
