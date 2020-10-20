@@ -17,10 +17,6 @@ Gerrit assigns the following roles to users:
 
 Maintainers should be familiar with the :doc:`review process <reviewing>`. However, anyone is welcome to (and encouraged!) review changes, and hence may find that document of value.
 
-## Git-review
-
-There's a **very** useful tool for working with Gerrit called [git-review](https://www.mediawiki.org/wiki/Gerrit/git-review). This command-line tool can automate most of the ensuing sections for you. Ofcourse, reading the information below is also highly recommended so that you understand what's going on behind the scenes.
-
 ## Getting deeper into Gerrit
 
 A comprehensive walk-through of Gerrit is beyond the scope of this
@@ -48,29 +44,12 @@ To work on something, whether a new feature or a bugfix:
 
     ```sh
      $ cd documentation
-     $ git checkout -b issue-nnnn
+     $ git checkout -b issue-nname
     ```
-
-5. Commit your code. For an in-depth discussion of creating an effective
-   commit, please read :doc:`this document on submitting changes <changes>`.
-
-    ```sh
-    $ git commit -s -a
-    # Then input precise and readable commit msg and submit.
-    ```
-
-6. Any code changes that affect documentation should be accompanied by
-   corresponding changes (or additions) to the documentation and tests.
-   This will ensure that if the merged PR is reversed, all traces of the
-   change will be reversed as well.
-
-## Submitting a Change
-
-Currently, Gerrit is the only method to submit a change for review.
-
-**NOTE:** Please review the [guidelines](fix-me) for making and submitting a change.
 
 ## Using git review
+
+There's a **very** useful tool for working with Gerrit called [git-review](https://www.mediawiki.org/wiki/Gerrit/git-review). This command-line tool can automate most of the ensuing sections for you. Ofcourse, reading the information below is also highly recommended so that you understand what's going on behind the scenes.
 
 Add the following section to ``.git/config``, and replace ``LFID``
 with your gerrit id.
