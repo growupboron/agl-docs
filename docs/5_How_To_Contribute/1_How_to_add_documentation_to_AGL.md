@@ -10,7 +10,7 @@ The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/
 Kindly check [this](https://wiki.automotivelinux.org/agl-distro/contributing) and clone with commit-msg hook :
 
 ```sh
-$ git clone "ssh://$USER@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P 29418 $USER@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
+$ git clone "ssh://LFID@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P 29418 LFID@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
 ```
 
 ## Building a local site
