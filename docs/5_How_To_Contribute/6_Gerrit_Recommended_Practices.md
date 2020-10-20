@@ -103,6 +103,7 @@ the history.
 
        ```sh
        $ git push REMOTE HEAD:refs/for/master/TopicName
+       ```
 
       If you already have commits but you want to set a cover letter, create
       an empty commit for the cover letter and move the commit so it becomes
@@ -115,60 +116,53 @@ the history.
       Be careful to uncomment the commit before moving it. ``#Commits`` is the
       sum of the commits plus your new cover letter.
 
-Finding Available Topics
+## Finding Available Topics
 
-::
+```sh
+$ ssh -p 29418 LFID@gerrit.automotivelinux.org gerrit query \ status:open branch:master| grep topic: | sort -u
+```
 
-       $ ssh -p 29418 gerrit.hyperledger.org gerrit query \ status:open project:fabric branch:master \
-       | grep topic: | sort -u
-
--  `gerrit.hyperledger.org <https://gerrit.hyperledger.org>`__ Is the current URL where the project is
-   hosted.
--  *status* Indicates the topic's current status: open , merged,
+-  [gerrit.automotivelinux.org](https://gerrit.hyperledger.org) is the current URL where the project is hosted.
+-  *status* : Indicates the topic's current status: open , merged,
    abandoned, draft, merge conflict.
--  *project* Refers to the current name of the project, in this case
+-  *project* : Refers to the current name of the project, in this case
    fabric.
--  *branch* The topic is searched at this branch.
--  *topic* The name of an specific topic, leave it blank to include them
+-  *branch* : The topic is searched at this branch.
+-  *topic* : The name of an specific topic, leave it blank to include them
    all.
--  *sort* Sorts the found topics, in this case by update (-u).
+-  *sort* : Sorts the found topics, in this case by update (-u).
 
-Downloading or Checking Out a Change
-------------------------------------
+## Downloading or Checking Out a Change
 
 In the review UI, on the top right corner, the **Download** link
 provides a list of commands and hyperlinks to checkout or download diffs
 or files.
 
 We recommend the use of the *git review* plugin. The steps to install
-git review are beyond the scope of this document. Refer to the `git
-review
-documentation <https://wiki.openstack.org/wiki/Documentation/HowTo/FirstTimers>`__
-for the installation process.
+git review are beyond the scope of this document. Refer to the [git review documentation](https://wiki.openstack.org/wiki/Documentation/HowTo/FirstTimers) for the installation process.
 
 To check out a specific change using Git, the following command usually
 works:
 
-::
-
-    git review -d CHANGEID
+```sh
+git review -d CHANGEID
+```
 
 If you don't have Git-review installed, the following commands will do
 the same thing:
 
-::
-
-    git fetch REMOTE refs/changes/NN/CHANGEIDNN/VERSION \ && git checkout FETCH_HEAD
+```sh
+git fetch REMOTE refs/changes/NN/CHANGEIDNN/VERSION \ && git checkout FETCH_HEAD
+```
 
 For example, for the 4th version of change 2464, NN is the first two
 digits (24):
 
-::
+```sh
+git fetch REMOTE refs/changes/24/2464/4 \ && git checkout FETCH_HEAD
+```
 
-    git fetch REMOTE refs/changes/24/2464/4 \ && git checkout FETCH_HEAD
-
-Using Draft Branches
---------------------
+## Using Draft Branches
 
 You can use draft branches to add specific reviewers before you
 publishing your change. The Draft Branches are pushed to
@@ -176,19 +170,18 @@ publishing your change. The Draft Branches are pushed to
 
 The next command ensures a local branch is created:
 
-::
-
-    git checkout -b BRANCHNAME
+```sh
+git checkout -b BRANCHNAME
+```
 
 The next command pushes your change to the drafts branch under
 **TopicName**:
 
-::
+```sh
+git push REMOTE HEAD:refs/drafts/master/TopicName
+```
 
-    git push REMOTE HEAD:refs/drafts/master/TopicName
-
-Using Sandbox Branches
-----------------------
+## Using Sandbox Branches
 
 You can create your own branches to develop features. The branches are
 pushed to the ``refs/sandbox/USERNAME/BRANCHNAME`` location.
@@ -210,18 +203,17 @@ Usually, the process to create content is:
 
 The next command pushes forcibly without review:
 
-::
-
-    git push REMOTE sandbox/USERNAME/BRANCHNAME
+```sh
+git push REMOTE sandbox/USERNAME/BRANCHNAME
+```
 
 You can also push forcibly with review:
 
-::
+```sh
+git push REMOTE HEAD:ref/for/sandbox/USERNAME/BRANCHNAME
+```
 
-    git push REMOTE HEAD:ref/for/sandbox/USERNAME/BRANCHNAME
-
-Updating the Version of a Change
---------------------------------
+## Updating the Version of a Change
 
 During the review process, you might be asked to update your change. It
 is possible to submit multiple versions of the same change. Each version
@@ -231,26 +223,25 @@ Always maintain the **Change-Id** that was assigned. For example, there
 is a list of commits, **c0...c7**, which were submitted as a topic
 branch:
 
-::
+```sh
 
-    git log REMOTE/master..master
+git log REMOTE/master..master
 
-    c0
-    ...
-    c7
+c0
+...
+c7
 
-    git push REMOTE HEAD:refs/for/master/SOMETOPIC
+git push REMOTE HEAD:refs/for/master/SOMETOPIC
+```
 
 After you get reviewers' feedback, there are changes in **c3** and
 **c4** that must be fixed. If the fix requires rebasing, rebasing
-changes the commit Ids, see the
-`rebasing <http://git-scm.com/book/en/v2/Git-Branching-Rebasing>`__
-section for more information. However, you must keep the same Change-Id
+changes the commit Ids, see the [rebasing](http://git-scm.com/book/en/v2/Git-Branching-Rebasing) section for more information. However, you must keep the same Change-Id
 and push the changes again:
 
-::
-
-    git push REMOTE HEAD:refs/for/master/SOMETOPIC
+```sh
+git push REMOTE HEAD:refs/for/master/SOMETOPIC
+```
 
 This new push creates a patches revision, your local history is then
 cleared. However you can still access the history of your changes in
@@ -258,8 +249,7 @@ Gerrit on the ``review UI`` section, for each change.
 
 It is also permitted to add more commits when pushing new versions.
 
-Rebasing
---------
+### Rebasing
 
 Rebasing is usually the last step before pushing changes to Gerrit; this
 allows you to make the necessary *Change-Ids*. The *Change-Ids* must be
@@ -271,8 +261,7 @@ kept the same.
 -  **reorder:** allows you to interchange the order of the commits.
 -  **rebase:** stacks the commits on top of the master.
 
-Rebasing During a Pull
-----------------------
+## Rebasing During a Pull
 
 Before pushing a rebase to your master, ensure that the history has a
 consecutive order.
@@ -280,62 +269,61 @@ consecutive order.
 For example, your ``REMOTE/master`` has the list of commits from **a0**
 to **a4**; Then, your changes **c0...c7** are on top of **a4**; thus:
 
-::
+```sh
+git log --oneline REMOTE/master..master
 
-    git log --oneline REMOTE/master..master
-
-    a0
-    a1
-    a2
-    a3
-    a4
-    c0
-    c1
-    ...
-    c7
+a0
+a1
+a2
+a3
+a4
+c0
+c1
+...
+c7
+```
 
 If ``REMOTE/master`` receives commits **a5**, **a6** and **a7**. Pull
 with a rebase as follows:
 
-::
-
+```sh
     git pull --rebase REMOTE master
+```
 
 This pulls **a5-a7** and re-apply **c0-c7** on top of them:
 
-::
+```sh
+$ git log --oneline REMOTE/master..master
+a0
+...
+a7
+c0
+c1
+...
+c7
+```
 
-       $ git log --oneline REMOTE/master..master
-       a0
-       ...
-       a7
-       c0
-       c1
-       ...
-       c7
-
-Getting Better Logs from Git
-----------------------------
+## Getting Better Logs from Git
 
 Use these commands to change the configuration of Git in order to
 produce better logs:
 
-::
-
-    git config log.abbrevCommit true
+```sh
+git config log.abbrevCommit true
+```
 
 The command above sets the log to abbreviate the commits' hash.
 
-::
-
-    git config log.abbrev 5
+```sh
+git config log.abbrev 5
+```
 
 The command above sets the abbreviation length to the last 5 characters
 of the hash.
 
-::
-
-    git config format.pretty oneline
+```sh
+git config format.pretty oneline
+```
 
 The command above avoids the insertion of an unnecessary line before the
 Author line.
