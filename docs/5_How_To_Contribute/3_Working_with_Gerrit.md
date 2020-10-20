@@ -96,6 +96,6 @@ and then repeat the ``git review`` command.
    merge, -1 if they disagree. Gerrit users with a Maintainer role can
    agree to the merge or refuse it by voting +2 or -2 respectively.
 
-Notifications are sent to the email address in your commit message's Signed-off-by line. Visit your [Gerrit dashboard] (https://gerrit.automotivelinux.org/r/#/dashboard/self), to check the progress of your requests.
+Notifications are sent to the email address in your commit message's Signed-off-by line. Visit your [Gerrit dashboard](https://gerrit.automotivelinux.org/gerrit/dashboard/self), to check the progress of your requests.
 
 The history tab in Gerrit will show you the in-line comments and the author of the review.
