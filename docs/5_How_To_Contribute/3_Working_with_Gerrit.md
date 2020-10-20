@@ -21,7 +21,7 @@ Maintainers should be familiar with the :doc:`review process <reviewing>`. Howev
 
 A comprehensive walk-through of Gerrit is beyond the scope of this
 document. There are plenty of resources available on the Internet. A
-good summary can be found [here](https://www.mediawiki.org/wiki/Gerrit/Tutorial) and [Basic Gerrit Walkthrough — For GitHub Users](https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough-github.html) We have also provided a set of [Best Practices](fix-me) that you may find helpful.
+good summary can be found [here](https://www.mediawiki.org/wiki/Gerrit/Tutorial) and [Basic Gerrit Walkthrough for GitHub Users](https://gerrit-review.googlesource.com/Documentation/intro-gerrit-walkthrough-github.html). We have also provided a set of [Best Practices](fix-me) that you may find helpful.
 
 ## Working with a local clone of the repository
 
