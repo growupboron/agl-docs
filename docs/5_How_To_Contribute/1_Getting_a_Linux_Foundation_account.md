@@ -4,7 +4,7 @@ title: Getting a Linux Foundation account
 
 In order to participate in the development of the Automotive Grade Linux project, you will need a Linux Foundation account. You will need to use your LF ID to access to all the AGL community development tools, including [Gerrit](http://gerrit.automotivelinux.org/), [Jira](https://jira.automotivelinux.org/) and the [Wiki](https://wiki.automotivelinux.org/) (for editing, only).
 
-
+**NOTE:** Further information about Contributing to the AGL Distro available at [AGL wiki](https://wiki.automotivelinux.org/agl-distro/contributing).
 
 ## Creating a Linux Foundation ID
 
@@ -76,7 +76,7 @@ below.
  User <LFID>
  ```
 
-where `<LFID>` is your Linux Foundation ID and the value of IdentityFile is the
+`<LFID>` is your Linux Foundation ID and the value of IdentityFile is the
 name of the public key file you generated.
 
 **Warning:** Potential Security Risk! Do not copy your private key ``~/.ssh/id_rsa``. Use only the public ``~/.ssh/id_rsa.pub``.
