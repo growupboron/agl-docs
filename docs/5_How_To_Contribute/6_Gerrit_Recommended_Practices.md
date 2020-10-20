@@ -1,35 +1,13 @@
 ---
-title: Gerrit
+title: Gerrit Recommended Practices
 ---
-
-Gerrit Recommended Practices
-============================
 
 This document presents some best practices to help you use Gerrit more
 effectively. The intent is to show how content can be submitted easily.
 Use the recommended practices to reduce your troubleshooting time and
 improve participation in the community.
 
-Browsing the Git Tree
----------------------
-
-Visit
-`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/fabric>`__
-then select ``Projects --> List --> SELECT-PROJECT --> Branches``.
-Select the branch that interests you, click on ``gitweb`` located on the
-right-hand side. Now, ``gitweb`` loads your selection on the Git web
-interface and redirects appropriately.
-
-Watching a Project
-------------------
-
-Visit
-`Gerrit <https://gerrit.hyperledger.org/r/#/admin/projects/fabric>`__,
-then select ``Settings``, located on the top right corner. Select
-``Watched Projects`` and then add any projects that interest you.
-
-Commit Messages
----------------
+## Commit Messages
 
 Gerrit follows the Git commit message format. Ensure the headers are at
 the bottom and don't contain blank lines between one another. The
@@ -43,27 +21,25 @@ was changed and how it was tested. Note also any changes to
 documentation made to remain consistent with the code changes, wrapping
 text at 72 chars/line.
 
-| Jira: FAB-100
-| Change-Id: LONGHEXHASH
-| Signed-off-by: Your Name your.email\@example.org
-| AnotherExampleHeader: An Example of another Value
+```sh
+Bug-AGL: [SPEC-<JIRA-ID>]
+Change-Id: LONGHEXHASH
+Signed-off-by: Your Name your.email\@example.org
+```
 
 The Gerrit server provides a precommit hook to autogenerate the
 Change-Id which is one time use.
 
-**Recommended reading:** `How to Write a Git Commit
-Message <http://chris.beams.io/posts/git-commit/>`__
+**Recommended reading:** [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
 
-Avoid Pushing Untested Work to a Gerrit Server
-----------------------------------------------
+## Avoid Pushing Untested Work to a Gerrit Server
 
 To avoid pushing untested work to Gerrit.
 
 Check your work at least three times before pushing your change to
 Gerrit. Be mindful of what information you are publishing.
 
-Keeping Track of Changes
-------------------------
+## Keeping Track of Changes
 
 -  Set Gerrit to send you emails:
 
@@ -81,8 +57,7 @@ Keeping Track of Changes
 Always track the projects you are working on; also see the
 feedback/comments mailing list to learn and help others ramp up.
 
-Topic branches
---------------
+## Topic branches
 
 Topic branches are temporary branches that you push to commit a set of
 logically-grouped dependent commits:
@@ -90,62 +65,57 @@ logically-grouped dependent commits:
 To push changes from ``REMOTE/master`` tree to Gerrit for being reviewed
 as a topic in **TopicName** use the following command as an example:
 
+```sh
 $ git push REMOTE HEAD:refs/for/master/TopicName
+```
 
 The topic will show up in the review ``UI`` and in the
 ``Open Changes List``. Topic branches will disappear from the master
 tree when its content is merged.
 
-Creating a Cover Letter for a Topic
------------------------------------
+## Creating a Cover Letter for a Topic
 
 You may decide whether or not you'd like the cover letter to appear in
 the history.
 
 1. To make a cover letter that appears in the history, use this command:
 
-::
-
-    git commit --allow-empty
-
-Edit the commit message, this message then becomes the cover letter. The
-command used doesn't change any files in the source tree.
+      ```sh
+      $ git commit --allow-empty
+      ```
+   Edit the commit message, this message then becomes the cover letter. The command used doesn't change any files in the source tree.
 
 2. To make a cover letter that doesn't appear in the history follow
    these steps:
 
--  | Put the empty commit at the end of your commits list so it can be
-     ignored
-   | without having to rebase.
+   - Put the empty commit at the end of your commits list so it can be ignored without having to rebase.
 
--  Now add your commits
+   - Now add your commits
 
-::
+      ```sh
+      $ git commit ...
+      $ git commit ...
+      $ git commit ...
+      ```
 
-    git commit ...
-    git commit ...
-    git commit ...
+   -  Finally, push the commits to a topic branch. The following command is
+      an example:
 
--  Finally, push the commits to a topic branch. The following command is
-   an example:
+       ```sh
+       $ git push REMOTE HEAD:refs/for/master/TopicName
 
-::
+      If you already have commits but you want to set a cover letter, create
+      an empty commit for the cover letter and move the commit so it becomes
+      the last commit on the list. Use the following command as an example:
 
-    git push REMOTE HEAD:refs/for/master/TopicName
+      ```sh
+         git rebase -i HEAD~#Commits
+      ```
 
-If you already have commits but you want to set a cover letter, create
-an empty commit for the cover letter and move the commit so it becomes
-the last commit on the list. Use the following command as an example:
-
-::
-
-    git rebase -i HEAD~#Commits
-
-Be careful to uncomment the commit before moving it. ``#Commits`` is the
-sum of the commits plus your new cover letter.
+      Be careful to uncomment the commit before moving it. ``#Commits`` is the
+      sum of the commits plus your new cover letter.
 
 Finding Available Topics
-------------------------
 
 ::
 
