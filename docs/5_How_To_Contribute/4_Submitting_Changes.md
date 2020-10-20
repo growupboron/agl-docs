@@ -1,5 +1,5 @@
 ---
-title: Submitting Changes to Gerrit
+title: Submitting Changes
 ---
 
 Carefully review the following before submitting a change. These
