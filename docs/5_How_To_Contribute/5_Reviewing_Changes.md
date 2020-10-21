@@ -35,11 +35,11 @@ title: Reviewing Changes
    or to return to the main change screen. Click on the yellow sticky
    pad to add comments to the whole file.
 
-   The focus of the page is on the comparison window. The changes made are
-   presented in green on the right versus the base version on the left.
-   Double click to highlight the text within the actual change to provide
-   feedback on a specific section of the code. Press *c* once the code is
-   highlighted to add comments to that section.
+      The focus of the page is on the comparison window. The changes made are
+      presented in green on the right versus the base version on the left.
+      Double click to highlight the text within the actual change to provide
+      feedback on a specific section of the code. Press *c* once the code is
+      highlighted to add comments to that section.
 
 5. After adding the comment, it is saved as a *Draft*.
 

@@ -53,7 +53,6 @@ Add the following section to ``.git/config``, and replace ``LFID``
 with your gerrit id.
 
 ```sh
-
 [remote "gerrit"]
    url = ssh://LFID@gerrit.automotivelinux.org:29418/AGL/documentation.git
    fetch = +refs/heads/*:refs/remotes/gerrit/*

@@ -37,11 +37,12 @@ commit file is illustrated below in detail:
 
 ```sh
 
-[FAB-XXXX] A short description of your change with no period at the end
+A short description of your change with no period at the end
 
 You can add more details here in several paragraphs, but please keep each line
 width less than 80 characters. A bug fix should include the issue number.
 
+Bug-AGL: [SPEC-<JIRA-ID>]
 Change-Id: IF7b6ac513b2eca5f2bab9728ebd8b7e504d3cebe1
 Signed-off-by: Your Name <commit-sender@email.address>
 ```

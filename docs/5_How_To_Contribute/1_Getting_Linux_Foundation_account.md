@@ -31,7 +31,7 @@ follow the equivalent steps on your OS.
 First, create an SSH key pair with the command:
 
  ```sh
- ssh-keygen -t rsa -C "John Doe john.doe@example.com"
+ $ ssh-keygen -t rsa -C "John Doe john.doe@example.com"
  ```
 
 **Note:** This will ask you for a password to protect the private key as it generates a unique key. Please keep this password private, and DO NOT enter a blank password.
@@ -42,7 +42,7 @@ The generated SSH key pair can be found in the files ``~/.ssh/id_rsa`` and
 Next, add the private key in the ``id_rsa`` file to your key ring, e.g.:
 
  ```sh
- ssh-add ~/.ssh/id_rsa
+ $ ssh-add ~/.ssh/id_rsa
  ```
 
 Finally, add the public key of the generated key pair to the Gerrit server, with the following steps:

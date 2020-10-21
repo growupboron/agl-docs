@@ -54,8 +54,7 @@ Gerrit. Be mindful of what information you are publishing.
    at least *New Changes, New Patch Sets, All Comments* and *Submitted
    Changes*.
 
-Always track the projects you are working on; also see the
-feedback/comments mailing list to learn and help others ramp up.
+Always track the projects you are working on; also see the feedback/comments [mailing list](https://lists.automotivelinux.org/g/agl-dev-community) to learn and help others ramp up.
 
 ## Topic branches
 
@@ -110,7 +109,7 @@ the history.
       the last commit on the list. Use the following command as an example:
 
       ```sh
-         git rebase -i HEAD~#Commits
+      $ git rebase -i HEAD~#Commits
       ```
 
       Be careful to uncomment the commit before moving it. ``#Commits`` is the
@@ -122,7 +121,7 @@ the history.
 $ ssh -p 29418 LFID@gerrit.automotivelinux.org gerrit query \ status:open branch:master| grep topic: | sort -u
 ```
 
--  [gerrit.automotivelinux.org](https://gerrit.hyperledger.org) is the current URL where the project is hosted.
+-  [gerrit.automotivelinux.org](https://gerrit.automotivelinux.org) is the current URL where the project is hosted.
 -  *status* : Indicates the topic's current status: open , merged,
    abandoned, draft, merge conflict.
 -  *project* : Refers to the current name of the project, in this case
@@ -145,21 +144,21 @@ To check out a specific change using Git, the following command usually
 works:
 
 ```sh
-git review -d CHANGEID
+$ git review -d CHANGEID
 ```
 
 If you don't have Git-review installed, the following commands will do
 the same thing:
 
 ```sh
-git fetch REMOTE refs/changes/NN/CHANGEIDNN/VERSION \ && git checkout FETCH_HEAD
+$ git fetch REMOTE refs/changes/NN/CHANGEIDNN/VERSION \ && git checkout FETCH_HEAD
 ```
 
 For example, for the 4th version of change 2464, NN is the first two
 digits (24):
 
 ```sh
-git fetch REMOTE refs/changes/24/2464/4 \ && git checkout FETCH_HEAD
+$ git fetch REMOTE refs/changes/24/2464/4 \ && git checkout FETCH_HEAD
 ```
 
 ## Using Draft Branches
@@ -171,14 +170,14 @@ publishing your change. The Draft Branches are pushed to
 The next command ensures a local branch is created:
 
 ```sh
-git checkout -b BRANCHNAME
+$ git checkout -b BRANCHNAME
 ```
 
 The next command pushes your change to the drafts branch under
 **TopicName**:
 
 ```sh
-git push REMOTE HEAD:refs/drafts/master/TopicName
+$ git push REMOTE HEAD:refs/drafts/master/TopicName
 ```
 
 ## Using Sandbox Branches
@@ -188,10 +187,10 @@ pushed to the ``refs/sandbox/USERNAME/BRANCHNAME`` location.
 
 These commands ensure the branch is created in Gerrit's server.
 
-::
-
-    git checkout -b sandbox/USERNAME/BRANCHNAME
-    git push --set-upstream REMOTE HEAD:refs/heads/sandbox/USERNAME/BRANCHNAME
+```sh
+$ git checkout -b sandbox/USERNAME/BRANCHNAME
+$ git push --set-upstream REMOTE HEAD:refs/heads/sandbox/USERNAME/BRANCHNAME
+```
 
 Usually, the process to create content is:
 
@@ -204,13 +203,13 @@ Usually, the process to create content is:
 The next command pushes forcibly without review:
 
 ```sh
-git push REMOTE sandbox/USERNAME/BRANCHNAME
+$ git push REMOTE sandbox/USERNAME/BRANCHNAME
 ```
 
 You can also push forcibly with review:
 
 ```sh
-git push REMOTE HEAD:ref/for/sandbox/USERNAME/BRANCHNAME
+$ git push REMOTE HEAD:ref/for/sandbox/USERNAME/BRANCHNAME
 ```
 
 ## Updating the Version of a Change
@@ -225,13 +224,13 @@ branch:
 
 ```sh
 
-git log REMOTE/master..master
+$ git log REMOTE/master..master
 
-c0
-...
-c7
+  c0
+  ...
+  c7
 
-git push REMOTE HEAD:refs/for/master/SOMETOPIC
+$ git push REMOTE HEAD:refs/for/master/SOMETOPIC
 ```
 
 After you get reviewers' feedback, there are changes in **c3** and
@@ -240,7 +239,7 @@ changes the commit Ids, see the [rebasing](http://git-scm.com/book/en/v2/Git-Bra
 and push the changes again:
 
 ```sh
-git push REMOTE HEAD:refs/for/master/SOMETOPIC
+$ git push REMOTE HEAD:refs/for/master/SOMETOPIC
 ```
 
 This new push creates a patches revision, your local history is then
@@ -270,24 +269,24 @@ For example, your ``REMOTE/master`` has the list of commits from **a0**
 to **a4**; Then, your changes **c0...c7** are on top of **a4**; thus:
 
 ```sh
-git log --oneline REMOTE/master..master
+$ git log --oneline REMOTE/master..master
 
-a0
-a1
-a2
-a3
-a4
-c0
-c1
-...
-c7
+  a0
+  a1
+  a2
+  a3
+  a4
+  c0
+  c1
+  ...
+  c7
 ```
 
 If ``REMOTE/master`` receives commits **a5**, **a6** and **a7**. Pull
 with a rebase as follows:
 
 ```sh
-    git pull --rebase REMOTE master
+$ git pull --rebase REMOTE master
 ```
 
 This pulls **a5-a7** and re-apply **c0-c7** on top of them:
@@ -309,20 +308,20 @@ Use these commands to change the configuration of Git in order to
 produce better logs:
 
 ```sh
-git config log.abbrevCommit true
+$ git config log.abbrevCommit true
 ```
 
 The command above sets the log to abbreviate the commits' hash.
 
 ```sh
-git config log.abbrev 5
+$ git config log.abbrev 5
 ```
 
 The command above sets the abbreviation length to the last 5 characters
 of the hash.
 
 ```sh
-git config format.pretty oneline
+$ git config format.pretty oneline
 ```
 
 The command above avoids the insertion of an unnecessary line before the

@@ -7,7 +7,7 @@ The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/
 ## Download Repository
 
 
-Kindly check [this](https://wiki.automotivelinux.org/agl-distro/contributing) and clone with commit-msg hook :
+Clone with commit-msg hook :
 
 ```sh
 $ git clone "ssh://LFID@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P 29418 LFID@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
@@ -76,7 +76,7 @@ documentation
 For testing hyperlinks as soon as the local site is running, do:
 
 ```sh
-linkchecker http://localhost:8000
+$ linkchecker http://localhost:8000
 ```
 
 The ```linkchecker``` output will display the broken link and there location
@@ -89,25 +89,25 @@ in the site.
 
     ```sh
     #recent version of git-review  (>=1.28.0 is required)
-    sudo pip3 install git-review 
+    $ sudo pip3 install git-review 
     ```
 
 2. Write commit message
 
     ```sh
     # track all the new changes
-    git add .
+    $ git add .
 
     # Write the commit message
-    git commit --signoff
+    $ git commit --signoff
     ```
 
 3. Push changes for review to Gerrit
 
     ```sh
     # first time only
-    git review -s
+    $ git review -s
 
     # then to push use
-    git review
+    $ git review
     ```
