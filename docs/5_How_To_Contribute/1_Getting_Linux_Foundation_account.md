@@ -10,7 +10,7 @@ In order to participate in the development of the Automotive Grade Linux project
 
  1. Go to the [Linux Foundation ID website](https://identity.linuxfoundation.org/).
 
- 2. Select the option `I need to create a Linux Foundation ID`, and fill out the form that appears.
+ 2. Select the option `I need to create a Linux Foundation ID`, and fill out the form that appears. (It is advised to authenticate through email instead of logging through Facebook/Google/Github.)
 
  3. Wait a few minutes, then look for an email message with the subject line: `Validate your Linux Foundation ID email`.
 

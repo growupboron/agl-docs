@@ -10,7 +10,7 @@ The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/
 Clone with commit-msg hook :
 
 ```sh
-$ git clone "ssh://LFID@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P 29418 LFID@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
+$ git clone "ssh://<LFID>@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P 29418 <LFID>@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
 ```
 
 ## Building a local site

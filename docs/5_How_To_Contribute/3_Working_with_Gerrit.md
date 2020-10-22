@@ -34,14 +34,28 @@ To work on something, whether a new feature or a bugfix:
    as this will make authentication much simpler. For example, for `documentation` repository:
 
     ```sh
-    $ git clone "ssh://LFID@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P
-    29418 LFID@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
+    $ git clone "ssh://<LFID>@gerrit.automotivelinux.org:29418/AGL/documentation" && scp -p -P
+    29418 <LFID>@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
     ```
 
-4. Create a descriptively-named branch off of your cloned repository
+4. Setup `user` and `email` for git config 
 
     ```sh
      $ cd documentation
+     $ git.config --global user.name "Your Full Name"
+     $ git config --global user.email "your@email.com"
+    ```
+      **NOTE:** To only configure for a particular repository :
+
+   ```sh
+     $ cd documentation
+     $ git.config user.name "Your Full Name"
+     $ git config user.email "your@email.com"
+    ```
+
+5. Create a descriptively-named branch off of your cloned repository
+
+    ```sh
      $ git checkout -b issue-nname
     ```
 
@@ -49,12 +63,16 @@ To work on something, whether a new feature or a bugfix:
 
 There's a **very** useful tool for working with Gerrit called [git-review](https://www.mediawiki.org/wiki/Gerrit/git-review). This command-line tool can automate most of the ensuing sections for you. Ofcourse, reading the information below is also highly recommended so that you understand what's going on behind the scenes.
 
-Add the following section to ``.git/config``, and replace ``LFID``
-with your gerrit id.
+```sh
+# for first time use only
+$ git review -s
+```
+If `.gitreview` is missing, add the following section to ``.git/config``, and replace ``<LFID>``
+with your LFID id.
 
 ```sh
 [remote "gerrit"]
-   url = ssh://LFID@gerrit.automotivelinux.org:29418/AGL/documentation.git
+   url = ssh://<LFID>@gerrit.automotivelinux.org:29418/AGL/documentation.git
    fetch = +refs/heads/*:refs/remotes/gerrit/*
 ```
 
@@ -68,7 +86,32 @@ $ git review
 When you update your patch, you can commit with ``git commit --amend``,
 and then repeat the ``git review`` command.
 
+## Typical Review Workflow 
 
+   - New Fresh Change
+  
+      ```sh
+      $ cd documentation                              # Working Repository
+      $ git remote -v update                          # Updating wrt remote
+      $ git checkout -b mytopicbranch origin/master   # Creating new branch
+      ### CODE the CHANGES
+      $ git add  <file>                               # Track the changed files
+      $ git commit -s                                 # Signed Commit Message
+      $ git review                                    # Submit Changes to review
+      ```
+   
+   - Updating existing Gerrit Review
+
+      ```sh
+      $ cd documentation                              # Working Repository
+      $ git review -d 25678                           # Download review, 25678 is change number
+      ### CODE the CHANGES
+      $ git add  <file>                               # Track the changed files
+      $ git commit -s                                 # Signed Commit Message
+      $ git review                                    # Submit Changes to review
+      $ git checkout master                           # Return to master branch
+      ```
+                                          
 ## Reviewing Using Gerrit
 
 -  **Add**: This button allows the change submitter to manually add

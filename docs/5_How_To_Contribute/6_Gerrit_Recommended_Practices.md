@@ -118,7 +118,7 @@ the history.
 ## Finding Available Topics
 
 ```sh
-$ ssh -p 29418 LFID@gerrit.automotivelinux.org gerrit query \ status:open branch:master| grep topic: | sort -u
+$ ssh -p 29418 <LFID>@gerrit.automotivelinux.org gerrit query \ status:open branch:master| grep topic: | sort -u
 ```
 
 -  [gerrit.automotivelinux.org](https://gerrit.automotivelinux.org) is the current URL where the project is hosted.
