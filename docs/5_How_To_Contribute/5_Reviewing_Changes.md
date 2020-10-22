@@ -5,11 +5,11 @@ title: Reviewing Changes
 1. Click on a link for incoming or outgoing review.
 
 2. The details of the change and its current status are loaded:
-   
+
       ![review](images/review.png)
 
-      -  **Status:** Displays the current status of the change. 
-     
+      -  **Status:** Displays the current status of the change.
+
       -  **Reply:** Click on this button after reviewing to add a final review
          message and a score, -1, 0 or +1.
 
