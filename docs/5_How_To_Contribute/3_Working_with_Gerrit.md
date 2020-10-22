@@ -45,9 +45,10 @@ To work on something, whether a new feature or a bugfix:
      $ git.config --global user.name "Your Full Name"
      $ git config --global user.email "your@email.com"
     ```
+
       **NOTE:** To only configure for a particular repository :
 
-   ```sh
+    ```sh
      $ cd documentation
      $ git.config user.name "Your Full Name"
      $ git config user.email "your@email.com"
