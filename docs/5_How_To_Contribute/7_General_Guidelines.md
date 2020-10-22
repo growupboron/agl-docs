@@ -11,7 +11,7 @@ If you are looking for something to work on, or need some expert assistance in d
 
 If you are a user and you have found a bug, please submit an issue using [JIRA](https://jira.automotivelinux.org/). Before you create a new JIRA issue, please try to search the existing items to be sure no one else has previously reported it. If it has been previously reported, then you might add a comment that you also are interested in seeing the defect fixed.
 
-If it has not been previously reported, create a new JIRA. Please try to provide sufficient information for someone else to reproduce the issue. One of the project's maintainers should respond to your issue within 24 hours. If not, please bump the issue with a comment and request that it be reviewed. 
+If it has not been previously reported, create a new JIRA. Please try to provide sufficient information for someone else to reproduce the issue. One of the project's maintainers should respond to your issue within 24 hours. If not, please bump the issue with a comment and request that it be reviewed.
 
 ## Submitting your fix
 
@@ -102,7 +102,7 @@ Finally, be responsive. Don't let a change request fester with review comments s
 
 ## Legal stuff
 
-We have tried to make it as easy as possible to make contributions. This applies to how we handle the legal aspects of contribution. 
+We have tried to make it as easy as possible to make contributions. This applies to how we handle the legal aspects of contribution.
 
 We simply ask that when submitting a patch for review, the developer must include a sign-off statement in the commit message.
 

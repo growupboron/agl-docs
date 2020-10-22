@@ -38,7 +38,7 @@ To work on something, whether a new feature or a bugfix:
     29418 <LFID>@gerrit.automotivelinux.org:hooks/commit-msg "documentation/.git/hooks/"
     ```
 
-4. Setup `user` and `email` for git config 
+4. Setup `user` and `email` for git config
 
     ```sh
      $ cd documentation
@@ -86,10 +86,10 @@ $ git review
 When you update your patch, you can commit with ``git commit --amend``,
 and then repeat the ``git review`` command.
 
-## Typical Review Workflow 
+## Typical Review Workflow
 
    - New Fresh Change
-  
+
       ```sh
       $ cd documentation                              # Working Repository
       $ git remote -v update                          # Updating wrt remote
@@ -99,7 +99,7 @@ and then repeat the ``git review`` command.
       $ git commit -s                                 # Signed Commit Message
       $ git review                                    # Submit Changes to review
       ```
-   
+
    - Updating existing Gerrit Review
 
       ```sh
@@ -111,7 +111,7 @@ and then repeat the ``git review`` command.
       $ git review                                    # Submit Changes to review
       $ git checkout master                           # Return to master branch
       ```
-                                          
+
 ## Reviewing Using Gerrit
 
 -  **Add**: This button allows the change submitter to manually add
