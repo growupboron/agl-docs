@@ -10,7 +10,8 @@ theme:
   search_index_only: true
   include_search_page: true
 
-
+nav:
+    - Home: 'index.html'
 
 #theme:
   #name: windmill
