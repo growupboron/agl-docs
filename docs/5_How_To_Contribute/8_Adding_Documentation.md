@@ -2,7 +2,14 @@
 title: Adding Documentation
 ---
 
-The [documentation gerrit repository](https://gerrit.automotivelinux.org/gerrit/admin/repos/AGL/documentation) contains AGL documentation website template and content, rendering is visible at [https://docs-agl.readthedocs.io/en/latest/](https://docs-agl.readthedocs.io/en/latest/). The documentation site is hosted on [readthedocs](https://readthedocs.org/projects/docs-agl/) and corresponding builds are mentioned [here](https://readthedocs.org/projects/docs-agl/builds/).
+The [documentation gerrit
+repository](https://gerrit.automotivelinux.org/gerrit/admin/repos/AGL/documentation)
+contains AGL documentation website template and content, rendering is visible at
+[https://automotivegradelinux.readthedocs.io/en/latest/](https://automotivegradelinux.readthedocs.io/en/latest/).
+The documentation site is hosted on
+[readthedocs](https://readthedocs.org/projects/automotivegradelinux/) and
+corresponding builds are mentioned
+[here](https://readthedocs.org/projects/automotivegradelinux/builds/).
 
 ## Download Repository
 
@@ -71,7 +78,8 @@ documentation
 
 ## Test Hyperlinks
 
-[LinkChecker](https://wummel.github.io/linkchecker/) is a tool that allows to check all the hyperlinks in the site.
+[LinkChecker](https://wummel.github.io/linkchecker/) is a tool that allows to
+check all the hyperlinks in the site.
 
 For testing hyperlinks as soon as the local site is running, do:
 
@@ -79,8 +87,8 @@ For testing hyperlinks as soon as the local site is running, do:
 $ linkchecker http://localhost:8000
 ```
 
-The ```linkchecker``` output will display the broken link and there location
-in the site.
+The ```linkchecker``` output will display the broken link and there location in
+the site.
 
 
 ## Submitting changes
